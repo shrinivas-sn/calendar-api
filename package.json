@@ -4,8 +4,10 @@
   "description": "Indian Holiday Calendar Data Pipeline",
   "main": "scripts/parse-ics.js",
   "scripts": {
-    "start": "node scripts/parse-ics.js",
-    "verify": "node scripts/verify-data.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "verify": "node scripts/verify-data.js",
+    "parse-ics": "node scripts/parse-ics.js"
   },
   "keywords": [
     "calendar",
@@ -13,5 +15,11 @@
     "india"
   ],
   "author": "Antigravity",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.5.2",
+    "nodemon": "^3.1.14"
+  }
 }
