@@ -1,5 +1,5 @@
 {
-  "name": "india-calendar-api-data",
+  "name": "calendar-api-backend",
   "version": "1.0.0",
   "description": "Indian Holiday Calendar Data Pipeline",
   "main": "scripts/parse-ics.js",
