@@ -84,7 +84,7 @@ function syntaxHighlight(json) {
 }
 
 export default function App() {
-  const [baseUrl, setBaseUrl] = useState('http://localhost:3000');
+  const [baseUrl, setBaseUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:3000');
   const [endpoint, setEndpoint] = useState('holidays'); // holidays, is-holiday, next-holiday, range, calendar
   
   // Query parameters states
