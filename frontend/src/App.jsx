@@ -353,7 +353,7 @@ export default function App() {
             {/* Response Viewer */}
             <div className="glass-panel" style={{ padding: '2rem', display: 'flex', flexDirection: 'column' }}>
               <h3 style={{ fontSize: '1.25rem', marginBottom: '1.5rem', borderBottom: '1px solid var(--glass-border)', paddingBottom: '0.75rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <Code size={18} color="#ea580c" /> Live HTTP Output
+                <Code size={18} color="#ea580c" /> Live API Response
               </h3>
 
               {/* URL Display */}
