@@ -1,0 +1,175 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "region": "ANDAMAN-AND-NICOBAR-ISLANDS-UT",
+  "data": [
+    {
+      "name": "Makar Sankranti / Magha Bihu / Pongal / Hazrat Ali’s Birthday",
+      "date": "2026-01-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Holi",
+      "date": "2026-03-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-ul-Fitr",
+      "date": "2026-03-21",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Good Friday",
+      "date": "2026-04-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "May Day",
+      "date": "2026-05-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-ul-Zuha (Bakrid)",
+      "date": "2026-05-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Muharram",
+      "date": "2026-06-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Independence Day",
+      "date": "2026-08-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Milad-un-Nabi / Id-e-Milad (Birthday of Prophet Mohammad) / Onam / Thiru Onam Day",
+      "date": "2026-08-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ganesh Chaturthi / Vinayaka Chaturthi",
+      "date": "2026-09-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahatma Gandhi’s Birthday",
+      "date": "2026-10-02",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Dussehra",
+      "date": "2026-10-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Diwali (Deepavali)",
+      "date": "2026-11-08",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Guru Nanak’s Birthday",
+      "date": "2026-11-24",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Day",
+      "date": "2026-12-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    }
+  ],
+  "meta": {
+    "apiVersion": "v1",
+    "totalHolidays": 16,
+    "gazettedCount": 16,
+    "restrictedCount": 0,
+    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
+    "lastVerified": "2026-05-28"
+  }
+}

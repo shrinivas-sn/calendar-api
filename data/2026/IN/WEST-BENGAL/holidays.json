@@ -1,0 +1,285 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "region": "WEST-BENGAL",
+  "data": [
+    {
+      "name": "New Year’s Day",
+      "date": "2026-01-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Birthday of Swami Vivekananda",
+      "date": "2026-01-12",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Netaji Subhas Chandra Bose Birthday",
+      "date": "2026-01-23",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Saraswati Puja (Sree Panchami)",
+      "date": "2026-01-23",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Doljatra",
+      "date": "2026-03-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Eid-Ul-Fitr",
+      "date": "2026-03-21",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ram Navami",
+      "date": "2026-03-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahavir Jayanti",
+      "date": "2026-03-31",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Good Friday",
+      "date": "2026-04-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Birthday of Dr. B. R. Ambedkar",
+      "date": "2026-04-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bengali New Year (Nababarsha)",
+      "date": "2026-04-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "May Day",
+      "date": "2026-05-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Buddha Purnima",
+      "date": "2026-05-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Birthday of Rabindranath Tagore",
+      "date": "2026-05-09",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-Ud-Zoha (Bakrid)",
+      "date": "2026-05-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Muharram",
+      "date": "2026-06-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Independence Day",
+      "date": "2026-08-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Janmashtami",
+      "date": "2026-09-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahatma Gandhi Jayanti",
+      "date": "2026-10-02",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahalaya",
+      "date": "2026-10-10",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Durga Puja – Maha Ashtami",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Durga Puja – Maha Navami",
+      "date": "2026-10-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Durga Puja – Vijayadashami",
+      "date": "2026-10-21",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bhratridwitiya",
+      "date": "2026-11-11",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Guru Nanak Jayanti",
+      "date": "2026-11-24",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Day",
+      "date": "2026-12-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    }
+  ],
+  "meta": {
+    "apiVersion": "v1",
+    "totalHolidays": 27,
+    "gazettedCount": 27,
+    "restrictedCount": 0,
+    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
+    "lastVerified": "2026-05-28"
+  }
+}

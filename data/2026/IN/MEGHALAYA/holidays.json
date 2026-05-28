@@ -1,0 +1,335 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "region": "MEGHALAYA",
+  "data": [
+    {
+      "name": "New Year’s Day",
+      "date": "2026-01-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Holi",
+      "date": "2026-03-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-ul-Fitr",
+      "date": "2026-03-21",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Good Friday",
+      "date": "2026-04-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Dr. B. R. Ambedkar's Birthday",
+      "date": "2026-04-14",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Assamese New Year's Day (Bihu)",
+      "date": "2026-04-15",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "May Day / Buddha Purnima",
+      "date": "2026-05-01",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-ul-Zuha (Bakrid)",
+      "date": "2026-05-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Muharram",
+      "date": "2026-06-26",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Beh Deinkhlam",
+      "date": "2026-07-09",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Death Anniversary of U Tirot Sing",
+      "date": "2026-07-17",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Independence Day",
+      "date": "2026-08-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-E-Milad (Prophet Mohammad's Birthday)",
+      "date": "2026-08-26",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Janmashtami",
+      "date": "2026-09-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Tithi of Sri Sri Sankar Dev",
+      "date": "2026-09-12",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ganesh Chaturthi",
+      "date": "2026-09-14",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahatma Gandhi’s Birthday",
+      "date": "2026-10-02",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Maha Navami / Dussehra",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Maha Dashami",
+      "date": "2026-10-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "All Soul's Day",
+      "date": "2026-11-02",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Diwali (Deepavali)",
+      "date": "2026-11-08",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Wangala Festival",
+      "date": "2026-11-13",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Seng Kut Snem",
+      "date": "2026-11-23",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Death Anniversary of Pa-Togan N. Sangma",
+      "date": "2026-12-12",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Death Anniversary of U Soso Tham",
+      "date": "2026-12-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Festival",
+      "date": "2026-12-24",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Guru Nanak's Birthday",
+      "date": "2026-12-24",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Festival",
+      "date": "2026-12-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Festival",
+      "date": "2026-12-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Festival",
+      "date": "2026-12-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Death Anniversary of U Kiang Nongbah",
+      "date": "2026-12-30",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    }
+  ],
+  "meta": {
+    "apiVersion": "v1",
+    "totalHolidays": 32,
+    "gazettedCount": 23,
+    "restrictedCount": 9,
+    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
+    "lastVerified": "2026-05-28"
+  }
+}

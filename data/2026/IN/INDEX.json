@@ -1,0 +1,304 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "lastUpdated": "2026-05-28",
+  "totalRegions": 37,
+  "regions": [
+    {
+      "region": "CENTRAL",
+      "path": "data/2026/IN/CENTRAL/holidays.json",
+      "year": 2026,
+      "totalHolidays": 50,
+      "gazettedCount": 18,
+      "restrictedCount": 32
+    },
+    {
+      "region": "ANDHRA-PRADESH",
+      "path": "data/2026/IN/ANDHRA-PRADESH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 45,
+      "gazettedCount": 24,
+      "restrictedCount": 21
+    },
+    {
+      "region": "ARUNACHAL-PRADESH",
+      "path": "data/2026/IN/ARUNACHAL-PRADESH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 52,
+      "gazettedCount": 17,
+      "restrictedCount": 35
+    },
+    {
+      "region": "ASSAM",
+      "path": "data/2026/IN/ASSAM/holidays.json",
+      "year": 2026,
+      "totalHolidays": 58,
+      "gazettedCount": 19,
+      "restrictedCount": 39
+    },
+    {
+      "region": "BIHAR",
+      "path": "data/2026/IN/BIHAR/holidays.json",
+      "year": 2026,
+      "totalHolidays": 57,
+      "gazettedCount": 35,
+      "restrictedCount": 22
+    },
+    {
+      "region": "CHHATTISGARH",
+      "path": "data/2026/IN/CHHATTISGARH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 43,
+      "gazettedCount": 3,
+      "restrictedCount": 40
+    },
+    {
+      "region": "GOA",
+      "path": "data/2026/IN/GOA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 42,
+      "gazettedCount": 20,
+      "restrictedCount": 22
+    },
+    {
+      "region": "GUJARAT",
+      "path": "data/2026/IN/GUJARAT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 24,
+      "gazettedCount": 24,
+      "restrictedCount": 0
+    },
+    {
+      "region": "HARYANA",
+      "path": "data/2026/IN/HARYANA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 33,
+      "gazettedCount": 20,
+      "restrictedCount": 13
+    },
+    {
+      "region": "HIMACHAL-PRADESH",
+      "path": "data/2026/IN/HIMACHAL-PRADESH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 39,
+      "gazettedCount": 24,
+      "restrictedCount": 15
+    },
+    {
+      "region": "JHARKHAND",
+      "path": "data/2026/IN/JHARKHAND/holidays.json",
+      "year": 2026,
+      "totalHolidays": 35,
+      "gazettedCount": 21,
+      "restrictedCount": 14
+    },
+    {
+      "region": "KARNATAKA",
+      "path": "data/2026/IN/KARNATAKA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 41,
+      "gazettedCount": 20,
+      "restrictedCount": 21
+    },
+    {
+      "region": "KERALA",
+      "path": "data/2026/IN/KERALA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 25,
+      "gazettedCount": 22,
+      "restrictedCount": 3
+    },
+    {
+      "region": "MADHYA-PRADESH",
+      "path": "data/2026/IN/MADHYA-PRADESH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 88,
+      "gazettedCount": 25,
+      "restrictedCount": 63
+    },
+    {
+      "region": "MAHARASHTRA",
+      "path": "data/2026/IN/MAHARASHTRA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 22,
+      "gazettedCount": 22,
+      "restrictedCount": 0
+    },
+    {
+      "region": "MANIPUR",
+      "path": "data/2026/IN/MANIPUR/holidays.json",
+      "year": 2026,
+      "totalHolidays": 63,
+      "gazettedCount": 28,
+      "restrictedCount": 35
+    },
+    {
+      "region": "MEGHALAYA",
+      "path": "data/2026/IN/MEGHALAYA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 32,
+      "gazettedCount": 23,
+      "restrictedCount": 9
+    },
+    {
+      "region": "MIZORAM",
+      "path": "data/2026/IN/MIZORAM/holidays.json",
+      "year": 2026,
+      "totalHolidays": 60,
+      "gazettedCount": 28,
+      "restrictedCount": 32
+    },
+    {
+      "region": "NAGALAND",
+      "path": "data/2026/IN/NAGALAND/holidays.json",
+      "year": 2026,
+      "totalHolidays": 28,
+      "gazettedCount": 28,
+      "restrictedCount": 0
+    },
+    {
+      "region": "ODISHA",
+      "path": "data/2026/IN/ODISHA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 38,
+      "gazettedCount": 29,
+      "restrictedCount": 9
+    },
+    {
+      "region": "PUNJAB",
+      "path": "data/2026/IN/PUNJAB/holidays.json",
+      "year": 2026,
+      "totalHolidays": 57,
+      "gazettedCount": 30,
+      "restrictedCount": 27
+    },
+    {
+      "region": "RAJASTHAN",
+      "path": "data/2026/IN/RAJASTHAN/holidays.json",
+      "year": 2026,
+      "totalHolidays": 49,
+      "gazettedCount": 31,
+      "restrictedCount": 18
+    },
+    {
+      "region": "SIKKIM",
+      "path": "data/2026/IN/SIKKIM/holidays.json",
+      "year": 2026,
+      "totalHolidays": 56,
+      "gazettedCount": 49,
+      "restrictedCount": 7
+    },
+    {
+      "region": "TAMIL-NADU",
+      "path": "data/2026/IN/TAMIL-NADU/holidays.json",
+      "year": 2026,
+      "totalHolidays": 24,
+      "gazettedCount": 24,
+      "restrictedCount": 0
+    },
+    {
+      "region": "TELANGANA",
+      "path": "data/2026/IN/TELANGANA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 53,
+      "gazettedCount": 27,
+      "restrictedCount": 26
+    },
+    {
+      "region": "TRIPURA",
+      "path": "data/2026/IN/TRIPURA/holidays.json",
+      "year": 2026,
+      "totalHolidays": 43,
+      "gazettedCount": 29,
+      "restrictedCount": 14
+    },
+    {
+      "region": "UTTAR-PRADESH",
+      "path": "data/2026/IN/UTTAR-PRADESH/holidays.json",
+      "year": 2026,
+      "totalHolidays": 55,
+      "gazettedCount": 24,
+      "restrictedCount": 31
+    },
+    {
+      "region": "UTTARAKHAND",
+      "path": "data/2026/IN/UTTARAKHAND/holidays.json",
+      "year": 2026,
+      "totalHolidays": 17,
+      "gazettedCount": 17,
+      "restrictedCount": 0
+    },
+    {
+      "region": "WEST-BENGAL",
+      "path": "data/2026/IN/WEST-BENGAL/holidays.json",
+      "year": 2026,
+      "totalHolidays": 27,
+      "gazettedCount": 27,
+      "restrictedCount": 0
+    },
+    {
+      "region": "ANDAMAN-AND-NICOBAR-ISLANDS-UT",
+      "path": "data/2026/IN/ANDAMAN-AND-NICOBAR-ISLANDS-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 16,
+      "gazettedCount": 16,
+      "restrictedCount": 0
+    },
+    {
+      "region": "CHANDIGARH-UT",
+      "path": "data/2026/IN/CHANDIGARH-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 40,
+      "gazettedCount": 16,
+      "restrictedCount": 24
+    },
+    {
+      "region": "DADRA-AND-NAGAR-HAVELI-AND-DAMAN-AND-DIU-UT",
+      "path": "data/2026/IN/DADRA-AND-NAGAR-HAVELI-AND-DAMAN-AND-DIU-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 42,
+      "gazettedCount": 17,
+      "restrictedCount": 25
+    },
+    {
+      "region": "DELHI-NCT",
+      "path": "data/2026/IN/DELHI-NCT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 49,
+      "gazettedCount": 18,
+      "restrictedCount": 31
+    },
+    {
+      "region": "JAMMU-AND-KASHMIR-UT",
+      "path": "data/2026/IN/JAMMU-AND-KASHMIR-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 30,
+      "gazettedCount": 26,
+      "restrictedCount": 4
+    },
+    {
+      "region": "LAKSHADWEEP-UT",
+      "path": "data/2026/IN/LAKSHADWEEP-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 50,
+      "gazettedCount": 17,
+      "restrictedCount": 33
+    },
+    {
+      "region": "PUDUCHERRY-UT",
+      "path": "data/2026/IN/PUDUCHERRY-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 47,
+      "gazettedCount": 29,
+      "restrictedCount": 18
+    },
+    {
+      "region": "LADAKH-UT",
+      "path": "data/2026/IN/LADAKH-UT/holidays.json",
+      "year": 2026,
+      "totalHolidays": 35,
+      "gazettedCount": 16,
+      "restrictedCount": 19
+    }
+  ]
+}

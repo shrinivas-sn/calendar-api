@@ -1,0 +1,365 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "region": "JHARKHAND",
+  "data": [
+    {
+      "name": "Sohrai",
+      "date": "2026-01-12",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Sohrai (Khuntav)",
+      "date": "2026-01-13",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Makar Sankranti",
+      "date": "2026-01-14",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Subhash Chandra Bose Jayanti",
+      "date": "2026-01-23",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Basant Panchami",
+      "date": "2026-01-23",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Holika Dahan",
+      "date": "2026-03-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Holi",
+      "date": "2026-03-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Id-ul-Fitr",
+      "date": "2026-03-21",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ram Navami",
+      "date": "2026-03-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahaveer Jayanti",
+      "date": "2026-03-31",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Good Friday",
+      "date": "2026-04-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ambedkar Jayanti",
+      "date": "2026-04-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Buddha Purnima",
+      "date": "2026-05-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Majdoor Diwas",
+      "date": "2026-05-01",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bakrid",
+      "date": "2026-05-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Muharram",
+      "date": "2026-06-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Hul Diwas",
+      "date": "2026-06-30",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Rath Yatra",
+      "date": "2026-07-16",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Independence Day",
+      "date": "2026-08-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Milad-un-Nabi",
+      "date": "2026-08-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Raksha Bandhan",
+      "date": "2026-08-28",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Janmashtami",
+      "date": "2026-09-04",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ganesh Chaturthi",
+      "date": "2026-09-14",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Vishwakarma Puja",
+      "date": "2026-09-17",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Karma Puja",
+      "date": "2026-09-22",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Karma Puja",
+      "date": "2026-09-23",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahatma Gandhi Jayanti",
+      "date": "2026-10-02",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Maha Ashtami",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Maha Navami / Vijayadashami",
+      "date": "2026-10-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Govardhan Puja",
+      "date": "2026-11-09",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bhai Dooj / Chitragupt ",
+      "date": "2026-11-11",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Surya Shashthi (Chhath)",
+      "date": "2026-11-16",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Guru Nanak Jayanti",
+      "date": "2026-11-24",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas",
+      "date": "2026-12-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    }
+  ],
+  "meta": {
+    "apiVersion": "v1",
+    "totalHolidays": 35,
+    "gazettedCount": 21,
+    "restrictedCount": 14,
+    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
+    "lastVerified": "2026-05-28"
+  }
+}

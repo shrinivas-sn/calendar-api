@@ -1,0 +1,485 @@
+{
+  "country": "IN",
+  "year": 2026,
+  "region": "PUDUCHERRY-UT",
+  "data": [
+    {
+      "name": "New Year",
+      "date": "2026-01-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bhogi",
+      "date": "2026-01-14",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Pongal",
+      "date": "2026-01-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Pongal (Makara Sankranthi)",
+      "date": "2026-01-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Thiruvalluvar Day / Mattu Pongal",
+      "date": "2026-01-16",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Kanuma",
+      "date": "2026-01-16",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Uzhavar Thirunal / Shab-e-Miraj*",
+      "date": "2026-01-17",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Kandhoori Festival*",
+      "date": "2026-01-29",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Shab-e-Barath*",
+      "date": "2026-02-04",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahasivarathri",
+      "date": "2026-02-15",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Masi Magam / Holi",
+      "date": "2026-03-03",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Lailathul Qadr*",
+      "date": "2026-03-16",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Feast of St. Joseph",
+      "date": "2026-03-19",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ramzan (Id-ul-Fitr)*",
+      "date": "2026-03-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Ugadi / Ramzan (Id-ul-Fitr)*",
+      "date": "2026-03-20",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Telugu New Year Day",
+      "date": "2026-03-20",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Sri Rama Navami",
+      "date": "2026-03-26",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Good Friday",
+      "date": "2026-04-03",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Easter Monday",
+      "date": "2026-04-06",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Vishu 1st Day / Dr. Ambedkar’s Birthday",
+      "date": "2026-04-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Tamil New Year / Dr. Ambedkar’s Birthday",
+      "date": "2026-04-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Dr. Ambedkar’s Birthday",
+      "date": "2026-04-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Vishu 2nd Day",
+      "date": "2026-04-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "May Day",
+      "date": "2026-05-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Buddha Purnima",
+      "date": "2026-05-01",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bakrid (Id-ul-Alha)*",
+      "date": "2026-05-27",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Bakrid (Id-ul-Alha)*",
+      "date": "2026-05-28",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Muharram*",
+      "date": "2026-06-26",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Independence Day",
+      "date": "2026-08-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Onam 1st Day / Milad-Un-Nabi*",
+      "date": "2026-08-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Onam 1st Day",
+      "date": "2026-08-25",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Milad-Un-Nabi*",
+      "date": "2026-08-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Onam 2nd Day",
+      "date": "2026-08-26",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Janmashtami",
+      "date": "2026-09-04",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Vinayagar Chathurthi",
+      "date": "2026-09-14",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Gandhi Jayanthi",
+      "date": "2026-10-02",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "St. Theresa Festival",
+      "date": "2026-10-15",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Saraswathi Pooja / Ayudha Pooja",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahanavami",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Mahanavami / Ayudha Pooja",
+      "date": "2026-10-19",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Vijayadasami",
+      "date": "2026-10-20",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Puducherry Liberation Day",
+      "date": "2026-11-01",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Deepavali Eve",
+      "date": "2026-11-07",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Deepavali",
+      "date": "2026-11-08",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas Eve",
+      "date": "2026-12-24",
+      "type": "restricted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Restricted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    },
+    {
+      "name": "Christmas",
+      "date": "2026-12-25",
+      "type": "gazetted_holiday",
+      "region": [
+        "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+    }
+  ],
+  "meta": {
+    "apiVersion": "v1",
+    "totalHolidays": 47,
+    "gazettedCount": 29,
+    "restrictedCount": 18,
+    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
+    "lastVerified": "2026-05-28"
+  }
+}

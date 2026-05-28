@@ -1,0 +1,17 @@
+{
+  "name": "india-calendar-api-data",
+  "version": "1.0.0",
+  "description": "Indian Holiday Calendar Data Pipeline",
+  "main": "scripts/parse-ics.js",
+  "scripts": {
+    "start": "node scripts/parse-ics.js",
+    "verify": "node scripts/verify-data.js"
+  },
+  "keywords": [
+    "calendar",
+    "holidays",
+    "india"
+  ],
+  "author": "Antigravity",
+  "license": "MIT"
+}
