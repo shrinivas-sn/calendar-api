@@ -30,8 +30,6 @@ The application is structured as a Single Page Application (SPA). The main layou
 └────────────────────────────────────────────────────────────────────────┘
 ```
 
----
-
 ## 2. Page Directory & User Features
 
 ### HomePage (`/`)
