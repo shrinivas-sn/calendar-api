@@ -116,7 +116,7 @@ export default function PlaygroundPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left column - Request builder */}
         <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="bg-[#0e0e15]/40 border border-white/10 rounded-2xl p-6 shadow-xl flex flex-col gap-5">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-5">
             <h2 className="font-display font-bold text-base text-slate-200 border-b border-white/5 pb-3 flex items-center gap-2">
               <Terminal size={16} className="text-saffron-500" />
               <span>API Query Parameters</span>
@@ -139,7 +139,7 @@ export default function PlaygroundPage() {
               <select 
                 value={endpoint} 
                 onChange={(e) => setEndpoint(e.target.value)} 
-                className="w-full bg-[#050508] border border-white/10 focus:border-saffron-500 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:ring-1 focus:ring-saffron-500"
+                className="w-full bg-slate-950 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:ring-1 focus:ring-saffron-500"
               >
                 <option value="holidays">GET /v1/holidays (Holiday List)</option>
                 <option value="is-holiday">GET /v1/date/is-holiday (Holiday Checker)</option>
@@ -159,7 +159,7 @@ export default function PlaygroundPage() {
                 <select 
                   value={year} 
                   onChange={(e) => setYear(e.target.value)} 
-                  className="w-full bg-[#050508] border border-white/10 focus:border-saffron-500 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:ring-1 focus:ring-saffron-500"
+                  className="w-full bg-slate-950 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2 text-sm text-slate-300 focus:outline-none focus:ring-1 focus:ring-saffron-500"
                 >
                   <option value="2026">2026</option>
                 </select>
@@ -218,7 +218,7 @@ export default function PlaygroundPage() {
 
         {/* Right column - Response previewer */}
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <div className="bg-[#0e0e15]/40 border border-white/10 rounded-2xl p-6 shadow-xl flex flex-col gap-5 min-h-[500px]">
+          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-5 min-h-[500px]">
             {/* Header with tabs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-b border-white/5 pb-3">
               <h2 className="font-display font-bold text-base text-slate-200 flex items-center gap-2">
@@ -270,7 +270,7 @@ export default function PlaygroundPage() {
             {/* Response Display Box */}
             <div className="flex-1 flex flex-col justify-start relative min-h-[350px]">
               {loading && (
-                <div className="absolute inset-0 bg-[#0e0e15]/80 backdrop-blur-sm flex items-center justify-center rounded-2xl z-10">
+                <div className="absolute inset-0 bg-slate-900/80 backdrop-blur-sm flex items-center justify-center rounded-2xl z-10">
                   <div className="w-10 h-10 border-3 border-saffron-500/30 border-t-saffron-500 rounded-full animate-spin" />
                 </div>
               )}

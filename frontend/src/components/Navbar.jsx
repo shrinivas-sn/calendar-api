@@ -29,7 +29,7 @@ export default function Navbar() {
   );
 
   return (
-    <header className="sticky top-0 z-50 bg-[#050508]/85 backdrop-blur-md border-b border-white/10">
+    <header className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -42,42 +42,35 @@ export default function Navbar() {
             </span>
           </NavLink>
 
-          {/* Desktop Nav Links */}
-          <nav className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
-              <NavLink
-                key={link.to}
-                to={link.to}
-                className={({ isActive }) =>
-                  `inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200 h-16 ${
-                    isActive
-                      ? "border-saffron-500 text-saffron-500 font-semibold"
-                      : "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
-                  }`
-                }
-              >
-                {link.label}
-              </NavLink>
-            ))}
-          </nav>
+          {/* Right Action side container: links and Github icon */}
+          <div className="hidden md:flex items-center space-x-8">
+            <nav className="flex space-x-6">
+              {navLinks.map((link) => (
+                <NavLink
+                  key={link.to}
+                  to={link.to}
+                  className={({ isActive }) =>
+                    `inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium transition-colors duration-200 h-16 ${
+                      isActive
+                        ? "border-saffron-500 text-saffron-500 font-semibold"
+                        : "border-transparent text-slate-400 hover:text-slate-200 hover:border-slate-700"
+                    }`
+                  }
+                >
+                  {link.label}
+                </NavLink>
+              ))}
+            </nav>
 
-          {/* Right Action button / GitHub link */}
-          <div className="hidden md:flex items-center gap-4">
             <a
               href="https://github.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 text-slate-400 hover:text-slate-100 transition-colors duration-200"
+              className="text-slate-400 hover:text-slate-100 transition-colors duration-200"
               aria-label="GitHub repository"
             >
               <GithubIcon />
             </a>
-            <NavLink
-              to="/playground"
-              className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 rounded-md shadow-md hover:from-saffron-600 hover:to-red-700 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200"
-            >
-              Try Playground
-            </NavLink>
           </div>
 
           {/* Mobile menu button */}
@@ -94,7 +87,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0a0a10]/95 border-b border-white/10 px-2 pt-2 pb-4 space-y-1 sm:px-3">
+        <div className="md:hidden bg-slate-950/95 border-b border-slate-900 px-2 pt-2 pb-4 space-y-1 sm:px-3">
           {navLinks.map((link) => (
             <NavLink
               key={link.to}

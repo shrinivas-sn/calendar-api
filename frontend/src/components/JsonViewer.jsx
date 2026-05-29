@@ -28,7 +28,7 @@ export default function JsonViewer({ data }) {
   return (
     <div className="w-full relative group">
       <pre 
-        className="font-mono text-[11px] sm:text-xs leading-relaxed bg-[#050508]/90 border border-white/10 rounded-xl p-4 overflow-auto max-h-[480px] w-full text-slate-300 scrollbar-thin"
+        className="font-mono text-[11px] sm:text-xs leading-relaxed bg-slate-950/90 border border-slate-800 rounded-xl p-4 overflow-auto max-h-[480px] w-full text-slate-300 scrollbar-thin"
         dangerouslySetInnerHTML={{ __html: highlighted }}
       />
     </div>

@@ -36,7 +36,7 @@ export default function StatusPage() {
       </div>
 
       {/* Main Status Panel */}
-      <div className="bg-[#0e0e15]/40 border border-white/10 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 backdrop-blur-md">
+      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 backdrop-blur-md">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-saffron-500/10 flex items-center justify-center text-saffron-500">
             <Activity size={24} className="animate-pulse" />

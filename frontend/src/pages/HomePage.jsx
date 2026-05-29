@@ -81,7 +81,7 @@ export default function HomePage() {
 
       {/* Quick Start command widget */}
       <section className="pb-16 max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="bg-[#0e0e15] border border-white/10 rounded-2xl p-4 sm:p-6 shadow-xl relative group">
+        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl relative group">
           <div className="absolute -top-3 left-6 px-3 py-0.5 rounded bg-saffron-600 text-white font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
             <Terminal size={10} />
             <span>Quick Start</span>
@@ -156,7 +156,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Controls */}
-          <div className="md:col-span-4 bg-[#0e0e15]/40 border border-white/10 rounded-2xl p-5 flex flex-col gap-4">
+          <div className="md:col-span-4 bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col gap-4">
             <RegionSelector value={demoRegion} onChange={setDemoRegion} />
             
             <button

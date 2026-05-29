@@ -106,7 +106,7 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
   };
 
   return (
-    <div className="w-full bg-[#0e0e15]/60 border border-white/10 rounded-xl p-5 flex flex-col h-full select-none shadow-lg backdrop-blur-sm">
+    <div className="w-full bg-slate-900/60 border border-slate-800 rounded-xl p-5 flex flex-col h-full select-none shadow-lg backdrop-blur-sm">
       {/* Calendar Header with navigation */}
       <div className="flex items-center justify-between mb-6">
         <h3 className="font-display font-bold text-lg text-slate-200">

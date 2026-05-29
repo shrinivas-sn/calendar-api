@@ -45,7 +45,7 @@ export default function RegionSelector({ value, onChange }) {
           setIsOpen(!isOpen);
           setSearchTerm("");
         }}
-        className="w-full bg-black/40 border border-white/10 hover:border-white/20 rounded-lg px-4 py-2.5 text-left text-sm text-slate-200 flex items-center justify-between focus:outline-none focus:border-saffron-500 focus:ring-1 focus:ring-saffron-500 transition-all duration-200"
+        className="w-full bg-slate-950 border border-slate-800 hover:border-slate-700 rounded-lg px-4 py-2.5 text-left text-sm text-slate-200 flex items-center justify-between focus:outline-none focus:border-saffron-500 focus:ring-1 focus:ring-saffron-500 transition-all duration-200"
       >
         <span>{activeRegion.name} ({activeRegion.code})</span>
         <ChevronDown size={16} className={`text-slate-400 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
@@ -53,7 +53,7 @@ export default function RegionSelector({ value, onChange }) {
 
       {/* Dropdown panel */}
       {isOpen && (
-        <div className="absolute z-30 mt-1 w-full rounded-lg bg-[#0e0e15] border border-white/10 shadow-xl max-h-60 overflow-hidden flex flex-col">
+        <div className="absolute z-30 mt-1 w-full rounded-lg bg-slate-900 border border-slate-800 shadow-xl max-h-60 overflow-hidden flex flex-col">
           {/* Search box inside dropdown */}
           <div className="p-2 border-b border-white/5 flex items-center gap-2 bg-black/20">
             <Search size={14} className="text-slate-500 flex-shrink-0" />

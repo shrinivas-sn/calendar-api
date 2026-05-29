@@ -6,15 +6,10 @@ export default function DocsPage() {
   const [activeSection, setActiveSection] = useState('overview');
 
   const menuItems = [
-    { id: 'overview', label: 'Overview' },
-    { id: 'base-url', label: 'Base URL' },
-    { id: 'holidays', label: 'GET /v1/holidays' },
-    { id: 'is-holiday', label: 'GET /v1/date/is-holiday' },
-    { id: 'next-holiday', label: 'GET /v1/date/next-holiday' },
-    { id: 'range', label: 'GET /v1/holidays/range' },
-    { id: 'calendar', label: 'GET /v1/calendar' },
+    { id: 'overview', label: 'Overview & Setup' },
+    { id: 'endpoints-ref', label: 'API Endpoints' },
     { id: 'response-schema', label: 'Response Schema' },
-    { id: 'errors', label: 'Errors & Rate Limits' }
+    { id: 'errors', label: 'Errors & Limits' }
   ];
 
   const scrollToSection = (id) => {
@@ -42,7 +37,7 @@ export default function DocsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Sidebar Nav */}
-        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-[#0e0e15]/40 border border-white/10 rounded-2xl p-4 shadow-xl scrollbar-none hidden lg:block">
+        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-slate-900/40 border border-slate-800 rounded-2xl p-4 shadow-xl scrollbar-none hidden lg:block">
           <h2 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest px-3 mb-4 flex items-center gap-1.5">
             <BookOpen size={12} className="text-saffron-500" />
             <span>API Reference</span>
@@ -65,7 +60,7 @@ export default function DocsPage() {
         </aside>
 
         {/* Documentation Content */}
-        <div className="lg:col-span-9 flex flex-col gap-16 bg-[#0e0e15]/20 border border-white/5 rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <div className="lg:col-span-9 flex flex-col gap-16 bg-slate-900/20 border border-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl">
           
           {/* Section: Overview */}
           <section id="overview" className="scroll-mt-24">
@@ -91,6 +86,14 @@ export default function DocsPage() {
               https://calendar-api-production-a697.up.railway.app
             </div>
           </section>
+
+          {/* Section: API Endpoints Reference Group */}
+          <div id="endpoints-ref" className="scroll-mt-24 border-t border-white/5 pt-10">
+            <h2 className="font-display font-extrabold text-2xl text-slate-100 mb-2">API Endpoints</h2>
+            <p className="text-slate-400 text-sm leading-relaxed">
+              The API provides five lightweight, database-free routes to query holiday data. Review details and parameter schemas below.
+            </p>
+          </div>
 
           {/* Section: GET /v1/holidays */}
           <section id="holidays" className="scroll-mt-24 border-t border-white/5 pt-10">
@@ -403,19 +406,116 @@ export default function DocsPage() {
           <section id="errors" className="scroll-mt-24 border-t border-white/5 pt-10">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-100 mb-4">Errors & Rate Limits</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              When queries fail or exceed limits, the API returns standardized error code formats.
+              When queries fail, validation checks fail, or limits are exceeded, the API returns a standardized JSON structure with the corresponding HTTP status code.
             </p>
 
-            <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Rate Limiting</h3>
-            <p className="text-slate-400 text-sm leading-relaxed mb-6">
-              IP addresses are limited to **100 calls per 15 minutes** to prevent server fatigue. Exceeding this limit triggers status code <code className="bg-white/5 font-mono px-1 py-0.5 rounded text-red-400 text-xs">429 Too Many Requests</code>.
+            {/* Error Schema definition */}
+            <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Error Response Format</h3>
+            <p className="text-slate-400 text-sm leading-relaxed mb-4">
+              All error responses include the following three parameters:
             </p>
+            <ul className="list-disc pl-5 text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed mb-6">
+              <li><code className="text-saffron-400 font-semibold font-mono">error</code>: Always set to <code className="bg-white/5 font-mono px-1 rounded text-xs">true</code>.</li>
+              <li><code className="text-saffron-400 font-semibold font-mono">message</code>: Human-readable explanation of why the query failed.</li>
+              <li><code className="text-saffron-400 font-semibold font-mono">status</code>: The HTTP status code corresponding to the response header.</li>
+            </ul>
 
-            <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3 font-mono">Example Error Response</h3>
+            {/* Status Catalog Table */}
+            <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Validation Check Catalog</h3>
+            <div className="overflow-x-auto mb-8">
+              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 text-slate-400 font-bold">
+                    <th className="py-2 pr-4">Status</th>
+                    <th className="py-2 px-4">API Error Message (`message`)</th>
+                    <th className="py-2 pl-4">Trigger Condition</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-white/5 text-slate-300">
+                  {/* Status 400 Errors */}
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: country</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `country` query parameter was not provided.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: year</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `year` parameter is required for lists and calendar endpoints.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Invalid year format. Use a 4-digit number</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `year` value is not formatted as YYYY (e.g. `26` or `20265`).</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Region parameter must be uppercase 2-letter code or 'central'</td>
+                    <td className="py-3 pl-4 leading-relaxed">The state code was lowercase or did not match the 2-letter format.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: date</td>
+                    <td className="py-3 pl-4 leading-relaxed">Required parameter `date` is missing for checkers or next-holiday queries.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Invalid date format. Use YYYY-MM-DD</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `date`, `start`, or `end` values are not matching standard ISO formats.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Missing required parameters: start and end</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `/holidays/range` endpoint requires both query bounds.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Start date cannot be after end date</td>
+                    <td className="py-3 pl-4 leading-relaxed">The start range parameter occurs chronologically after the end parameter.</td>
+                  </tr>
+
+                  {/* Status 404 Errors */}
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
+                    <td className="py-3 px-4 font-mono text-xs">Only IN is supported in v1</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `country` query parameter is not `IN`.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
+                    <td className="py-3 px-4 font-mono text-xs">Data not available for this year</td>
+                    <td className="py-3 pl-4 leading-relaxed">Data has not been scraped or generated for the requested year folder.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
+                    <td className="py-3 px-4 font-mono text-xs">Region not found</td>
+                    <td className="py-3 pl-4 leading-relaxed">The state/UT code provided does not exist in our system database.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
+                    <td className="py-3 px-4 font-mono text-xs">Data not available for the requested year range</td>
+                    <td className="py-3 pl-4 leading-relaxed">The range query dates do not match any year directories on the server.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
+                    <td className="py-3 px-4 font-mono text-xs">Endpoint not found</td>
+                    <td className="py-3 pl-4 leading-relaxed">The requested API route path or method is invalid.</td>
+                  </tr>
+
+                  {/* Status 429 Errors */}
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-purple-400">429 Rate Limited</td>
+                    <td className="py-3 px-4 font-mono text-xs">Too many requests, please try again later</td>
+                    <td className="py-3 pl-4 leading-relaxed">Your IP exceeded 100 queries within a 15-minute window.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3 font-mono">Example Validation Error Response (400)</h3>
             <div className="bg-red-500/5 border border-red-500/20 p-4 rounded-xl flex gap-3 text-red-400 text-xs sm:text-sm mb-6">
               <ShieldAlert size={16} className="flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
-                Errors will always have the <code className="font-mono text-xs">error: true</code> flag and describe the breakdown.
+                Errors always return in the standard format below, making handling consistent across environments.
               </p>
             </div>
 

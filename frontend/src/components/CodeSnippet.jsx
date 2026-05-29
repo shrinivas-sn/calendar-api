@@ -57,7 +57,7 @@ func main() {
   ];
 
   return (
-    <div className="w-full bg-[#0e0e15] border border-white/10 rounded-xl overflow-hidden flex flex-col shadow-lg">
+    <div className="w-full bg-slate-900 border border-slate-800 rounded-xl overflow-hidden flex flex-col shadow-lg">
       {/* Tabs Header */}
       <div className="flex items-center justify-between px-4 bg-black/40 border-b border-white/5 h-11">
         <div className="flex space-x-2">
