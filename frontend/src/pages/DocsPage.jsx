@@ -37,8 +37,8 @@ export default function DocsPage() {
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Sidebar Nav */}
-        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto bg-slate-900/40 border border-slate-800 rounded-2xl p-4 shadow-xl scrollbar-none hidden lg:block">
-          <h2 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest px-3 mb-4 flex items-center gap-1.5">
+        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto py-2 pr-6 border-r border-slate-800/60 scrollbar-none hidden lg:block">
+          <h2 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest px-2 mb-4 flex items-center gap-1.5">
             <BookOpen size={12} className="text-saffron-500" />
             <span>API Reference</span>
           </h2>
@@ -47,10 +47,10 @@ export default function DocsPage() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left text-xs font-semibold px-3 py-2 rounded-lg transition-all duration-150 ${
+                className={`w-full text-left text-sm font-semibold px-3 py-2 rounded-lg transition-all duration-150 ${
                   activeSection === item.id
                     ? 'bg-saffron-500/10 text-saffron-400 font-bold border-l-2 border-saffron-500 pl-2.5'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/30'
                 }`}
               >
                 {item.label}
@@ -60,7 +60,7 @@ export default function DocsPage() {
         </aside>
 
         {/* Documentation Content */}
-        <div className="lg:col-span-9 flex flex-col gap-16 bg-slate-900/20 border border-slate-900 rounded-3xl p-6 sm:p-10 shadow-2xl">
+        <div className="lg:col-span-9 flex flex-col gap-16 docs-card p-6 sm:p-10">
           
           {/* Section: Overview */}
           <section id="overview" className="scroll-mt-24">

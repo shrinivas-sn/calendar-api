@@ -35,8 +35,7 @@ export default function StatusPage() {
         </p>
       </div>
 
-      {/* Main Status Panel */}
-      <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 mb-8 backdrop-blur-md">
+      <div className="interactive-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-saffron-500/10 flex items-center justify-center text-saffron-500">
             <Activity size={24} className="animate-pulse" />
@@ -53,7 +52,7 @@ export default function StatusPage() {
       {/* Stats Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
         {/* Latency card */}
-        <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-6">
+        <div className="interactive-card p-6">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Latency</span>
             <Clock size={16} className="text-indigo-400" />
@@ -70,7 +69,7 @@ export default function StatusPage() {
         </div>
 
         {/* Caching card */}
-        <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-6">
+        <div className="interactive-card p-6">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">CDN Caching</span>
             <Layers size={16} className="text-emerald-400" />
@@ -85,7 +84,7 @@ export default function StatusPage() {
         </div>
 
         {/* Uptime card */}
-        <div className="bg-white/[0.01] border border-white/5 rounded-2xl p-6">
+        <div className="interactive-card p-6">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Uptime Target</span>
             <ShieldCheck size={16} className="text-saffron-500" />
@@ -100,8 +99,7 @@ export default function StatusPage() {
         </div>
       </div>
 
-      {/* Nodes and Systems Info */}
-      <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 sm:p-8">
+      <div className="docs-card p-6 sm:p-8">
         <h3 className="font-display font-bold text-base text-slate-200 mb-6 flex items-center gap-2">
           <Server size={16} className="text-saffron-500" />
           <span>Operational Details</span>

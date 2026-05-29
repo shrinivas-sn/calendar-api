@@ -81,7 +81,7 @@ export default function HomePage() {
 
       {/* Quick Start command widget */}
       <section className="pb-16 max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl relative group">
+        <div className="interactive-card p-4 sm:p-6 relative group">
           <div className="absolute -top-3 left-6 px-3 py-0.5 rounded bg-saffron-600 text-white font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
             <Terminal size={10} />
             <span>Quick Start</span>
@@ -113,7 +113,7 @@ export default function HomePage() {
       {/* Highlights Grid */}
       <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 hover:bg-white/[0.04] transition-colors duration-200">
+          <div className="interactive-card p-6">
             <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4">
               <Globe size={20} />
             </div>
@@ -122,7 +122,7 @@ export default function HomePage() {
               No registration, API keys, limits or billing. Directly integrate using standard clean URL queries.
             </p>
           </div>
-          <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 hover:bg-white/[0.04] transition-colors duration-200">
+          <div className="interactive-card p-6">
             <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4">
               <CheckCircle size={20} />
             </div>
@@ -131,7 +131,7 @@ export default function HomePage() {
               State-specific restrictions merged seamlessly with central gazetted holidays, cleaned and sorted at runtime.
             </p>
           </div>
-          <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 hover:bg-white/[0.04] transition-colors duration-200">
+          <div className="interactive-card p-6">
             <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
               <Sparkles size={20} />
             </div>
@@ -156,7 +156,7 @@ export default function HomePage() {
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           {/* Controls */}
-          <div className="md:col-span-4 bg-slate-900/40 border border-slate-800 rounded-2xl p-5 flex flex-col gap-4">
+          <div className="md:col-span-4 interactive-card p-5 flex flex-col gap-4">
             <RegionSelector value={demoRegion} onChange={setDemoRegion} />
             
             <button

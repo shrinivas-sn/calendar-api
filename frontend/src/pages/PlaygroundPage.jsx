@@ -115,8 +115,8 @@ export default function PlaygroundPage() {
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         {/* Left column - Request builder */}
-        <div className="lg:col-span-5 flex flex-col gap-6">
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-5">
+        <div className="lg:col-span-5 flex flex-col gap-6 lg:border-r lg:border-slate-800/60 lg:pr-8">
+          <div className="flex flex-col gap-5">
             <h2 className="font-display font-bold text-base text-slate-200 border-b border-white/5 pb-3 flex items-center gap-2">
               <Terminal size={16} className="text-saffron-500" />
               <span>API Query Parameters</span>
@@ -218,7 +218,7 @@ export default function PlaygroundPage() {
 
         {/* Right column - Response previewer */}
         <div className="lg:col-span-7 flex flex-col gap-6">
-          <div className="bg-slate-900/40 border border-slate-800 rounded-2xl p-6 shadow-xl flex flex-col gap-5 min-h-[500px]">
+          <div className="docs-card p-6 flex flex-col gap-5 min-h-[500px]">
             {/* Header with tabs */}
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 border-b border-white/5 pb-3">
               <h2 className="font-display font-bold text-base text-slate-200 flex items-center gap-2">
