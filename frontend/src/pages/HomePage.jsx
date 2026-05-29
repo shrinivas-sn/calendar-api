@@ -53,7 +53,7 @@ export default function HomePage() {
           </div>
 
           <h1 className="font-display font-extrabold text-4xl sm:text-6xl tracking-tight leading-[1.1] mb-6">
-            Keyless, Open-Source <br />
+            Open-Source <br />
             <span className="text-saffron-gradient">Indian Calendar API</span>
           </h1>
 
