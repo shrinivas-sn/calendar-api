@@ -1,9 +1,13 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Calendar, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const navLinks = [
     { to: "/", label: "Home" },
@@ -33,11 +37,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <NavLink to="/" className="flex items-center gap-3 group">
-            <div className="w-9 h-9 bg-gradient-to-br from-orange-500 via-saffron-600 to-red-600 rounded-lg flex items-center justify-center shadow-lg shadow-saffron-500/20 group-hover:scale-105 transition-transform duration-200">
-              <Calendar size={18} className="text-white" />
+          <NavLink to="/" onClick={handleLogoClick} className="flex items-center gap-3 group hover:opacity-95 transition-opacity duration-200">
+            <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+              <img src="/images/favicon.svg" alt="Calendar API Logo" className="w-8 h-8 object-contain" />
             </div>
-            <span className="font-display font-extrabold text-lg tracking-tight">
+            <span className="font-display font-extrabold text-lg tracking-tight text-slate-100 group-hover:text-white transition-colors duration-200">
               Calendar <span className="text-saffron-gradient">API</span>
             </span>
           </NavLink>

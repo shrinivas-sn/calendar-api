@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%" fill="none">
+  <!-- Definitions for gradients, shadows, and filters -->
+  <defs>
+    <!-- Core Saffron Brand Gradient -->
+    <linearGradient id="saffronGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffedd5" /> <!-- saffron-100 -->
+      <stop offset="30%" stop-color="#fb923c" /> <!-- saffron-400 -->
+      <stop offset="70%" stop-color="#ea580c" /> <!-- saffron-600 -->
+      <stop offset="100%" stop-color="#7c2d12" /> <!-- saffron-900 -->
+    </linearGradient>
+
+    <!-- Glowing Accent Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#dc2626" /> <!-- red-600 -->
+      <stop offset="100%" stop-color="#f97316" /> <!-- saffron-500 -->
+    </linearGradient>
+
+    <!-- Metallic Binder Rings Gradient -->
+    <linearGradient id="metalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="50%" stop-color="#cbd5e1" />
+      <stop offset="100%" stop-color="#64748b" />
+    </linearGradient>
+
+    <!-- Drop Shadow for Premium 3D Depth -->
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#020617" flood-opacity="0.6" />
+    </filter>
+
+    <!-- Inner Glow/Glow Effect -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- 1. Interactive Code/API Brackets Overlay (Framing the emblem) -->
+  <!-- Left Code Bracket "{" -->
+  <path d="M 68 152 C 48 152 36 164 36 200 V 256 C 36 266 28 272 16 272 C 28 272 36 278 36 288 V 344 C 36 380 48 392 68 392" 
+        stroke="url(#saffronGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+
+  <!-- Right Code Bracket "}" -->
+  <path d="M 444 152 C 464 152 476 164 476 200 V 256 C 476 266 484 272 496 272 C 484 272 476 278 476 288 V 344 C 476 380 464 392 444 392" 
+        stroke="url(#saffronGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+
+  <!-- 2. Larger Calendar Page Sheet (Floating with Drop Shadow) -->
+  <rect x="96" y="112" width="320" height="320" rx="32" fill="#ffffff" stroke="#cbd5e1" stroke-width="4" filter="url(#dropShadow)" />
+  
+  <!-- Saffron Colored Calendar Header Banner -->
+  <path d="M 96 144 C 96 126.327 110.327 112 128 112 H 384 C 401.673 112 416 126.327 416 144 V 192 H 96 V 144 Z" fill="url(#saffronGrad)" />
+
+  <!-- Calendar Grid Boxes (Representing Dates/Holidays) - Enlarged Grid -->
+  <!-- Row 1 -->
+  <rect x="125" y="216" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="195" y="216" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="265" y="216" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="335" y="216" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+
+  <!-- Row 2 -->
+  <rect x="125" y="286" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <!-- Central Active / Selected Holiday Date (Highlighted Saffron Glow) -->
+  <rect x="195" y="286" width="52" height="52" rx="10" fill="url(#accentGrad)" filter="url(#glow)" />
+  <rect x="265" y="286" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="335" y="286" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+
+  <!-- Row 3 -->
+  <rect x="125" y="356" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="195" y="356" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <rect x="265" y="356" width="52" height="52" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2.5" />
+  <!-- Highlighted Weekend/Sunday Date -->
+  <rect x="335" y="356" width="52" height="52" rx="10" fill="#fee2e2" stroke="#dc2626" stroke-width="2.5" />
+
+  <!-- 3. Twin Metallic Binder Rings at the Top -->
+  <!-- Left Ring -->
+  <rect x="151" y="80" width="20" height="64" rx="10" fill="url(#metalGrad)" stroke="#0f172a" stroke-width="3" />
+  <circle cx="161" cy="112" r="5" fill="#0f172a" />
+  <!-- Right Ring -->
+  <rect x="341" y="80" width="20" height="64" rx="10" fill="url(#metalGrad)" stroke="#0f172a" stroke-width="3" />
+  <circle cx="351" cy="112" r="5" fill="#0f172a" />
+</svg>

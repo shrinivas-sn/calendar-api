@@ -1,17 +1,20 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Calendar } from 'lucide-react';
 
 export default function Footer() {
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="border-t border-slate-900 bg-slate-950/80 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand logo */}
-          <div className="flex items-center gap-2">
-            <Calendar size={18} className="text-saffron-500" />
+          <NavLink to="/" onClick={handleLogoClick} className="flex items-center gap-2 group hover:opacity-90 transition-opacity duration-200">
+            <img src="/images/favicon.svg" alt="Calendar API Logo" className="w-7 h-7 object-contain" />
             <span className="font-display font-bold text-slate-200">Calendar API</span>
-          </div>
+          </NavLink>
 
           {/* Copyright description */}
           <p className="text-sm text-slate-500 text-center md:text-left">
