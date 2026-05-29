@@ -1,17 +1,19 @@
-# India Calendar API - Project Overview & Context
+# Project Architecture & Context: India Calendar API
 
-This document provides complete technical and business context for the **India Calendar API** project. It is designed to help any incoming developer or AI coding assistant understand the application's structure, architecture, and current state.
+This document provides a comprehensive technical overview of the complete **India Calendar API** codebase. It outlines the design, monorepo structure, data ingestion pipeline, API backend, frontend UI portal, and deployment layout.
 
 ---
 
-## 1. Executive Summary & Value Proposition
+## 1. Project Overview & Business Value
 
-### The Problem
-Developers building Indian apps (e.g., HR portals, fintech platforms, scheduling software, e-commerce) need accurate calendar data including national (Central) and regional (State/UT) public holidays, festivals, and working days.
-Existing global services (e.g., Calendarific, Holiday API, AbstractAPI) require signups, rate-limit free tiers, or completely lack detailed Indian state-level holiday data. Open-source options (like Nager.Date) do not support India (`IN`).
+### The Market Gap
+Developers building applications for the Indian market face challenges integrating local holiday data. Existing APIs (like Calendarific or Holiday API) require paid plans, signups, or do not offer state-level resolution. Open-source libraries like `Nager.Date` do not support India (`IN`) due to its complex holiday structure.
 
 ### The Solution
-A **free, open-source, no-login-required REST API** specifically built for Indian calendar data with state-level holiday support.
+This project is a **truly free, open-source, keyless REST API** serving Indian holiday calendars (Central Government + 36 States & UTs). It is built as a lightweight, database-free application serving static JSON files generated from official sources.
+
+* **Live API Production URL**: `https://calendar-api-production-a697.up.railway.app`
+* **Live Frontend UI URL**: `https://calendar-api-web.vercel.app`
 * **Zero Friction**: No API keys, no registrations, no limits.
 * **India-First**: Covers Central government, all 28 States, and all 8 Union Territories (37 regions total).
 * **Accurate Data**: Fetched directly from official government sources (`india.gov.in`).
@@ -19,157 +21,99 @@ A **free, open-source, no-login-required REST API** specifically built for India
 
 ---
 
-## 2. Technical Architecture & Data Flow
+## 2. Monorepo Architecture
 
-The project is designed in two isolated phases:
-
-```
-+-----------------------------------------------------------+
-|                   PHASE 1: Data Pipeline                  |
-|  Government CMS API -> Raw .ics -> Deduplicated JSON      |
-+-----------------------------------------------------------+
-                              |
-                              v (Static Files)
-+-----------------------------------------------------------+
-|                   PHASE 2: Backend API                    |
-|  Node.js + Express Server -> CDN Caching -> Client Apps   |
-+-----------------------------------------------------------+
-```
-
-### Phase 1: Data Collection & Parsing (Completed - Agent 1)
-1. **CMS Fetch**: The scraper queries the official portal's internal GraphQL/REST endpoints to retrieve raw holiday lists for each state/UT.
-2. **ICS Generation**: The scraper POSTs the list to the official `api/calendar-ics` generator to retrieve a standard `.ics` (iCal) calendar file.
-3. **Local Storage**: The raw iCal files are saved under `ics/` as `IN_<REGION_CODE>_2026.ics`.
-4. **Deduplication & Conversion**:
-   - The parser unfolds the iCal file, splits it by `BEGIN:VEVENT`, and extracts summaries, dates, and descriptions.
-   - Cleans the holiday names and converts dates to `YYYY-MM-DD`.
-   - Programmatically removes duplicates (common on regional government calendars).
-   - Classifies holiday types (`Gazetted Holiday` -> `gazetted_holiday`, `Restricted Holiday` -> `restricted_holiday`, others -> `observance`).
-   - Sorts the holidays chronologically ascending.
-5. **JSON DB Output**: Saves structured JSON files to `data/2026/IN/<REGION_CODE>/holidays.json`.
-6. **Index Compilation**: Creates a master `INDEX.json` mapping regions, files, and statistics.
-
-### Phase 2: Backend REST API (Pending - Agent 2)
-A lightweight Node.js + Express API server will read from the `data/` directory and serve clean JSON endpoints.
-
----
-
-## 3. Directory & Folder Structure
+The codebase is organized as a monorepo with separate backend and frontend projects:
 
 ```
 calendar-api/
-├── data/                               # Static JSON databases
-│   └── 2026/
-│       └── IN/
-│           ├── INDEX.json              # Master index file of all regions
-│           ├── central/
-│           │   └── holidays.json       # Central government holidays
-│           ├── KA/
-│           │   └── holidays.json       # Karnataka state holidays
-│           ├── MH/
-│           │   └── holidays.json       # Maharashtra state holidays
-│           └── ...                     # Rest of the 37 States + UTs
-├── ics/                                # Raw downloaded .ics (iCal) backups
-│   ├── IN_central_2026.ics
-│   ├── IN_KA_2026.ics
-│   └── ...
-├── scripts/                            # Pipeline utility scripts
-│   ├── parse-ics.js                    # The scraper & parser pipeline script
-│   └── verify-data.js                  # Validator to check JSON schema and sort orders
-├── DOCS/
-│   └── APP-CONTEXT/
-│       └── PROJECT-OVERVIEW.md         # This document
-├── package.json
-└── README.md
+├── backend/                  # REST API server & Data pipeline
+│   ├── data/                 # Ingested JSON holiday databases
+│   ├── ics/                  # Backup iCal calendar files
+│   ├── scripts/              # Data collection pipelines
+│   │   ├── parse-ics.js      # Scraper/Parser script
+│   │   └── verify-data.js    # Data validator
+│   ├── src/
+│   │   └── index.js          # Node.js + Express server code
+│   └── package.json
+│
+├── frontend/                 # React UI Playground & Portal
+│   ├── src/
+│   │   ├── App.jsx           # Main UI dashboard and query builder
+│   │   └── index.css         # Styling system
+│   └── package.json
+│
+└── README.md                 # Main entry documentation
 ```
 
 ---
 
-## 4. REST API Schema & Target Endpoints
+## 3. Data Pipeline & Storage (`/backend`)
 
-### Expected Endpoints (Phase 2)
-* `GET /v1/holidays?country=IN&year=2026`
-* `GET /v1/holidays?country=IN&year=2026&region=KA`
-* `GET /v1/date/is-holiday?country=IN&date=2026-01-26`
-* `GET /v1/date/next-holiday?country=IN&date=2026-01-01`
+The holiday data is stored statically as JSON, avoiding database lookup times and infrastructure costs.
 
-### Sample Regional JSON Format (`holidays.json`)
-```json
-{
-  "country": "IN",
-  "year": 2026,
-  "region": "KA",
-  "data": [
-    {
-      "name": "Ugadi Festival",
-      "date": "2026-03-19",
-      "type": "gazetted_holiday",
-      "region": ["IN"],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    }
-  ],
-  "meta": {
-    "apiVersion": "v1",
-    "totalHolidays": 41,
-    "gazettedCount": 25,
-    "restrictedCount": 16,
-    "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
-  }
-}
-```
-
-### Sample Master Index Format (`INDEX.json`)
-```json
-{
-  "country": "IN",
-  "year": 2026,
-  "lastUpdated": "2026-05-28",
-  "totalRegions": 37,
-  "regions": [
-    {
-      "region": "central",
-      "path": "data/2026/IN/central/holidays.json",
-      "year": 2026,
-      "totalHolidays": 50,
-      "gazettedCount": 17,
-      "restrictedCount": 33
-    },
-    {
-      "region": "KA",
-      "path": "data/2026/IN/KA/holidays.json",
-      "year": 2026,
-      "totalHolidays": 41,
-      "gazettedCount": 25,
-      "restrictedCount": 16
-    }
-  ]
-}
-```
+### Ingestion Flow (`backend/scripts/parse-ics.js`)
+1. **CMS API Extraction**: Queries the official government portal (`india.gov.in/calendar`) via an internal CMS route `/internal/cms`.
+2. **ICS Generation**: Sends the raw JSON list of holidays to the portal's `/api/calendar-ics` endpoint to download the standard iCal file.
+3. **Backup Storage**: Saves `.ics` files under `backend/ics/` (e.g. `IN_KA_2026.ics`).
+4. **Parsing**:
+   - Parses the iCal events (vevent) line-by-line.
+   - Cleans the summary (replaces `\,` with `,`).
+   - Converts dates to `YYYY-MM-DD`.
+   - Programmatically filters out duplicate events.
+   - Standardizes type mapping (`Gazetted Holiday` -> `gazetted_holiday`, `Restricted Holiday` -> `restricted_holiday`, others -> `observance`).
+5. **Output**: Writes sorted, structured JSON files to `backend/data/<year>/IN/<region>/holidays.json` (where `<region>` is the 2-letter uppercase code or `central`).
+6. **Index Creation**: Compiles a master list of all processed regions at `backend/data/<year>/IN/INDEX.json`.
 
 ---
 
-## 5. Deployment Strategy
-* **Hosting**: The backend Express app can be deployed on Render, Railway, fly.io, or as static files served via a serverless platform (e.g., Vercel, Netlify, Cloudflare Workers) since it relies entirely on JSON files.
-* **Caching**: Configure aggressive CDN caching (e.g., Cloudflare) on `/v1/...` routes since holiday lists only change when a new year starts or in case of rare government updates.
-* **Rate Limiting**: Basic Express rate-limiting middleware to protect the service from scrapers/abuse.
+## 4. REST API Implementation (`backend/src/index.js`)
+
+The backend is built with **Node.js + Express** and runs on port `3000` by default.
+
+### Features
+* **CORS & Rate Limiting**: Enabled via standard CORS middleware and `express-rate-limit` (limiting each IP to 100 requests per 15 minutes).
+* **Zero Database Overhead**: Standard Node `fs` reads pre-generated JSON files.
+* **On-the-Fly Merging**:
+  - When a user requests a state calendar (e.g., `region=KA`), the API automatically reads both the `central` calendar and the state (`KA`) calendar.
+  - It merges them at runtime, filters out duplicate entries (e.g., Republic Day which appears on both lists), and returns a single sorted chronological list.
+
+### Core Endpoints
+1. **Fetch Holidays List**
+   `GET https://calendar-api-production-a697.up.railway.app/v1/holidays?country=IN&year=2026[&region=KA]`
+   Returns the holiday list for the year. Region defaults to `central` if omitted.
+2. **Check Holiday Status**
+   `GET https://calendar-api-production-a697.up.railway.app/v1/date/is-holiday?country=IN&date=2026-01-26[&region=KA]`
+   Checks if a specific date is a holiday and returns matches.
+3. **Get Next Holiday**
+   `GET https://calendar-api-production-a697.up.railway.app/v1/date/next-holiday?country=IN&date=2026-01-01[&region=KA]`
+   Identifies the next holiday. Automatically rolls over into the next year if needed.
+4. **Date Range Query**
+   `GET https://calendar-api-production-a697.up.railway.app/v1/holidays/range?country=IN&start=2026-01-01&end=2026-06-30[&region=KA]`
+   Filters holidays within a custom range, supporting multi-year queries.
+5. **Calendar Utility**
+   `GET https://calendar-api-production-a697.up.railway.app/v1/calendar?country=IN&year=2026[&region=KA]`
+   Generates a full 365/366 day layout tagged with weekends, holidays, and working-day classifications.
 
 ---
 
-## 6. How to Run the Pipeline
-1. Clone the project.
-2. Run the scraping/parsing process:
-   ```bash
-   node scripts/parse-ics.js
-   ```
-3. Run the validation checks:
-   ```bash
-   node scripts/verify-data.js
-   ```
+## 5. Frontend Client Portal (`/frontend`)
+
+The UI is built with **React (Vite)** and serves as a developer documentation portal and interactive playground.
+
+* **Live Link**: `https://calendar-api-web.vercel.app`
+* **Playground Interface**: Allows developers to dynamically configure queries (picking region, endpoint, parameters) and make API calls in real-time.
+* **Visual Display**: Renders an interactive calendar displaying holiday indicators directly on the dates.
+* **Environment Configuration**: Set `VITE_API_URL` to target the active server (defaults to local port 3000 in development, mapped to `https://calendar-api-production-a697.up.railway.app` in production).
 
 ---
 
-## 7. Incoming Agent Status
-* **Agent 1 (Data Pipeline)**: **COMPLETE**. Script implemented, data parsed, cleaned, validated (0 errors, 0 warnings), and saved inside the `data/` folder.
-* **Agent 2 (Backend API)**: **READY**. Ready to initialize Express server, configure routing, and serve validation responses.
+## 6. Deployment & Operations
+
+### Backend (Express API)
+* Deployed on **Railway** (`https://calendar-api-production-a697.up.railway.app`) targeting the `/backend` root directory.
+* A CDN (e.g., Cloudflare) is configured with caching headers since the calendar JSON database is static and changes very rarely.
+
+### Frontend (Vite Client)
+* Deployed on **Vercel** (`https://calendar-api-web.vercel.app`) targeting the `/frontend` root directory.
+* Requires the environment variable `VITE_API_URL` configured to the live backend Railway URL.
