@@ -111,8 +111,25 @@ The backend and frontend communicate via standard cross-origin JSON requests.
 ```
 
 - **CORS Config**: The backend uses the `cors` package to allow requests from any origin. This ensures the frontend (hosted on Vercel) can make fetch calls without crossing origin blockers.
-- **Port Mapping**: Local development uses port `3000` (Backend) and port `5173` (Vite Frontend). In production, the backend is hosted on Railway.
-- **API URL Environment Variable**: The React frontend uses `VITE_API_URL` to define which backend to talk to.
-  - **Local**: `http://localhost:3000`
-  - **Production**: `https://calendar-api-production-a697.up.railway.app`
-- **Railway Deployment Scoping**: Railway is configured with a root directory build selector of `/backend`. Only changes inside the backend folder trigger a deploy, and the static JSON database is checked directly into Git to act as the production data store.
+- **Port Mapping**: Local development uses port `3000` (Backend) and port `5173` (Vite Frontend).
+- **Production URL Migration**:
+  - **Old URL (Railway)**: `https://calendar-api-production-a697.up.railway.app` (Decommissioned due to ISP-level DNS blocking on Jio/Airtel networks in India).
+  - **New URL (Render)**: `https://calendar-api-d7a8.onrender.com` (Fully active and unblocked).
+
+---
+
+## 7. Required Frontend Changes (Migration Checklist)
+To point the frontend to the new Render backend, the following changes must be applied:
+
+1. **Update Environment Variable**:
+   - In your frontend project configuration (e.g. Vercel dashboard or local `.env` files), update the API endpoint host:
+     ```env
+     VITE_API_URL=https://calendar-api-d7a8.onrender.com
+     ```
+2. **Re-deploy the Frontend**:
+   - Redeploy your frontend project on Vercel so it picks up the updated environment variable.
+3. **Handle Render Cold Starts (Spin Down)**:
+   - *Behavior*: Because the backend is hosted on Render's free tier, the server automatically goes to sleep after **15 minutes of inactivity**.
+   - *Impact*: The very first request to the website after a period of silence will take **30 to 50 seconds** to wake up the server and load. Subsequent requests are instant.
+   - *Frontend Implementation Tip*: Ensure your frontend UI has a clear, user-friendly loading spinner/indicator for API calls, so users know the data is fetching during a cold start instead of thinking the app is frozen.
+

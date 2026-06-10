@@ -12,7 +12,7 @@ Developers building applications for the Indian market face challenges integrati
 ### The Solution
 This project is a **truly free, open-source, keyless REST API** serving Indian holiday calendars (Central Government + 36 States & UTs). It is built as a lightweight, database-free application serving static JSON files generated from official sources.
 
-* **Live API Production URL**: `https://calendar-api-production-a697.up.railway.app`
+* **Live API Production URL**: `https://calendar-api-d7a8.onrender.com`
 * **Live Frontend UI URL**: `https://calendar-api-web.vercel.app`
 * **Zero Friction**: No API keys, no registrations, no limits.
 * **India-First**: Covers Central government, all 28 States, and all 8 Union Territories (37 regions total).
@@ -101,19 +101,19 @@ The backend is built with **Node.js + Express** and runs on port `3000` by defau
 
 ### Core Endpoints
 1. **Fetch Holidays List**
-   `GET https://calendar-api-production-a697.up.railway.app/v1/holidays?country=IN&year=2026[&region=KA]`
+   `GET https://calendar-api-d7a8.onrender.com/v1/holidays?country=IN&year=2026[&region=KA]`
    Returns the holiday list for the year. Region defaults to `central` if omitted.
 2. **Check Holiday Status**
-   `GET https://calendar-api-production-a697.up.railway.app/v1/date/is-holiday?country=IN&date=2026-01-26[&region=KA]`
+   `GET https://calendar-api-d7a8.onrender.com/v1/date/is-holiday?country=IN&date=2026-01-26[&region=KA]`
    Checks if a specific date is a holiday and returns matches.
 3. **Get Next Holiday**
-   `GET https://calendar-api-production-a697.up.railway.app/v1/date/next-holiday?country=IN&date=2026-01-01[&region=KA]`
+   `GET https://calendar-api-d7a8.onrender.com/v1/date/next-holiday?country=IN&date=2026-01-01[&region=KA]`
    Identifies the next holiday. Automatically rolls over into the next year if needed.
 4. **Date Range Query**
-   `GET https://calendar-api-production-a697.up.railway.app/v1/holidays/range?country=IN&start=2026-01-01&end=2026-06-30[&region=KA]`
+   `GET https://calendar-api-d7a8.onrender.com/v1/holidays/range?country=IN&start=2026-01-01&end=2026-06-30[&region=KA]`
    Filters holidays within a custom range, supporting multi-year queries.
 5. **Calendar Utility**
-   `GET https://calendar-api-production-a697.up.railway.app/v1/calendar?country=IN&year=2026[&region=KA]`
+   `GET https://calendar-api-d7a8.onrender.com/v1/calendar?country=IN&year=2026[&region=KA]`
    Generates a full 365/366 day layout tagged with weekends, holidays, and working-day classifications.
 
 ---
@@ -123,7 +123,7 @@ The backend is built with **Node.js + Express** and runs on port `3000` by defau
 The frontend is a **multi-page Single Page Application (SPA)** built with **React 19 + Vite 8 + TailwindCSS 3** and deployed on Vercel. It serves as a polished developer documentation portal, interactive API playground, and service status dashboard.
 
 * **Live Link**: `https://calendar-api-web.vercel.app`
-* **Environment Configuration**: Set `VITE_API_URL` to target the active server (defaults to local port 3000 in development, mapped to `https://calendar-api-production-a697.up.railway.app` in production).
+* **Environment Configuration**: Set `VITE_API_URL` to target the active server (defaults to local port 3000 in development, mapped to `https://calendar-api-d7a8.onrender.com` in production).
 
 ### Tech Stack & Key Dependencies
 | Library | Purpose |
@@ -197,7 +197,7 @@ A full API reference documentation page (~533 lines of JSX):
 A real-time service health monitoring dashboard:
 * **System Status Header**: Animated pulse icon with a `StatusBadge` component that pings the backend on load and shows "API Live (Xms)" or "API Offline".
 * **Metrics Grid** (3 cards): Latency (live roundtrip measurement from browser), CDN Caching (Cloudflare status), Uptime Target (99.9%).
-* **Operational Details Table**: API Version (v1.0.0), Hosting Provider (Railway/Node.js), Deployment Target URL, Rate Limiting Threshold (100 req/15min/IP), Data Storage Protocol (static JSON flat-files).
+* **Operational Details Table**: API Version (v1.0.0), Hosting Provider (Render/Node.js), Deployment Target URL, Rate Limiting Threshold (100 req/15min/IP), Data Storage Protocol (static JSON flat-files).
 
 ### Reusable Components (7 total)
 | Component | Purpose |
@@ -218,10 +218,10 @@ A real-time service health monitoring dashboard:
 ## 6. Deployment & Operations
 
 ### Backend (Express API)
-* Deployed on **Railway** (`https://calendar-api-production-a697.up.railway.app`) targeting the `/backend` root directory.
+* Deployed on **Render** (`https://calendar-api-d7a8.onrender.com`) targeting the `/backend` root directory.
 * A CDN (e.g., Cloudflare) is configured with caching headers since the calendar JSON database is static and changes very rarely.
 
 ### Frontend (Vite Client)
 * Deployed on **Vercel** (`https://calendar-api-web.vercel.app`) targeting the `/frontend` root directory.
-* Requires the environment variable `VITE_API_URL` configured to the live backend Railway URL.
+* Requires the environment variable `VITE_API_URL` configured to the live backend Render URL.
 * A `vercel.json` rewrite rule redirects all non-asset paths to `index.html` to support React Router's client-side routing on Vercel.
