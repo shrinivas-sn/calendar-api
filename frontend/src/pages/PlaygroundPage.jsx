@@ -4,6 +4,7 @@ import RegionSelector from '../components/RegionSelector';
 import CodeSnippet from '../components/CodeSnippet';
 import JsonViewer from '../components/JsonViewer';
 import CalendarGrid from '../components/CalendarGrid';
+import StatusBadge from '../components/StatusBadge';
 
 export default function PlaygroundPage() {
   const [baseUrl, setBaseUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:3000');
@@ -23,6 +24,7 @@ export default function PlaygroundPage() {
   const [responseTab, setResponseTab] = useState('json');
   const [responseTime, setResponseTime] = useState(null);
   const [httpStatus, setHttpStatus] = useState(null);
+  const [longLoad, setLongLoad] = useState(false);
 
   useEffect(() => {
     let path = '/v1/holidays';
@@ -57,10 +59,16 @@ export default function PlaygroundPage() {
 
   const handleFetch = async () => {
     setLoading(true);
+    setLongLoad(false);
     setError(null);
     setResponse(null);
     setResponseTime(null);
     setHttpStatus(null);
+    
+    const longLoadTimeout = setTimeout(() => {
+      setLongLoad(true);
+    }, 3000);
+
     const startTime = performance.now();
     try {
       const res = await fetch(apiUrl);
@@ -75,7 +83,9 @@ export default function PlaygroundPage() {
     } catch (err) {
       setError(err.message || 'Failed to fetch from API. Ensure your backend is running.');
     } finally {
+      clearTimeout(longLoadTimeout);
       setLoading(false);
+      setLongLoad(false);
     }
   };
 
@@ -139,6 +149,7 @@ export default function PlaygroundPage() {
 
           {/* Status Badges */}
           <div className="flex items-center gap-3 flex-wrap">
+            <StatusBadge baseUrl={baseUrl} />
             {httpStatus && (
               <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-bold uppercase tracking-wider border ${
                 httpStatus >= 200 && httpStatus < 300
@@ -331,9 +342,11 @@ export default function PlaygroundPage() {
             <div className="flex-1 flex flex-col p-5 sm:p-6 relative min-h-[400px]">
               {/* Loading Overlay */}
               {loading && (
-                <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 gap-3">
+                <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 gap-3 text-center px-4">
                   <div className="w-10 h-10 border-3 border-saffron-500/20 border-t-saffron-500 rounded-full animate-spin" />
-                  <span className="text-xs font-semibold text-slate-400 animate-pulse">Fetching response...</span>
+                  <span className="text-xs font-semibold text-slate-400 animate-pulse">
+                    {longLoad ? 'Waking up backend server (this first load takes 30-40s)...' : 'Fetching response...'}
+                  </span>
                 </div>
               )}
 

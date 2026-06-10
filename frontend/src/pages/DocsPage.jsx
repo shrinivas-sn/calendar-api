@@ -83,7 +83,7 @@ export default function DocsPage() {
               All requests are issued to the production deployment URL below. Always use HTTPS.
             </p>
             <div className="bg-black/40 border border-white/10 rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm text-blue-400 break-all select-all">
-              https://calendar-api-production-a697.up.railway.app
+              https://calendar-api-d7a8.onrender.com
             </div>
           </section>
 

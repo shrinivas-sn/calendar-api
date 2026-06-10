@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
@@ -67,13 +67,14 @@ export default function Navbar() {
             </nav>
 
             <a
-              href="https://github.com"
+              href="https://github.com/shrinivas-sn/calendar-api"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-100 transition-colors duration-200"
+              className="text-slate-400 hover:text-slate-100 transition-colors duration-200 flex items-center gap-0.5"
               aria-label="GitHub repository"
             >
               <GithubIcon />
+              <ArrowUpRight size={13} className="opacity-60" />
             </a>
           </div>
 
@@ -111,12 +112,13 @@ export default function Navbar() {
           <div className="pt-4 pb-2 border-t border-white/5 flex items-center justify-between px-3">
             <span className="text-sm text-slate-400">View code</span>
             <a
-              href="https://github.com"
+              href="https://github.com/shrinivas-sn/calendar-api"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-slate-100 transition-colors"
+              className="text-slate-400 hover:text-slate-100 transition-colors flex items-center gap-0.5"
             >
               <GithubIcon />
+              <ArrowUpRight size={13} className="opacity-60" />
             </a>
           </div>
         </div>

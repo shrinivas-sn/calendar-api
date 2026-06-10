@@ -11,6 +11,7 @@ export default function HomePage() {
   const [demoLoading, setDemoLoading] = useState(false);
   const [demoError, setDemoError] = useState(null);
   const [copiedQuickStart, setCopiedQuickStart] = useState(false);
+  const [demoLongLoad, setDemoLongLoad] = useState(false);
 
   const quickStartCmd = `curl -X GET "${baseUrl}/v1/holidays?country=IN&year=2026&region=KA"`;
 
@@ -22,8 +23,14 @@ export default function HomePage() {
 
   const handleDemoFetch = async () => {
     setDemoLoading(true);
+    setDemoLongLoad(false);
     setDemoError(null);
     setDemoResponse(null);
+
+    const longLoadTimeout = setTimeout(() => {
+      setDemoLongLoad(true);
+    }, 3000);
+
     try {
       const url = `${baseUrl}/v1/holidays?country=IN&year=2026&region=${demoRegion}`;
       const res = await fetch(url);
@@ -37,7 +44,9 @@ export default function HomePage() {
     } catch (err) {
       setDemoError(err.message || 'Failed to fetch. Make sure API backend is running.');
     } finally {
+      clearTimeout(longLoadTimeout);
       setDemoLoading(false);
+      setDemoLongLoad(false);
     }
   };
 
@@ -171,8 +180,13 @@ export default function HomePage() {
           {/* Code Viewer Panel */}
           <div className="md:col-span-8">
             {demoLoading && (
-              <div className="h-48 flex items-center justify-center bg-black/30 border border-white/5 rounded-2xl">
+              <div className="h-48 flex flex-col items-center justify-center gap-3 bg-black/30 border border-white/5 rounded-2xl px-4 text-center">
                 <div className="w-8 h-8 border-2 border-saffron-500/30 border-t-saffron-500 rounded-full animate-spin" />
+                {demoLongLoad && (
+                  <span className="text-[10px] sm:text-xs text-amber-400/80 animate-pulse font-medium">
+                    Waking up Render backend (can take 30s)...
+                  </span>
+                )}
               </div>
             )}
 

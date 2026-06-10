@@ -112,11 +112,11 @@ export default function StatusPage() {
           </div>
           <div className="flex items-center justify-between py-2 border-b border-white/5">
             <span className="text-slate-400 font-medium">Hosting Provider</span>
-            <span className="text-slate-300">Railway (Node.js runtime)</span>
+            <span className="text-slate-300">Render (Node.js runtime)</span>
           </div>
           <div className="flex items-center justify-between py-2 border-b border-white/5">
             <span className="text-slate-400 font-medium">Deployment Target</span>
-            <span className="text-slate-300">calendar-api-production-a697.up.railway.app</span>
+            <span className="text-slate-300">calendar-api-d7a8.onrender.com</span>
           </div>
           <div className="flex items-center justify-between py-2 border-b border-white/5">
             <span className="text-slate-400 font-medium">Rate Limiting Threshold</span>
