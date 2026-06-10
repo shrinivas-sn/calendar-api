@@ -24,11 +24,14 @@ The application is structured as a Single Page Application (SPA). The main layou
 │    │JsonViewer │      │CalGrid    │      └───────────┘   └───────────┘ │
 │    └───────────┘      │JsonViewer │                                    │
 │                       │CodeSnippet│                                    │
+│                       │StatusBadge│                                    │
 │                       └───────────┘                                    │
 ├────────────────────────────────────────────────────────────────────────┤
 │                               Footer.jsx                               │
 └────────────────────────────────────────────────────────────────────────┘
 ```
+
+---
 
 ## 2. Page Directory & User Features
 
@@ -36,13 +39,16 @@ The application is structured as a Single Page Application (SPA). The main layou
 - **Hero & Value Props**: Simple introduction detailing the open-source, keyless, and state-level capabilities of the API.
 - **Quick Start**: Displays a standard copyable `curl` endpoint request.
 - **Interactive Live Demo**: An inline widget where users select one of the 37 states/UTs to test an API response payload instantly (renders the first 3 holidays using `RegionSelector` and `JsonViewer`).
+- **Automatic Warm-up Warning**: If the demo API call takes longer than 3 seconds (due to Render's free tier sleep cycle), it displays a pulsing warning: `"Waking up Render backend (can take 30s)..."` to manage user expectations.
 
 ### PlaygroundPage (`/playground`)
 - **API Request Builder**: Dropdowns and inputs to select endpoints (`/holidays`, `/is-holiday`, `/next-holiday`, `/range`, `/calendar`) and parameters (region, year, date).
+- **Console Header Status Badge**: Integrates the `StatusBadge` directly in the Playground header to immediately ping the backend on mount and display its sleep/health state.
 - **Dual Visualizer**: Toggle tabs allowing users to view the API response as either:
   - Raw syntax-highlighted JSON (`JsonViewer`).
   - An interactive visual calendar grid (`CalendarGrid`) with color-coded holidays and hover tooltips.
 - **Live Code Generator**: Generates integration snippets (`CodeSnippet`) in cURL, JavaScript, Python, and Go that update in real-time as the request parameters change.
+- **Warm-up Fetch Alert**: Similarly to the HomePage demo, if a manual request takes longer than 3 seconds, the loading indicator text dynamically shifts to `"Waking up backend server (this first load takes 30-40s)..."` to signal that the container is warming up from sleep.
 
 ### DocsPage (`/docs`)
 - **Endpoint Reference**: Complete specifications for each available route, parameter, and error condition.
@@ -56,13 +62,13 @@ The application is structured as a Single Page Application (SPA). The main layou
 
 ## 3. Shared Component Specifications
 
-- **`Navbar.jsx`**: Top header holding the logo, page navigation, and a external GitHub link. Clicking the logo routes to home and scrolls to the top of the page.
+- **`Navbar.jsx`**: Top header holding the logo, page navigation, and an external link to the [GitHub Repository](https://github.com/shrinivas-sn/calendar-api) styled with a Lucide `ArrowUpRight` icon. Clicking the logo routes to home and scrolls to the top of the page.
 - **`Footer.jsx`**: Bottom link list and copyright notes. Clicking the logo routes to home and scrolls to the top.
 - **`RegionSelector.jsx`**: Autocomplete search dropdown listing all 37 Indian states and Union Territories sourced from `src/data/regions.js`.
 - **`CalendarGrid.jsx`**: An interactive month-view calendar with left/right month controls. Highlights weekends with a red border, gazetted holidays in saffron, restricted holidays in amber, and observances in indigo. Tooltips show holiday names on hover.
 - **`JsonViewer.jsx`**: A pretty-printer that parses JSON data and highlights strings, numbers, booleans, and keys using CSS classes.
 - **`CodeSnippet.jsx`**: Renders structured and syntax-highlighted HTTP client request patterns for 4 languages.
-- **`StatusBadge.jsx`**: Dynamic component that sends a real-time health-check ping to the backend API, displaying either "API Live (Xms)" or "API Offline".
+- **`StatusBadge.jsx`**: Dynamic component that sends a real-time health-check ping to the backend API. Features an automated 2-second timeout checker: if the server is asleep and doesn't respond within 2 seconds, it automatically transitions to a warning state saying `Backend Sleeping (Waking up...)`. Once active, it displays either `"API Live (Xms)"` or `"API Offline"`.
 
 ---
 
