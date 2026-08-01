@@ -11,7 +11,7 @@
 ## 🚀 Live Demo & Playground
 
 * **Interactive Playground & Docs:** [https://calendar-api-web.vercel.app/](https://calendar-api-web.vercel.app/)
-* **Base API URL:** `https://calendar-api-production-a697.up.railway.app`
+* **Base API URL (Render):** [https://calendar-api-d7a8.onrender.com](https://calendar-api-d7a8.onrender.com)
 
 ---
 
