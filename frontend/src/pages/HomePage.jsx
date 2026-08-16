@@ -55,8 +55,9 @@ export default function HomePage() {
       {/* Hero section */}
       <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Live Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6 animate-pulse">
+          {/* Top Live Badge. Deliberately not pulsing: a pulse signals "loading", and this is
+              static marketing copy — a permanent main-thread animation lying about state. */}
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6">
             <Flame size={12} />
             <span>Developer-First & 100% Free</span>
           </div>
@@ -73,14 +74,14 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <NavLink
               to="/playground"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-saffron-500 to-red-600 shadow-lg shadow-saffron-500/10 hover:shadow-saffron-500/20 hover:scale-[1.01] active:scale-[0.99] transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-saffron-500 to-red-600 shadow-lg shadow-saffron-500/10 hover:shadow-saffron-500/20 hover:scale-[1.01] active:scale-[0.99] transition-[transform,box-shadow]"
             >
               Explore Playground
               <ArrowRight size={16} />
             </NavLink>
             <NavLink
               to="/docs"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-[background-color,border-color]"
             >
               Read API Docs
             </NavLink>
@@ -171,7 +172,7 @@ export default function HomePage() {
             <button
               onClick={handleDemoFetch}
               disabled={demoLoading}
-              className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 transition-all shadow-md shadow-saffron-500/5"
+              className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 transition-[box-shadow,opacity] shadow-md shadow-saffron-500/5"
             >
               {demoLoading ? 'Fetching...' : 'Test Request'}
             </button>

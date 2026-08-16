@@ -151,7 +151,7 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
               key={dateStr}
               onMouseEnter={() => isHoliday && setHoveredDay(cell)}
               onMouseLeave={() => setHoveredDay(null)}
-              className={`relative flex flex-col items-center justify-center py-2.5 rounded-lg text-xs font-medium border border-transparent transition-all duration-150 ${
+              className={`relative flex flex-col items-center justify-center py-2.5 rounded-lg text-xs font-medium border border-transparent transition-[background-color,border-color,color] duration-150 ${
                 isHoliday
                   ? getHolidayColorClass(holidayType)
                   : isWeekend

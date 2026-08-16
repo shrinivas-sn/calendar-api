@@ -47,7 +47,7 @@ export default function DocsPage() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`w-full text-left text-sm font-semibold px-3 py-2 rounded-lg transition-all duration-150 ${
+                className={`w-full text-left text-sm font-semibold px-3 py-2 rounded-lg transition-[background-color,border-color,color] duration-150 ${
                   activeSection === item.id
                     ? 'bg-saffron-500/10 text-saffron-400 font-bold border-l-2 border-saffron-500 pl-2.5'
                     : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/30'

@@ -210,7 +210,7 @@ export default function PlaygroundPage() {
                   type="text" 
                   value={baseUrl} 
                   onChange={(e) => setBaseUrl(e.target.value)} 
-                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 font-mono focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all"
+                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 font-mono focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                 />
               </div>
 
@@ -220,7 +220,7 @@ export default function PlaygroundPage() {
                 <select 
                   value={endpoint} 
                   onChange={(e) => setEndpoint(e.target.value)} 
-                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all appearance-none cursor-pointer"
+                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
                 >
                   {endpointOptions.map(opt => (
                     <option key={opt.value} value={opt.value}>GET {opt.label} — {opt.desc}</option>
@@ -238,7 +238,7 @@ export default function PlaygroundPage() {
                   <select 
                     value={year} 
                     onChange={(e) => setYear(e.target.value)} 
-                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all appearance-none cursor-pointer"
+                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
                   >
                     <option value="2026">2026</option>
                   </select>
@@ -252,7 +252,7 @@ export default function PlaygroundPage() {
                     type="date" 
                     value={date} 
                     onChange={(e) => setDate(e.target.value)} 
-                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all"
+                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                   />
                 </div>
               )}
@@ -265,7 +265,7 @@ export default function PlaygroundPage() {
                       type="date" 
                       value={startDate} 
                       onChange={(e) => setStartDate(e.target.value)} 
-                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all"
+                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                     />
                   </div>
                   <div className="group">
@@ -274,7 +274,7 @@ export default function PlaygroundPage() {
                       type="date" 
                       value={endDate} 
                       onChange={(e) => setEndDate(e.target.value)} 
-                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-all"
+                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                     />
                   </div>
                 </div>
@@ -284,7 +284,7 @@ export default function PlaygroundPage() {
               <button
                 onClick={handleFetch}
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2.5 mt-auto py-3 rounded-xl text-sm font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 hover:shadow-lg hover:shadow-saffron-500/20 active:scale-[0.98] transition-all duration-200"
+                className="w-full flex items-center justify-center gap-2.5 mt-auto py-3 rounded-xl text-sm font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 hover:shadow-lg hover:shadow-saffron-500/20 active:scale-[0.98] transition-[transform,box-shadow] duration-200"
               >
                 {loading ? (
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -315,7 +315,7 @@ export default function PlaygroundPage() {
               <div className="flex gap-1 p-1 rounded-lg bg-black/40 border border-white/5">
                 <button
                   onClick={() => setResponseTab('json')}
-                  className={`text-[11px] font-bold px-3 py-1.5 rounded-md transition-all duration-150 ${
+                  className={`text-[11px] font-bold px-3 py-1.5 rounded-md transition-[background-color,border-color,color] duration-150 ${
                     responseTab === 'json'
                       ? 'bg-saffron-500/15 text-saffron-400 shadow-sm'
                       : 'text-slate-500 hover:text-slate-300'
@@ -326,7 +326,7 @@ export default function PlaygroundPage() {
                 <button
                   onClick={() => setResponseTab('calendar')}
                   disabled={!canShowCalendar}
-                  className={`text-[11px] font-bold px-3 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed ${
+                  className={`text-[11px] font-bold px-3 py-1.5 rounded-md transition-[background-color,border-color,color] duration-150 flex items-center gap-1.5 disabled:opacity-30 disabled:cursor-not-allowed ${
                     responseTab === 'calendar'
                       ? 'bg-saffron-500/15 text-saffron-400 shadow-sm'
                       : 'text-slate-500 hover:text-slate-300'

@@ -65,7 +65,7 @@ func main() {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`text-xs font-semibold px-2.5 py-1.5 rounded-md transition-all duration-150 ${
+              className={`text-xs font-semibold px-2.5 py-1.5 rounded-md transition-[background-color,border-color,color] duration-150 ${
                 activeTab === tab.id
                   ? 'bg-saffron-500/10 text-saffron-400'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-white/5'
