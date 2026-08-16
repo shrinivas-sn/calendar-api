@@ -142,13 +142,19 @@ present in the emitted CSS, so the arbitrary-value classes are compiling, not be
 
 ---
 
-## Deployment status (re-confirmed 2026-08-16)
+## Deployment status (2026-08-16)
 
-`https://calendar-api-production-a697.up.railway.app` returns Railway's edge 404 —
-`{"status":"error","code":404,"message":"Application not found"}` with `x-railway-fallback: true`.
-The backend is not deployed, so the API-status badge in `README.md` is misleading.
+**Live on Render:** `https://calendar-api-d7a8.onrender.com` — `/` returns 200 and
+`/v1/holidays?country=IN&year=2026` returns real data. Railway was abandoned due to platform
+restrictions; `calendar-api-production-a697.up.railway.app` is dead and any reference to it
+is stale.
 
-**This is the one item still open on this repo.** Two consequences: which `NODE_ENV`
-production would run under is still unverifiable, and the error-handler fix above — verified
-locally, by reproducing the failure — has never run in production, because there is no
-production to run it in.
+**The deployed build predates the error-handler fix.** Probed 2026-08-16:
+
+```
+POST /v1/holidays  -d '{bad'   ->  400 text/html   <pre>Bad Request</pre>
+```
+
+HTML, not the JSON envelope — the pre-fix behaviour. Production also runs with `NODE_ENV`
+effectively set (no stack trace leaked), so the leak variant is not exposed. The fix is
+committed on `develop` and unpushed; deploying that branch is what closes this.
