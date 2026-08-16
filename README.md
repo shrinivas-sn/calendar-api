@@ -3,7 +3,7 @@
 > **A free, open-source Indian Holiday Calendar REST API.** No API keys, no signups, no rate limits to slow you down — just pure JSON.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![API Status](https://img.shields.io/website?url=https%3A%2F%2Fcalendar-api-production-a697.up.railway.app%2F)](https://calendar-api-production-a697.up.railway.app/)
+[![API Status](https://img.shields.io/website?url=https%3A%2F%2Fcalendar-api-d7a8.onrender.com)](https://calendar-api-d7a8.onrender.com)
 [![Frontend Status](https://img.shields.io/website?url=https%3A%2F%2Fcalendar-api-web.vercel.app%2F)](https://calendar-api-web.vercel.app/)
 
 ---
@@ -11,7 +11,7 @@
 ## 🚀 Live Demo & Playground
 
 * **Interactive Playground & Docs:** [https://calendar-api-web.vercel.app/](https://calendar-api-web.vercel.app/)
-* **Base API URL:** `https://calendar-api-production-a697.up.railway.app`
+* **Base API URL (Render):** [https://calendar-api-d7a8.onrender.com](https://calendar-api-d7a8.onrender.com)
 
 ---
 
