@@ -434,9 +434,20 @@ app.get('/', (req, res) => {
   });
 });
 
-// Wildcard 404 handler
+// Wildcard 404 handler — 2 args, so this is a request handler and never sees errors
 app.use((req, res) => {
   sendError(res, "Endpoint not found", 404);
+});
+
+// Terminal error handler. Must be exactly 4 args and registered last: Express tells
+// request handlers from error handlers by arity alone. Without it, anything thrown in
+// middleware (express.json() on a malformed body being the easy case) falls through to
+// finalhandler, which answers in HTML — and leaks a stack trace unless NODE_ENV=production.
+// The per-route try/catch blocks above cover route bodies only, not middleware.
+app.use((err, req, res, next) => {
+  const status = err.status || err.statusCode || 500;
+  if (status >= 500) console.error(err);
+  sendError(res, status >= 500 ? "Internal Server Error" : err.message, status);
 });
 
 // Start server
