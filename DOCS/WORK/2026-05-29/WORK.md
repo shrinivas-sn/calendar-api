@@ -1,3 +1,12 @@
+# 29/05/2026 — Frontend redesign plan: India Calendar API Portal
+
+<!-- Title date is DD/MM/YYYY (display). The folder name this file lives in stays
+YYYY-MM-DD for correct sorting — don't rename the folder to match the title. -->
+
+## Plan
+
+<!-- Verbatim from DOCS/APP-PLANS/2026-05-29-FRONTEND-DEVELOPMENT.md -->
+
 # Frontend Redesign Plan: India Calendar API Portal
 **Date:** May 29, 2026  
 **Status:** Awaiting Approval
@@ -318,3 +327,17 @@ We will **keep the existing saffron/indigo color identity** — this is our bran
 ## Awaiting Your Approval
 
 Please review this plan. Once you approve, I will begin implementation starting from Phase 1.
+
+## Execution
+
+*(No execution log found for this plan — the source document's own header still reads
+"Status: Awaiting Approval" with no corresponding EXECUTIONS-style file anywhere in
+DOCS/. Whether this plan was later carried out should be checked against
+`DOCS/CONTEXT/frontend.md` / the actual `frontend/` source, not assumed from this file.)*
+
+## Notes
+
+Migrated from `DOCS/APP-PLANS/2026-05-29-FRONTEND-DEVELOPMENT.md` during the docs
+restructure (Phase 3) — this was a lone dated plan with no paired execution file, so
+it's filed under `WORK/2026-05-29/` on the strength of its date rather than a
+plan+execution pair.
