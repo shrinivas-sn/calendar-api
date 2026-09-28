@@ -6,7 +6,8 @@
 **Frontend:** `https://calendar-api.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
 
 ## Current State
-- Deployed: `develop` and `main` pushed to `origin` (`3a1c9fe`), auto-deploying to Render & Vercel.
+- Relocated into `E:\OSC\api-projects\projects\calendar-api`; git history and remotes preserved.
+- Deployed: `develop` and `main` pushed to `origin` (`97671a5`), auto-deploying to Render & Vercel.
 - All 6 OSC SEO & Indexing Invariants PASS:
   1. Real URL routes (`/`, `/playground`, `/docs`, `/guides`, `/guides/:id`, `/status`, `404`).
   2. Static Prerendering (SSG) via `scripts/prerender.mjs` rendering full static HTML into `dist/`.
@@ -16,10 +17,10 @@
   6. Vercel rewrites configured with negative-lookahead static asset exemption.
 - Anti-slop UI polish complete across all pages (asymmetric hero, zero fake macOS widgets, disciplined palette, zero `transition-all`).
 - Backend operational on Express 5 (`express@5.2.1`) with JSON error envelope, rate limiting, and CORS.
+- Registered in `E:\OSC\api-projects\SUBMISSION-READINESS.md` along with LGD and GST APIs.
 
 ## Blockers / In Flight
-- None. System is stable and production build verified.
+- None. All quality gates pass and working tree is clean.
 
 ## Next up (start here)
-1. Verify live Vercel and Render deployment outputs.
-2. Prepare submission entry for `public-apis` directory / awesome lists.
+1. In `E:\OSC\api-projects\projects\public-apis-fork`, branch off `upstream/master` and create the 3 PRs for Calendar, LGD, and GST APIs using `SUBMISSION-READINESS.md`.
