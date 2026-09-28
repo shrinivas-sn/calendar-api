@@ -13,6 +13,7 @@ export default function Navbar() {
     { to: "/", label: "Home" },
     { to: "/playground", label: "Playground" },
     { to: "/docs", label: "Docs" },
+    { to: "/guides", label: "Guides" },
     { to: "/status", label: "Status" }
   ];
 
@@ -38,11 +39,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <NavLink to="/" onClick={handleLogoClick} className="flex items-center gap-3 group hover:opacity-95 transition-opacity duration-200">
-            <div className="w-9 h-9 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+            <div className="w-9 h-9 flex items-center justify-center group-hover:scale-[1.02] transition-transform duration-200">
               <img src="/images/favicon.svg" alt="Calendar API Logo" className="w-8 h-8 object-contain" />
             </div>
             <span className="font-display font-extrabold text-lg tracking-tight text-slate-100 group-hover:text-white transition-colors duration-200">
-              Calendar <span className="text-saffron-gradient">API</span>
+              Calendar <span className="text-saffron-500 font-extrabold">API</span>
             </span>
           </NavLink>
 
