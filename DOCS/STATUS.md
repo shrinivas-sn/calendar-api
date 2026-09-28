@@ -1,17 +1,19 @@
 # Project Status — India Calendar API
 
 **Last updated:** 28/09/2026  
+**Workspace:** `E:\OSC\api-projects\projects\calendar-api` (moved from `E:\calendar-api`)  
 **Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
 **Frontend:** React 19 + Tailwind v3 SPA (Vercel)
 
 ## Current State
-- Backend operational on Express 5 (`express@5.2.1`) with JSON error-envelope handling verified in production.
-- Frontend multi-page SPA (`/`, `/playground`, `/docs`, `/status`) running with custom saffron dark theme.
-- CSS transitions, focus states (`focus-visible`), and `prefers-reduced-motion` accessibility baseline established.
-- Documentation restructured into standard `DOCS/` format with clean working tree.
+- Project relocated into `E:\OSC\api-projects\projects\calendar-api`; git history and remotes preserved.
+- Registered in `E:\OSC\api-projects\IDEA-LOG.md` as a deployed public API.
+- Backend operational (Express 5, JSON error-envelope, rate limiting, CORS).
+- Frontend multi-page SPA (`/`, `/playground`, `/docs`, `/status`) with saffron dark theme.
+- Accessibility baseline established (zero `transition-all`, `focus-visible`, `prefers-reduced-motion`).
 
 ## Blockers / In Flight
-- None. System is stable and all recent defects are closed.
+- `PLAN-frontend-upgrade.md` written and validated (4 phases, 9 tasks) — **awaiting owner go-ahead**.
 
 ## Next up (start here)
-1. Ready for new feature, endpoint, or data task from user.
+1. Review and approve `PLAN-frontend-upgrade.md`, then execute Phase 1 (Technical Guides Hub & Routing).
