@@ -6,9 +6,7 @@
 
 @layer base {
   :root {
-    --saffron-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #b91c1c 100%);
-    --indigo-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
-    --emerald-gradient: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    --saffron-accent: #ea580c;
   }
 
   body {
@@ -28,8 +26,7 @@
     @apply font-semibold bg-slate-950 text-slate-200 border-slate-800 focus:border-saffron-500 focus:ring-1 focus:ring-saffron-500/50 transition-[border-color,box-shadow] duration-200;
   }
 
-  /* focus-visible, not focus: keyboard users get the ring, mouse users don't.
-     None of the 14 buttons in this app carried any focus state before this. */
+  /* focus-visible, not focus: keyboard users get the ring, mouse users don't. */
   button {
     @apply font-bold transition-[transform,box-shadow,background-color,border-color,opacity] duration-200 hover:scale-[1.01] active:scale-[0.99] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900;
   }
@@ -53,13 +50,12 @@
 
 /* Premium Card utilities */
 .docs-card {
-  @apply bg-slate-950/40 border border-slate-800/80 rounded-2xl shadow-lg transition-[box-shadow,border-color] duration-300 ease-out;
+  @apply bg-slate-950/40 border border-slate-800/80 rounded-xl shadow-md transition-[box-shadow,border-color] duration-300 ease-out;
 }
 
-/* transform + box-shadow are compositor-friendly; the previous blanket transition also
-   animated layout/paint properties and forced paint on every hover frame. */
+/* transform + box-shadow are compositor-friendly */
 .interactive-card {
-  @apply bg-slate-950/50 border border-slate-800/80 rounded-2xl shadow-lg hover:border-slate-700/80 hover:shadow-2xl hover:shadow-black/20 hover:-translate-y-[2px] transition-[transform,box-shadow,border-color] duration-300 ease-out;
+  @apply bg-slate-950/50 border border-slate-800/80 rounded-xl shadow-md hover:border-slate-700/80 hover:shadow-lg hover:shadow-black/20 hover:-translate-y-[1px] transition-[transform,box-shadow,border-color] duration-200 ease-out;
 }
 
 /* Glow Backgrounds */
@@ -98,49 +94,24 @@
 
 @keyframes floatCircle {
   0% { transform: translateY(0px) scale(1); }
-  100% { transform: translateY(40px) scale(1.05); }
+  100% { transform: translateY(20px) scale(1.05); }
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* Syntax Highlighting Colors */
+.json-key { color: #38bdf8; }       /* Light sky blue */
+.json-string { color: #4ade80; }    /* Light emerald green */
+.json-number { color: #fbbf24; }    /* Light amber */
+.json-boolean { color: #c084fc; }   /* Light purple */
+.json-null { color: #94a3b8; }      /* Light slate */
 
-.animate-fadeIn {
-  animation: fadeIn 0.35s ease-out forwards;
-}
-
-/* Brand Text Gradients */
-.text-saffron-gradient {
-  background: var(--saffron-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.text-indigo-gradient {
-  background: var(--indigo-gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Reduced motion. Last in the file so it wins on source order as well as specificity.
-   This app ships hover lift, button scale, and the animated glow circles; none of it
-   carries meaning, so the global floor is the correct treatment rather than per-component
-   branching. Not a polish item — an accessibility requirement. */
+/* Global reduced-motion floor: sits last in index.css so it wins the cascade */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
-/* JSON syntax highlighting styling */
-.keyword { @apply text-pink-400 font-bold; }
-.string { @apply text-emerald-400 font-medium; }
-.number { @apply text-amber-400 font-medium; }
-.boolean { @apply text-blue-400 font-medium; }
-.property { @apply text-indigo-400 font-bold; }

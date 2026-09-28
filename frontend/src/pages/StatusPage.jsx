@@ -28,7 +28,7 @@ export default function StatusPage() {
       {/* Header */}
       <div className="text-center mb-12">
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-3">
-          Service <span className="text-saffron-gradient">Status</span>
+          Service <span className="text-saffron-500">Status</span>
         </h1>
         <p className="text-sm sm:text-base text-slate-400">
           Real-time diagnostics and performance monitoring for the Calendar API nodes.
@@ -38,7 +38,7 @@ export default function StatusPage() {
       <div className="interactive-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-saffron-500/10 flex items-center justify-center text-saffron-500">
-            <Activity size={24} className="animate-pulse" />
+            <Activity size={24} />
           </div>
           <div>
             <h2 className="font-display font-bold text-slate-200 text-lg">System Status</h2>

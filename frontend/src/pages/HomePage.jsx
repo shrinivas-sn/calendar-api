@@ -55,8 +55,7 @@ export default function HomePage() {
       {/* Hero section */}
       <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Live Badge. Deliberately not pulsing: a pulse signals "loading", and this is
-              static marketing copy — a permanent main-thread animation lying about state. */}
+          {/* Top Live Badge */}
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6">
             <Flame size={12} />
             <span>Developer-First & 100% Free</span>
@@ -64,7 +63,7 @@ export default function HomePage() {
 
           <h1 className="font-display font-extrabold text-4xl sm:text-6xl tracking-tight leading-[1.1] mb-6">
             Open-Source <br />
-            <span className="text-saffron-gradient">Indian Calendar API</span>
+            <span className="text-saffron-500">Indian Calendar API</span>
           </h1>
 
           <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -74,7 +73,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
             <NavLink
               to="/playground"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-gradient-to-r from-saffron-500 to-red-600 shadow-lg shadow-saffron-500/10 hover:shadow-saffron-500/20 hover:scale-[1.01] active:scale-[0.99] transition-[transform,box-shadow]"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 shadow-sm hover:shadow hover:scale-[1.01] active:scale-[0.99] transition-[transform,box-shadow,background-color]"
             >
               Explore Playground
               <ArrowRight size={16} />
@@ -153,11 +152,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mini Live Demo Section (shows value instantly like mfapi) */}
+      {/* Mini Live Demo Section */}
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5">
         <div className="text-center mb-10">
           <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-100 mb-3">
-            See It In <span className="text-saffron-gradient">Action</span>
+            See It In <span className="text-saffron-500">Action</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-400">
             Make a real API call right now by choosing a state region.
@@ -172,7 +171,7 @@ export default function HomePage() {
             <button
               onClick={handleDemoFetch}
               disabled={demoLoading}
-              className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 transition-[box-shadow,opacity] shadow-md shadow-saffron-500/5"
+              className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 disabled:opacity-50 transition-[box-shadow,opacity,background-color] shadow-sm hover:shadow"
             >
               {demoLoading ? 'Fetching...' : 'Test Request'}
             </button>
@@ -181,10 +180,10 @@ export default function HomePage() {
           {/* Code Viewer Panel */}
           <div className="md:col-span-8">
             {demoLoading && (
-              <div className="h-48 flex flex-col items-center justify-center gap-3 bg-black/30 border border-white/5 rounded-2xl px-4 text-center">
+              <div className="h-48 flex flex-col items-center justify-center gap-3 bg-black/30 border border-white/5 rounded-xl px-4 text-center">
                 <div className="w-8 h-8 border-2 border-saffron-500/30 border-t-saffron-500 rounded-full animate-spin" />
                 {demoLongLoad && (
-                  <span className="text-[10px] sm:text-xs text-amber-400/80 animate-pulse font-medium">
+                  <span className="text-[10px] sm:text-xs text-amber-400/80 font-medium">
                     Waking up Render backend (can take 30s)...
                   </span>
                 )}
@@ -192,13 +191,13 @@ export default function HomePage() {
             )}
 
             {demoError && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm rounded-2xl">
+              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm rounded-xl">
                 {demoError}
               </div>
             )}
 
             {!demoLoading && !demoError && !demoResponse && (
-              <div className="h-48 flex flex-col items-center justify-center text-center p-6 border-2 border-dashed border-white/10 rounded-2xl text-slate-500 text-xs sm:text-sm">
+              <div className="h-48 flex flex-col items-center justify-center text-center p-6 border-2 border-dashed border-white/10 rounded-xl text-slate-500 text-xs sm:text-sm">
                 <Terminal size={24} className="mb-2 opacity-40" />
                 <span>Select a state and click "Test Request" to load holiday data payload.</span>
               </div>

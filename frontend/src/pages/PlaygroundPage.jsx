@@ -122,7 +122,7 @@ export default function PlaygroundPage() {
           <span>Live API Console</span>
         </div>
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">
-          Interactive <span className="text-saffron-gradient">Playground</span>
+          Interactive <span className="text-saffron-500">Playground</span>
         </h1>
         <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
           Build requests, preview live outputs, and copy production-ready code snippets.
@@ -130,7 +130,7 @@ export default function PlaygroundPage() {
       </div>
 
       {/* ───── Unified Console Card ───── */}
-      <div className="rounded-2xl border border-slate-800/80 bg-slate-950/60 shadow-2xl shadow-black/30 overflow-hidden backdrop-blur-sm">
+      <div className="rounded-xl border border-slate-800/80 bg-slate-950/60 shadow-xl shadow-black/30 overflow-hidden backdrop-blur-sm">
 
         {/* Console Header Bar */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 px-5 py-3.5 bg-slate-950/80 border-b border-slate-800/60">
@@ -284,7 +284,7 @@ export default function PlaygroundPage() {
               <button
                 onClick={handleFetch}
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2.5 mt-auto py-3 rounded-xl text-sm font-extrabold uppercase tracking-wider text-white bg-gradient-to-r from-saffron-500 to-red-600 hover:from-saffron-600 hover:to-red-700 disabled:opacity-50 hover:shadow-lg hover:shadow-saffron-500/20 active:scale-[0.98] transition-[transform,box-shadow] duration-200"
+                className="w-full flex items-center justify-center gap-2.5 mt-auto py-3 rounded-xl text-sm font-bold uppercase tracking-wider text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 disabled:opacity-50 shadow-sm hover:shadow active:scale-[0.99] transition-[transform,box-shadow,background-color] duration-150"
               >
                 {loading ? (
                   <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -344,7 +344,7 @@ export default function PlaygroundPage() {
               {loading && (
                 <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 gap-3 text-center px-4">
                   <div className="w-10 h-10 border-3 border-saffron-500/20 border-t-saffron-500 rounded-full animate-spin" />
-                  <span className="text-xs font-semibold text-slate-400 animate-pulse">
+                  <span className="text-xs font-semibold text-slate-300">
                     {longLoad ? 'Waking up backend server (this first load takes 30-40s)...' : 'Fetching response...'}
                   </span>
                 </div>
@@ -369,11 +369,11 @@ export default function PlaygroundPage() {
               {/* Empty State */}
               {!loading && !error && !response && (
                 <div className="flex-1 flex flex-col items-center justify-center text-center p-8">
-                  <div className="w-16 h-16 rounded-2xl bg-slate-800/40 border border-slate-700/30 flex items-center justify-center mb-4">
-                    <Terminal size={28} className="text-slate-600" />
+                  <div className="w-14 h-14 rounded-xl bg-slate-800/40 border border-slate-700/30 flex items-center justify-center mb-4">
+                    <Terminal size={26} className="text-slate-500" />
                   </div>
-                  <h4 className="font-display font-bold text-slate-400 text-sm mb-1.5">Ready to Query</h4>
-                  <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
+                  <h4 className="font-display font-bold text-slate-300 text-sm mb-1.5">Ready to Query</h4>
+                  <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
                     Configure your request parameters on the left and click <strong className="text-saffron-400">Send Request</strong> to see results here.
                   </p>
                 </div>
