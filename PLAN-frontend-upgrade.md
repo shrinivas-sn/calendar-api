@@ -265,4 +265,10 @@ None required. All data sources, URLs, and architecture decisions are verified l
 
 ## Progress Log
 
-*(Log timestamps and commit hashes as each task completes)*
+- **28/09/2026 22:11**: `5f81971` - docs: finalize PLAN-frontend-upgrade.md with 404 handling and anti-slop guidelines
+- **28/09/2026 22:12**: `55e3c39` - feat(frontend): add technical guides data source (`guidesData.js`)
+- **28/09/2026 22:12**: `2504f46` - feat(frontend): implement GuidesPage and NotFoundPage components
+- **28/09/2026 22:13**: `40f1bab` - feat(frontend): wire guides routes and top navigation
+- **28/09/2026 22:15**: `f3e9889` - refactor(frontend): replace generic gradients and pulses with solid brand styling
+- **28/09/2026 22:17**: `c19e99c` - feat(frontend): implement SSG prerender pipeline, sitemap generator, and vercel rewrites
+- **28/09/2026 22:17**: Phase 4 verified: `npm run build` exits 0, all 7 pages prerendered with full markup, `dist/sitemap.xml` and `dist/robots.txt` valid.

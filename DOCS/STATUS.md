@@ -1,19 +1,24 @@
 # Project Status — India Calendar API
 
 **Last updated:** 28/09/2026  
-**Workspace:** `E:\OSC\api-projects\projects\calendar-api` (moved from `E:\calendar-api`)  
+**Workspace:** `E:\OSC\api-projects\projects\calendar-api`  
 **Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
-**Frontend:** React 19 + Tailwind v3 SPA (Vercel)
+**Frontend:** `https://calendar-api.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
 
 ## Current State
-- Project relocated into `E:\OSC\api-projects\projects\calendar-api`; git history and remotes preserved.
-- Registered in `E:\OSC\api-projects\IDEA-LOG.md` as a deployed public API.
-- Backend operational (Express 5, JSON error-envelope, rate limiting, CORS).
-- Frontend multi-page SPA (`/`, `/playground`, `/docs`, `/status`) with saffron dark theme.
-- Accessibility baseline established (zero `transition-all`, `focus-visible`, `prefers-reduced-motion`).
+- Relocated into `E:\OSC\api-projects\projects\calendar-api` and registered in `IDEA-LOG.md`.
+- All 6 OSC SEO & Indexing Invariants PASS:
+  1. Real URL routes (`/`, `/playground`, `/docs`, `/guides`, `/guides/:id`, `/status`, `404`).
+  2. Static Prerendering (SSG) via `scripts/prerender.mjs` rendering full static HTML into `dist/`.
+  3. Unique per-page meta tags, canonical URLs, and Schema.org `WebAPI` JSON-LD.
+  4. Automated `sitemap.xml` build generator with canonical URL paths.
+  5. `robots.txt` directive referencing sitemap.
+  6. Vercel rewrites configured with negative-lookahead static exemption.
+- Anti-slop UI polish complete: solid brand styling, calm typography, and zero `transition-all`.
+- Backend operational (Express 5 with JSON error envelope, rate limit, and CORS).
 
 ## Blockers / In Flight
-- `PLAN-frontend-upgrade.md` written and validated (4 phases, 9 tasks) — **awaiting owner go-ahead**.
+- None. System is stable and production build verified.
 
 ## Next up (start here)
-1. Review and approve `PLAN-frontend-upgrade.md`, then execute Phase 1 (Technical Guides Hub & Routing).
+1. Push `develop` to remote or merge into `main` to trigger production deployments when ready.
