@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArrowRight, Terminal, Globe, CheckCircle, Flame, Sparkles, Clipboard, Check } from 'lucide-react';
+import { ArrowRight, Terminal, BookOpen, Check, Copy, Sparkles, CheckCircle2, Play, Code2 } from 'lucide-react';
 import RegionSelector from '../components/RegionSelector';
 import JsonViewer from '../components/JsonViewer';
 
@@ -11,9 +11,9 @@ export default function HomePage() {
   const [demoLoading, setDemoLoading] = useState(false);
   const [demoError, setDemoError] = useState(null);
   const [copiedQuickStart, setCopiedQuickStart] = useState(false);
-  const [demoLongLoad, setDemoLongLoad] = useState(false);
+  const [activeTab, setActiveTab] = useState('curl');
 
-  const quickStartCmd = `curl -X GET "${baseUrl}/v1/holidays?country=IN&year=2026&region=KA"`;
+  const quickStartCmd = `curl -s "${baseUrl}/v1/holidays?country=IN&year=2026&region=${demoRegion}"`;
 
   const handleCopyQuickStart = () => {
     navigator.clipboard.writeText(quickStartCmd);
@@ -23,197 +23,290 @@ export default function HomePage() {
 
   const handleDemoFetch = async () => {
     setDemoLoading(true);
-    setDemoLongLoad(false);
     setDemoError(null);
     setDemoResponse(null);
-
-    const longLoadTimeout = setTimeout(() => {
-      setDemoLongLoad(true);
-    }, 3000);
 
     try {
       const url = `${baseUrl}/v1/holidays?country=IN&year=2026&region=${demoRegion}`;
       const res = await fetch(url);
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || `HTTP error ${res.status}`);
-      // Show only top 3 results in demo response for brevity
       if (data && Array.isArray(data.data)) {
         data.data = data.data.slice(0, 3);
       }
       setDemoResponse(data);
+      setActiveTab('response');
     } catch (err) {
-      setDemoError(err.message || 'Failed to fetch. Make sure API backend is running.');
+      setDemoError(err.message || 'Failed to fetch. Make sure API backend is reachable.');
     } finally {
-      clearTimeout(longLoadTimeout);
       setDemoLoading(false);
-      setDemoLongLoad(false);
     }
   };
 
   return (
-    <div className="relative overflow-hidden">
-      {/* Hero section */}
-      <section className="relative pt-20 pb-16 md:pt-28 md:pb-24 text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Top Live Badge */}
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-6">
-            <Flame size={12} />
-            <span>Developer-First & 100% Free</span>
-          </div>
-
-          <h1 className="font-display font-extrabold text-4xl sm:text-6xl tracking-tight leading-[1.1] mb-6">
-            Open-Source <br />
-            <span className="text-saffron-500">Indian Calendar API</span>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+      {/* ─── Hero Section: Asymmetric 2-Column Split ─── */}
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 sm:mb-24">
+        {/* Left Column: Heading, Value Props, CTAs */}
+        <div className="lg:col-span-6 space-y-6 text-left">
+          <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-white tracking-tight leading-[1.12]">
+            Indian Public Holidays &amp; Calendar <span className="text-saffron-500">REST API</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Fast, database-free REST API serving Indian public holidays and calendar parameters. Supporting the Central Government plus all 36 States and Union Territories.
+          <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
+            Free, keyless REST API serving official Gazetted and Restricted holiday schedules for the Central Government plus all 36 States and Union Territories.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+          {/* Action CTAs */}
+          <div className="flex flex-wrap items-center gap-3 pt-2">
             <NavLink
               to="/playground"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg text-sm font-semibold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 shadow-sm hover:shadow hover:scale-[1.01] active:scale-[0.99] transition-[transform,box-shadow,background-color]"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 shadow-sm hover:shadow transition-[transform,background-color] active:scale-[0.99]"
             >
-              Explore Playground
+              <span>Explore Interactive Playground</span>
               <ArrowRight size={16} />
             </NavLink>
             <NavLink
               to="/docs"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-6 py-3 rounded-lg text-sm font-semibold text-slate-200 bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-[background-color,border-color]"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-[background-color,border-color]"
             >
-              Read API Docs
+              <span>API Reference</span>
             </NavLink>
           </div>
-        </div>
-      </section>
 
-      {/* Quick Start command widget */}
-      <section className="pb-16 max-w-3xl mx-auto px-4 sm:px-6">
-        <div className="interactive-card p-4 sm:p-6 relative group">
-          <div className="absolute -top-3 left-6 px-3 py-0.5 rounded bg-saffron-600 text-white font-mono text-[10px] font-bold uppercase tracking-widest flex items-center gap-1.5">
-            <Terminal size={10} />
-            <span>Quick Start</span>
+          {/* Architectural Metrics Strip */}
+          <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4">
+            <div>
+              <div className="text-xl sm:text-2xl font-extrabold text-white font-mono">37</div>
+              <div className="text-xs text-slate-400 mt-0.5">States &amp; UTs</div>
+            </div>
+            <div>
+              <div className="text-xl sm:text-2xl font-extrabold text-white font-mono">5</div>
+              <div className="text-xs text-slate-400 mt-0.5">REST Routes</div>
+            </div>
+            <div>
+              <div className="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono">0 Key</div>
+              <div className="text-xs text-slate-400 mt-0.5">Instant Access</div>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 mt-2">
-            <pre className="font-mono text-xs text-slate-300 overflow-x-auto whitespace-pre py-2 w-full">
-              {quickStartCmd}
-            </pre>
-            <button
-              onClick={handleCopyQuickStart}
-              className="flex items-center justify-center gap-1.5 text-xs text-slate-400 hover:text-slate-200 bg-white/5 hover:bg-white/10 border border-white/5 px-4 py-2.5 rounded-lg transition-colors flex-shrink-0"
-            >
-              {copiedQuickStart ? (
-                <>
-                  <Check size={12} className="text-emerald-400" />
-                  <span className="text-emerald-400 font-medium">Copied!</span>
-                </>
+        </div>
+
+        {/* Right Column: Live Artifact in the Hero */}
+        <div className="lg:col-span-6">
+          <div className="bg-slate-950 border border-slate-800/90 rounded-xl overflow-hidden shadow-2xl">
+            {/* Terminal Header */}
+            <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800/80">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                <span className="ml-2 text-xs font-mono text-slate-400">api-live-demo</span>
+              </div>
+              <div className="flex gap-1 bg-black/40 p-0.5 rounded-md border border-white/5 text-[11px] font-mono">
+                <button
+                  onClick={() => setActiveTab('curl')}
+                  className={`px-2.5 py-1 rounded transition-colors ${
+                    activeTab === 'curl' ? 'bg-saffron-500/20 text-saffron-400 font-semibold' : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  cURL
+                </button>
+                <button
+                  onClick={() => setActiveTab('response')}
+                  className={`px-2.5 py-1 rounded transition-colors ${
+                    activeTab === 'response' ? 'bg-saffron-500/20 text-saffron-400 font-semibold' : 'text-slate-400 hover:text-white'
+                  }`}
+                >
+                  Payload
+                </button>
+              </div>
+            </div>
+
+            {/* Live Controller Bar */}
+            <div className="p-4 bg-slate-900/40 border-b border-slate-800/60 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex-1 min-w-[180px]">
+                <RegionSelector value={demoRegion} onChange={setDemoRegion} />
+              </div>
+              <button
+                onClick={handleDemoFetch}
+                disabled={demoLoading}
+                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 disabled:opacity-50 transition-colors"
+              >
+                {demoLoading ? (
+                  <div className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <Play size={12} fill="white" />
+                )}
+                <span>Run Request</span>
+              </button>
+            </div>
+
+            {/* Terminal Body */}
+            <div className="p-4 bg-black/80 font-mono text-xs text-slate-300 min-h-[200px] max-h-[260px] overflow-y-auto">
+              {activeTab === 'curl' ? (
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between text-slate-500 text-[11px] pb-1 border-b border-slate-800">
+                    <span># Copy and execute directly in your terminal</span>
+                    <button
+                      onClick={handleCopyQuickStart}
+                      className="flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
+                    >
+                      {copiedQuickStart ? (
+                        <>
+                          <Check size={11} className="text-emerald-400" />
+                          <span className="text-emerald-400">Copied</span>
+                        </>
+                      ) : (
+                        <>
+                          <Copy size={11} />
+                          <span>Copy</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+                  <pre className="text-emerald-400 whitespace-pre-wrap break-all leading-relaxed">
+                    {quickStartCmd}
+                  </pre>
+                  <p className="text-slate-500 text-[11px]">
+                    Tip: Click "Run Request" above to execute inside the browser.
+                  </p>
+                </div>
               ) : (
-                <>
-                  <Clipboard size={12} />
-                  <span>Copy Command</span>
-                </>
+                <div>
+                  {demoError && (
+                    <div className="text-red-400 text-xs py-2">{demoError}</div>
+                  )}
+                  {demoResponse ? (
+                    <JsonViewer data={demoResponse} />
+                  ) : (
+                    <div className="text-slate-500 text-xs py-8 text-center">
+                      Click "Run Request" to fetch live JSON payload for region <strong className="text-slate-300">{demoRegion}</strong>.
+                    </div>
+                  )}
+                </div>
               )}
-            </button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Highlights Grid */}
-      <section className="py-16 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="interactive-card p-6">
-            <div className="w-10 h-10 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 mb-4">
-              <Globe size={20} />
-            </div>
-            <h3 className="font-display font-bold text-lg text-slate-200 mb-2">No Authentication</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              No registration, API keys, limits or billing. Directly integrate using standard clean URL queries.
+      {/* ─── Section 2: Endpoints Matrix ─── */}
+      <section className="mb-16 sm:mb-24 pt-12 border-t border-slate-800/80">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+              API Endpoint Matrix
+            </h2>
+            <p className="text-slate-400 text-sm mt-1">
+              5 lightweight endpoints tailored for leave calculations, calendar renderers, and HRMS validation.
             </p>
           </div>
-          <div className="interactive-card p-6">
-            <div className="w-10 h-10 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 mb-4">
-              <CheckCircle size={20} />
+          <NavLink
+            to="/docs"
+            className="text-xs font-semibold text-saffron-400 hover:text-saffron-300 flex items-center gap-1"
+          >
+            <span>View Complete API Reference</span>
+            <ArrowRight size={13} />
+          </NavLink>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
+              <span className="text-slate-200 font-semibold">/v1/holidays</span>
             </div>
-            <h3 className="font-display font-bold text-lg text-slate-200 mb-2">State-Level Accuracy</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              State-specific restrictions merged seamlessly with central gazetted holidays, cleaned and sorted at runtime.
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              List all gazetted &amp; restricted holidays for Central Government or a specific State/UT.
             </p>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, year, region</div>
           </div>
-          <div className="interactive-card p-6">
-            <div className="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 mb-4">
-              <Sparkles size={20} />
+
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
+              <span className="text-slate-200 font-semibold">/v1/is-holiday</span>
             </div>
-            <h3 className="font-display font-bold text-lg text-slate-200 mb-2">Edge-Optimized</h3>
-            <p className="text-sm text-slate-400 leading-relaxed">
-              Database-free static JSON layout guarantees response times under 100ms globally, supported by Cloudflare.
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              Instant boolean check whether a specific calendar date is a public holiday in a given region.
             </p>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, date, region</div>
+          </div>
+
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
+              <span className="text-slate-200 font-semibold">/v1/next-holiday</span>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              Returns the immediate upcoming public holiday from today or an arbitrary reference date.
+            </p>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, date, region</div>
+          </div>
+
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
+              <span className="text-slate-200 font-semibold">/v1/range</span>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              Query all holiday events falling between two calendar dates (start and end bounds).
+            </p>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, year, start, end, region</div>
+          </div>
+
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
+            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
+              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
+              <span className="text-slate-200 font-semibold">/v1/calendar</span>
+            </div>
+            <p className="text-xs text-slate-400 leading-relaxed mb-3">
+              Month-by-month structured calendar matrix with total working day counts.
+            </p>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, year, region</div>
+          </div>
+
+          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors flex flex-col justify-between">
+            <div>
+              <div className="text-xs font-bold text-saffron-400 uppercase tracking-wider mb-1">Open Source</div>
+              <p className="text-xs text-slate-400 leading-relaxed">
+                Need raw datasets or offline ICS files? Access raw files directly in the repository.
+              </p>
+            </div>
+            <a
+              href="https://github.com/shrinivas-sn/calendar-api"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-semibold text-slate-300 hover:text-white flex items-center gap-1 mt-3"
+            >
+              <span>GitHub Repository</span>
+              <ArrowRight size={12} />
+            </a>
           </div>
         </div>
       </section>
 
-      {/* Mini Live Demo Section */}
-      <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/5">
-        <div className="text-center mb-10">
-          <h2 className="font-display font-bold text-2xl sm:text-3xl text-slate-100 mb-3">
-            See It In <span className="text-saffron-500">Action</span>
-          </h2>
-          <p className="text-sm sm:text-base text-slate-400">
-            Make a real API call right now by choosing a state region.
+      {/* ─── Section 3: Technical Guides Callout ─── */}
+      <section className="bg-slate-950/90 border border-slate-800/80 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="space-y-1 max-w-2xl">
+          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-saffron-400">
+            <BookOpen size={13} />
+            <span>Developer Guides</span>
+          </div>
+          <h3 className="text-lg sm:text-xl font-bold text-white">
+            Architecture, Compliance Rules &amp; Integration Recipes
+          </h3>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+            Read in-depth articles on Central vs State gazette rules, HRMS sandwich leave calculations, and multi-language SDK examples.
           </p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          {/* Controls */}
-          <div className="md:col-span-4 interactive-card p-5 flex flex-col gap-4">
-            <RegionSelector value={demoRegion} onChange={setDemoRegion} />
-            
-            <button
-              onClick={handleDemoFetch}
-              disabled={demoLoading}
-              className="w-full inline-flex items-center justify-center py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 disabled:opacity-50 transition-[box-shadow,opacity,background-color] shadow-sm hover:shadow"
-            >
-              {demoLoading ? 'Fetching...' : 'Test Request'}
-            </button>
-          </div>
-
-          {/* Code Viewer Panel */}
-          <div className="md:col-span-8">
-            {demoLoading && (
-              <div className="h-48 flex flex-col items-center justify-center gap-3 bg-black/30 border border-white/5 rounded-xl px-4 text-center">
-                <div className="w-8 h-8 border-2 border-saffron-500/30 border-t-saffron-500 rounded-full animate-spin" />
-                {demoLongLoad && (
-                  <span className="text-[10px] sm:text-xs text-amber-400/80 font-medium">
-                    Waking up Render backend (can take 30s)...
-                  </span>
-                )}
-              </div>
-            )}
-
-            {demoError && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 text-red-400 text-xs sm:text-sm rounded-xl">
-                {demoError}
-              </div>
-            )}
-
-            {!demoLoading && !demoError && !demoResponse && (
-              <div className="h-48 flex flex-col items-center justify-center text-center p-6 border-2 border-dashed border-white/10 rounded-xl text-slate-500 text-xs sm:text-sm">
-                <Terminal size={24} className="mb-2 opacity-40" />
-                <span>Select a state and click "Test Request" to load holiday data payload.</span>
-              </div>
-            )}
-
-            {!demoLoading && !demoError && demoResponse && (
-              <div className="flex flex-col gap-2">
-                <div className="flex justify-between items-center text-[10px] sm:text-xs text-slate-500 px-1">
-                  <span>Showing top 3 holiday items:</span>
-                  <span className="text-emerald-400 font-medium">Status: 200 OK</span>
-                </div>
-                <JsonViewer data={demoResponse} />
-              </div>
-            )}
-          </div>
-        </div>
+        <NavLink
+          to="/guides"
+          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 transition-colors flex-shrink-0"
+        >
+          <span>Read Technical Guides</span>
+          <ArrowRight size={14} />
+        </NavLink>
       </section>
     </div>
   );
