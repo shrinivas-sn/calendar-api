@@ -2,7 +2,7 @@
 
 **Written 28/09/2026.** Temporary file — deleted when this closes.
 
-**Goal:** Upgrade the India Calendar API frontend portal to 100% OSC standards (SSG prerendering, technical guides hub, sitemap, robots.txt, Vercel routing) while purging AI-slop signatures for a clean developer-first aesthetic.
+**Goal:** Upgrade the India Calendar API frontend portal to 100% OSC standards (SSG prerendering, technical guides hub, sitemap, robots.txt, 404 page, Vercel routing) while purging AI-slop signatures for a clean developer-first aesthetic.
 **Why:** Standardize `calendar-api` with `E:\OSC` invariants in `DOCS/SEO-AND-INDEXING-GUIDE.md` and `CONVENTIONS.md`, ensuring full search indexability, rich guide content, and crisp UI styling.
 **What this changes:** `frontend/src/`, `frontend/scripts/`, `frontend/package.json`, `frontend/vercel.json`, `DOCS/STATUS.md`.
 **Done means:** `npm run build` in `frontend/` succeeds with full SSG prerendering of all routes (`/`, `/playground`, `/docs`, `/guides`, `/guides/:id`, `/status`), generating compliant `dist/sitemap.xml` and `dist/robots.txt`, with all AI-slop patterns removed and verified via local preview.
@@ -33,7 +33,7 @@
 | Frontend stack is React 19 + Tailwind v3 + Vite 8 | `frontend/package.json` | 28/09/2026 |
 | Tailwind slate scale has custom remapped tokens (`slate-400` -> `#e2e8f0`, `slate-500` -> `#cbd5e1`) | `DOCS/CONTEXT/STACK-CONTEXT.md` | 28/09/2026 |
 | Zero `transition-all` exists in repo; accessibility baseline is set | `DOCS/CONTEXT/STACK-CONTEXT.md` | 28/09/2026 |
-| OSC SEO standard requires SSG prerender, guides hub (`/guides/:id`), sitemap.xml, robots.txt | `E:\OSC\DOCS\SEO-AND-INDEXING-GUIDE.md` | 28/09/2026 |
+| OSC SEO standard requires SSG prerender, guides hub (`/guides/:id`), sitemap.xml, robots.txt, 404 page | `E:\OSC\DOCS\SEO-AND-INDEXING-GUIDE.md` | 28/09/2026 |
 | Deployed production frontend host is on Vercel | `DOCS/CONTEXT/frontend.md` | 28/09/2026 |
 
 ---
@@ -43,6 +43,7 @@
 - Never re-introduce `transition-all` — name specific properties (`transition-[transform,box-shadow,background-color]`).
 - Do not introduce Tailwind v4 syntax (`@theme`, `@import "tailwindcss"`) — preserve Tailwind v3 configuration.
 - Preserve the established saffron accent identity (`#ea580c` / `saffron-500` / `saffron-600`) while eliminating generic multi-color gradient fills.
+- Retain functional effects: sticky navbar `backdrop-blur-md` and brand `glow-backdrop` in `App.jsx` are retained as brand identity.
 - Every new page route must be compatible with both client-side React Router and headless Vite SSR prerendering.
 - Commit each completed task card with a clear, targeted git commit message.
 
@@ -79,9 +80,9 @@ None required. All data sources, URLs, and architecture decisions are verified l
 
 ---
 
-## Phase 1 — Technical Guides Hub & Routing
+## Phase 1 — Technical Guides Hub, 404 Page & Routing
 
-**Purpose:** Add the developer technical guides hub (`/guides` and `/guides/:id`), supporting deep links and discoverable content for search crawlers.
+**Purpose:** Add the developer technical guides hub (`/guides` and `/guides/:id`) and 404 fallback page, supporting deep links and discoverable content for search crawlers.
 **Starts when:** Now.
 **Re-check first:** Confirm `frontend/src/App.jsx` structure and router setup.
 
@@ -89,37 +90,39 @@ None required. All data sources, URLs, and architecture decisions are verified l
 - **Goal:** Create `frontend/src/content/guidesData.js` containing 3 in-depth technical guides with realistic code examples and schemas.
 - **Why:** Required by OSC SEO architecture to serve as an authoritative developer knowledge base.
 - **Where:** `frontend/src/content/guidesData.js`.
-- **Do:** Create file exporting `GUIDES` array with structured guides:
-  1. `gazetted-vs-restricted-holidays`: Explanation of Central vs State gazette rules, mandatory closures vs optional religious leaves.
-  2. `hrms-payroll-leave-automation`: Engineering architecture for syncing calendar-api with attendance and payroll systems.
-  3. `quickstart-integration-recipes`: Code recipes in Node.js, Python, cURL, and Go.
+- **Do:** Create file exporting `CALENDAR_GUIDES` array with structured guides:
+  1. `gazetted-vs-restricted-holidays`: Central vs State gazette rules, mandatory closures vs optional religious leaves, Section 25 NI Act vs executive orders.
+  2. `hrms-payroll-leave-automation`: Engineering architecture for syncing calendar-api with attendance, payroll cutoffs, and weekend bridge calculations.
+  3. `quickstart-integration-recipes`: Production code recipes in Node.js, Python, cURL, and Go.
 - **Test first:** Verify JS syntax and data structure export without missing fields.
-- **Verify:** `node -e "import('./frontend/src/content/guidesData.js').then(m => console.log(m.GUIDES.length))"` outputs `3`.
+- **Verify:** `node -e "import('./frontend/src/content/guidesData.js').then(m => console.log(m.CALENDAR_GUIDES.length))"` outputs `3`.
 - **Don't touch:** `frontend/src/data/regions.js`.
 - **If it fails:** Fix syntax or export format.
 - **Commit:** `git commit -m "feat(frontend): add technical guides data source"`
 
-### Task 1.2: Build Guides Page Component
-- **Goal:** Build `frontend/src/pages/GuidesPage.jsx` with interactive sidebar navigation, URL parameter routing (`/guides/:id`), and syntax-highlighted code blocks.
-- **Why:** Delivers real per-guide URL routes for both browser visitors and static search engine indexing.
-- **Where:** `frontend/src/pages/GuidesPage.jsx`.
-- **Do:** Implement responsive 2-column layout:
-  - Left column: List of guide cards with category badges, reading time, and active state indicator.
-  - Right column: Full article content with headings, callouts, and `CodeSnippet` blocks.
-  - Use `useParams` to bind directly to route `:id`, falling back to first guide.
-- **Test first:** Check that component file imports and exports correctly.
-- **Verify:** `node -e "import('./frontend/src/pages/GuidesPage.jsx')"` runs without syntax error.
+### Task 1.2: Build Guides Page and NotFound Components
+- **Goal:** Build `frontend/src/pages/GuidesPage.jsx` with interactive sidebar navigation, URL parameter routing (`/guides/:id`), and build `frontend/src/pages/NotFoundPage.jsx`.
+- **Why:** Delivers real per-guide URL routes for both browser visitors and static search engine indexing, plus graceful 404 handling.
+- **Where:** `frontend/src/pages/GuidesPage.jsx`, `frontend/src/pages/NotFoundPage.jsx`.
+- **Do:**
+  - In `GuidesPage.jsx`, implement responsive 2-column layout:
+    - Left column: List of guide cards with category badges, reading time, and active state indicator.
+    - Right column: Full article content with headings, callouts, and `CodeSnippet` blocks.
+    - Use `useParams` to bind directly to route `:id`, falling back to first guide.
+  - In `NotFoundPage.jsx`, implement clear 404 view with link back to Home.
+- **Test first:** Check that component files exist and export default functions.
+- **Verify:** `node -e "const fs = require('fs'); if (!fs.existsSync('frontend/src/pages/GuidesPage.jsx') || !fs.existsSync('frontend/src/pages/NotFoundPage.jsx')) process.exit(1);"` exits 0.
 - **Don't touch:** `frontend/src/pages/PlaygroundPage.jsx`.
 - **If it fails:** Adjust params handling and conditional fallbacks.
-- **Commit:** `git commit -m "feat(frontend): implement GuidesPage component with deep-linking"`
+- **Commit:** `git commit -m "feat(frontend): implement GuidesPage and NotFoundPage components"`
 
 ### Task 1.3: Update Router and Navigation
-- **Goal:** Update `frontend/src/App.jsx` and `frontend/src/components/Navbar.jsx` to register `/guides` and `/guides/:id`, and add Guides navigation item.
+- **Goal:** Update `frontend/src/App.jsx` and `frontend/src/components/Navbar.jsx` to register `/guides`, `/guides/:id`, `*` (404), and add Guides navigation item.
 - **Why:** Seamless navigation between Home, Playground, Docs, Guides, and Status.
 - **Where:** `frontend/src/App.jsx`, `frontend/src/components/Navbar.jsx`.
 - **Do:**
-  - In `App.jsx`, extract `AppContent` (pure routing definitions with `Routes`) and export both `AppContent` and default `App` (wrapped in `BrowserRouter`).
-  - Add routes `<Route path="/guides" element={<GuidesPage />} />` and `<Route path="/guides/:id" element={<GuidesPage />} />`.
+  - In `App.jsx`, extract `AppContent` (pure routing definitions with `Routes`) and export both `AppContent` and default `App` (wrapped in `Router`).
+  - Add routes `<Route path="/guides" element={<GuidesPage />} />`, `<Route path="/guides/:id" element={<GuidesPage />} />`, and `<Route path="*" element={<NotFoundPage />} />`.
   - In `Navbar.jsx`, add `Guides` navigation link alongside `Home`, `Playground`, `Docs`, `Status`.
 - **Test first:** Run `npm run build` from `frontend/`.
 - **Verify:** `npm run build` in `frontend/` succeeds without routing errors.
@@ -139,26 +142,27 @@ None required. All data sources, URLs, and architecture decisions are verified l
 **Starts when:** Phase 1 complete.
 **Re-check first:** Inspect `frontend/src/index.css`, `HomePage.jsx`, `PlaygroundPage.jsx`, and `StatusPage.jsx`.
 
-### Task 2.1: Clean Up Buttons and Gradients
-- **Goal:** Replace generic `bg-gradient-to-r from-saffron-500 to-red-600` with solid saffron buttons (`bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 text-white font-medium shadow-sm hover:shadow active:scale-[0.99]`).
-- **Why:** Slop signature check flags multi-color landing page gradients as generic AI output; solid brand colors convey intentionality.
-- **Where:** `frontend/src/pages/HomePage.jsx`, `frontend/src/pages/PlaygroundPage.jsx`, `frontend/src/index.css`.
+### Task 2.1: Clean Up Buttons, Gradients, and Unnecessary Pulses
+- **Goal:** Replace generic `bg-gradient-to-r from-saffron-500 to-red-600` with solid saffron buttons (`bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 text-white font-medium shadow-sm hover:shadow active:scale-[0.99]`) and remove misleading animation pulses.
+- **Why:** Slop signature check flags multi-color landing page gradients and permanent pulse animations as generic AI output; solid brand colors and calm UI convey intentionality.
+- **Where:** `frontend/src/pages/HomePage.jsx`, `frontend/src/pages/PlaygroundPage.jsx`, `frontend/src/components/Navbar.jsx`, `frontend/src/index.css`.
 - **Do:**
-  - Replace gradient classes with clean solid background classes.
-  - Remove unnecessary `animate-pulse` on non-loading icons and indicators.
-  - Simplify card border glows to subtle border highlight states (`border-slate-800 hover:border-slate-700`).
+  - Replace gradient classes with clean solid background classes (`bg-saffron-600 hover:bg-saffron-500`).
+  - Remove unnecessary `animate-pulse` on static icons and headers (retain only dynamic warming-up spinner indicator).
+  - Standardize Navbar logo hover transition to subtle scale (`hover:scale-[1.02]` instead of aggressive `hover:scale-105`).
+  - Standardize card roundedness to `rounded-xl` for clean component harmony.
 - **Test first:** Verify buttons render with high contrast against dark background.
 - **Verify:** `git grep "from-saffron-500 to-red-600" frontend/src` returns 0 hits.
-- **Don't touch:** `focus-visible` ring settings in `index.css`.
+- **Don't touch:** `focus-visible` ring settings in `index.css` or functional navbar `backdrop-blur-md`.
 - **If it fails:** Adjust button color classes and hover states.
-- **Commit:** `git commit -m "refactor(frontend): replace generic gradients with solid brand styling"`
+- **Commit:** `git commit -m "refactor(frontend): replace generic gradients and pulses with solid brand styling"`
 
 ### Task 2.2: Refine Typography and Layout Hierarchy
 - **Goal:** Tighten spacing rhythms and ensure all headings, monospace snippets, and response badges have clear visual weight.
 - **Why:** Enhances readability and developer usability across mobile and desktop.
 - **Where:** `frontend/src/pages/HomePage.jsx`, `frontend/src/components/CodeSnippet.jsx`, `frontend/src/components/CalendarGrid.jsx`.
 - **Do:**
-  - Ensure curl quickstart snippet on HomePage has clear contrast and prominent copy button.
+  - Ensure quickstart curl snippet on HomePage has clear contrast and prominent copy button.
   - Optimize calendar grid tooltips and weekend highlights for crisp contrast.
   - Ensure all secondary text uses appropriate slate tokens per STACK-CONTEXT.md.
 - **Test first:** Verify responsive viewports on desktop and mobile.
@@ -179,12 +183,13 @@ None required. All data sources, URLs, and architecture decisions are verified l
 **Starts when:** Phase 2 complete.
 **Re-check first:** Check `frontend/package.json` and `frontend/vercel.json`.
 
-### Task 3.1: Implement Prerender & Sitemap Generator Script
-- **Goal:** Create `frontend/scripts/prerender.mjs` to render static HTML for `/`, `/playground`, `/docs`, `/guides`, `/guides/:id`, and `/status` into `dist/`, plus `dist/sitemap.xml` and `dist/robots.txt`.
+### Task 3.1: Prepare HTML Template & Implement Prerender Script
+- **Goal:** Update `frontend/index.html` with canonical and OpenGraph meta tags, and create `frontend/scripts/prerender.mjs` to render static HTML for `/`, `/docs`, `/guides`, `/guides/:id`, and `/status` into `dist/`, plus `dist/sitemap.xml` and `dist/robots.txt`.
 - **Why:** Guarantees search engines receive 100% rendered markup with unique meta tags and canonical URLs.
-- **Where:** `frontend/scripts/prerender.mjs`.
+- **Where:** `frontend/index.html`, `frontend/scripts/prerender.mjs`.
 - **Do:**
-  - Use Vite SSR (`createServer` mode: `production`) to import `AppContent` and `GUIDES`.
+  - In `index.html`, add canonical link (`https://calendar-api.vercel.app/`), OpenGraph tags, and Schema.org `WebAPI` JSON-LD.
+  - In `scripts/prerender.mjs`, use Vite SSR (`createServer` mode: `production`) to import `AppContent` and `CALENDAR_GUIDES`.
   - Render each page inside `MemoryRouter` to static HTML strings.
   - Replace `<div id="root"></div>` with rendered markup in `dist/index.html` template.
   - Inject unique title element, meta description tag, link canonical tag, and Schema.org `WebAPI` JSON-LD.
