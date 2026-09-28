@@ -134,17 +134,9 @@ export default function PlaygroundPage() {
 
         {/* Console Header Bar */}
         <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 px-5 py-3.5 bg-slate-950/80 border-b border-slate-800/60">
-          <div className="flex items-center gap-3">
-            {/* Traffic light dots */}
-            <div className="hidden sm:flex items-center gap-1.5">
-              <span className="w-3 h-3 rounded-full bg-red-500/80" />
-              <span className="w-3 h-3 rounded-full bg-amber-400/80" />
-              <span className="w-3 h-3 rounded-full bg-emerald-500/80" />
-            </div>
-            <div className="flex items-center gap-2">
-              <Terminal size={16} className="text-saffron-500" />
-              <span className="font-display font-bold text-sm text-slate-200 tracking-wide">API Console</span>
-            </div>
+          <div className="flex items-center gap-2">
+            <Terminal size={16} className="text-saffron-500" />
+            <span className="font-display font-bold text-sm text-slate-200 tracking-wide">API Console</span>
           </div>
 
           {/* Status Badges */}
@@ -163,21 +155,21 @@ export default function PlaygroundPage() {
               </span>
             )}
             {responseTime !== null && (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold uppercase tracking-wider">
-                <Zap size={10} />
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-300 text-[11px] font-bold uppercase tracking-wider font-mono">
+                <Zap size={10} className="text-amber-400" />
                 {responseTime}ms
               </span>
             )}
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-800/60 border border-slate-700/40 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 text-slate-400 text-[11px] font-bold uppercase tracking-wider">
               <span className="font-mono">GET</span>
             </span>
           </div>
         </div>
 
         {/* URL Bar */}
-        <div className="flex items-center gap-2 px-5 py-2.5 bg-black/30 border-b border-slate-800/40">
+        <div className="flex items-center gap-2 px-5 py-2.5 bg-black/40 border-b border-slate-800/40">
           <Globe size={14} className="text-slate-500 flex-shrink-0" />
-          <span className="font-mono text-xs text-blue-400 overflow-x-auto whitespace-nowrap flex-1 scrollbar-none select-all">
+          <span className="font-mono text-xs text-slate-200 overflow-x-auto whitespace-nowrap flex-1 scrollbar-none select-all">
             {apiUrl}
           </span>
           <button
@@ -306,8 +298,8 @@ export default function PlaygroundPage() {
             {/* Response Tab Bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-slate-800/40 bg-slate-950/40">
               <h3 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest flex items-center gap-2">
-                <span className="w-5 h-5 rounded bg-indigo-500/10 flex items-center justify-center">
-                  <Code size={12} className="text-indigo-400" />
+                <span className="w-5 h-5 rounded bg-slate-800 flex items-center justify-center">
+                  <Code size={12} className="text-slate-300" />
                 </span>
                 Response
               </h3>

@@ -54,16 +54,16 @@ export default function StatusPage() {
         {/* Latency card */}
         <div className="interactive-card p-6">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Latency</span>
-            <Clock size={16} className="text-indigo-400" />
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Latency</span>
+            <Clock size={16} className="text-saffron-500" />
           </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-extrabold text-slate-200">
+          <div className="flex items-baseline gap-1 font-mono">
+            <span className="text-3xl font-extrabold text-slate-100">
               {pingData.loading ? '...' : pingData.error ? '—' : `${pingData.latency}ms`}
             </span>
-            {!pingData.loading && !pingData.error && <span className="text-xs text-emerald-400 font-semibold">Fast</span>}
+            {!pingData.loading && !pingData.error && <span className="text-xs text-emerald-400 font-semibold ml-1">Fast</span>}
           </div>
-          <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
             Time elapsed for roundtrip fetch from regional node database.
           </p>
         </div>
@@ -71,12 +71,12 @@ export default function StatusPage() {
         {/* Caching card */}
         <div className="interactive-card p-6">
           <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">CDN Caching</span>
-            <Layers size={16} className="text-emerald-400" />
+            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">CDN Caching</span>
+            <Layers size={16} className="text-slate-400" />
           </div>
           <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-extrabold text-slate-200">Active</span>
-            <span className="text-xs text-slate-400 font-semibold">(Cloudflare)</span>
+            <span className="text-3xl font-extrabold text-slate-100">Active</span>
+            <span className="text-xs text-slate-400 font-semibold ml-1">(Cloudflare)</span>
           </div>
           <p className="text-xs text-slate-500 mt-2 leading-relaxed">
             Edge nodes caching JSON calendars globally to ensure instant responses.

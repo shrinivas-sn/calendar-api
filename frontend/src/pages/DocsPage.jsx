@@ -65,24 +65,24 @@ export default function DocsPage() {
           {/* Section: Overview */}
           <section id="overview" className="scroll-mt-24">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-100 mb-4">API Overview</h2>
-            <p className="text-slate-400 text-sm sm:text-base leading-relaxed mb-4">
-              Welcome to the India Calendar API documentation! This open-source REST API allows you to fetch government holidays (Central and State level) directly from static JSON files generated from official sources.
+            <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
+              Welcome to the India Calendar API documentation. This open-source REST API serves official Indian government holidays (Central and State level) directly from structured datasets with zero keys and sub-50ms latency.
             </p>
-            <div className="bg-blue-500/5 border border-blue-500/20 p-4 rounded-xl flex gap-3 text-blue-400 text-xs sm:text-sm">
-              <Info size={16} className="flex-shrink-0 mt-0.5" />
+            <div className="bg-slate-900/90 border border-slate-800 p-4 rounded-xl flex gap-3 text-slate-300 text-xs sm:text-sm">
+              <Info size={16} className="text-saffron-500 flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
-                <strong>Zero Setup:</strong> The API is completely open, requires no registration, API keys, or credit cards, and serves data instantly. Perfect for SaaS apps, HR tools, or checkout counters.
+                <strong className="text-white">Zero Setup:</strong> The API is completely keyless, requires no registration or billing tokens, and serves data instantly.
               </p>
             </div>
           </section>
 
           {/* Section: Base URL */}
-          <section id="base-url" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="base-url" className="scroll-mt-24 border-t border-slate-800/80 pt-10">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-100 mb-4">Base URL</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               All requests are issued to the production deployment URL below. Always use HTTPS.
             </p>
-            <div className="bg-black/40 border border-white/10 rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm text-blue-400 break-all select-all">
+            <div className="bg-black/60 border border-slate-800 rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm text-slate-100 font-bold break-all select-all">
               https://calendar-api-d7a8.onrender.com
             </div>
           </section>
@@ -503,7 +503,7 @@ export default function DocsPage() {
 
                   {/* Status 429 Errors */}
                   <tr>
-                    <td className="py-3 pr-4 font-mono font-bold text-purple-400">429 Rate Limited</td>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-400">429 Rate Limited</td>
                     <td className="py-3 px-4 font-mono text-xs">Too many requests, please try again later</td>
                     <td className="py-3 pl-4 leading-relaxed">Your IP exceeded 100 queries within a 15-minute window.</td>
                   </tr>

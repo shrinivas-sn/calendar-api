@@ -89,20 +89,20 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
     if (!type) return "";
     const lowerType = type.toLowerCase();
     if (lowerType.includes("gazetted")) {
-      return "bg-red-500/20 border-red-500/40 text-red-300 hover:bg-red-500/35";
+      return "bg-saffron-500/20 border-saffron-500/50 text-saffron-300 hover:bg-saffron-500/35";
     }
     if (lowerType.includes("restricted")) {
       return "bg-amber-500/20 border-amber-500/40 text-amber-300 hover:bg-amber-500/35";
     }
-    return "bg-blue-500/20 border-blue-500/40 text-blue-300 hover:bg-blue-500/35";
+    return "bg-slate-700/40 border-slate-600/50 text-slate-300 hover:bg-slate-700/60";
   };
 
   const getHolidayIndicatorColor = (type) => {
     if (!type) return "bg-slate-500";
     const lowerType = type.toLowerCase();
-    if (lowerType.includes("gazetted")) return "bg-red-500";
+    if (lowerType.includes("gazetted")) return "bg-saffron-500";
     if (lowerType.includes("restricted")) return "bg-amber-500";
-    return "bg-blue-500";
+    return "bg-slate-400";
   };
 
   return (
@@ -188,7 +188,7 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
       {/* Legend */}
       <div className="mt-2 flex items-center justify-center gap-4 text-[10px] text-slate-400 border-t border-white/5 pt-3">
         <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-md bg-red-500/20 border border-red-500/40" />
+          <span className="w-2.5 h-2.5 rounded-md bg-saffron-500/20 border border-saffron-500/50" />
           <span>Gazetted</span>
         </div>
         <div className="flex items-center gap-1.5">
@@ -196,7 +196,7 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
           <span>Restricted</span>
         </div>
         <div className="flex items-center gap-1.5">
-          <span className="w-2.5 h-2.5 rounded-md bg-blue-500/20 border border-blue-500/40" />
+          <span className="w-2.5 h-2.5 rounded-md bg-slate-700/40 border border-slate-600/50" />
           <span>Observance</span>
         </div>
       </div>

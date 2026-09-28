@@ -97,10 +97,8 @@ export default function HomePage() {
             {/* Terminal Header */}
             <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800/80">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-amber-400/80" />
-                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                <span className="ml-2 text-xs font-mono text-slate-400">api-live-demo</span>
+                <Terminal size={14} className="text-saffron-500" />
+                <span className="text-xs font-mono text-slate-300 font-semibold">api-live-demo</span>
               </div>
               <div className="flex gap-1 bg-black/40 p-0.5 rounded-md border border-white/5 text-[11px] font-mono">
                 <button
