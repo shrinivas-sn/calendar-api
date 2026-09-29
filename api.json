@@ -1,0 +1,31 @@
+{
+  "manifest_version": 1,
+  "slug": "calendar",
+  "name": "India Public Holidays",
+  "one_liner": "Free, open-source Indian Holiday Calendar REST API for Central & 36 State/UT gazetted holidays.",
+  "category": "Calendar",
+  "repo": "https://github.com/shrinivas-sn/calendar-api",
+  "source": { "name": null, "url": null, "license": null },
+  "not_provided": [],
+  "stack": null,
+  "deploy": {
+    "portal_url": "https://calendar-api-web.vercel.app",
+    "api_base_url": "https://calendar-api-d7a8.onrender.com",
+    "health_path": "/health",
+    "warmup_path": "/health"
+  },
+  "routes": [
+    { "path": "/", "base": "portal", "kind": "page" },
+    { "path": "/docs", "base": "portal", "kind": "page" },
+    { "path": "/v1/holidays?country=IN&year=2026&region=KA", "base": "api", "kind": "api" },
+    { "path": "/v1/date/is-holiday?country=IN&date=2026-01-26", "base": "api", "kind": "api" },
+    { "path": "/v1/date/next-holiday?country=IN&date=2026-01-01", "base": "api", "kind": "api" },
+    { "path": "/v1/holidays/range?country=IN&start=2026-01-01&end=2026-06-30", "base": "api", "kind": "api" },
+    { "path": "/v1/calendar?country=IN&year=2026&region=KA", "base": "api", "kind": "api" },
+    { "path": "/health", "base": "api", "kind": "api" }
+  ],
+  "submission": {
+    "terms": ["India Public Holidays", "Indian public holidays", "gazetted holiday", "restricted holiday", "India calendar"],
+    "targets": [{ "repo": "public-apis/public-apis", "pr": 7591 }]
+  }
+}
