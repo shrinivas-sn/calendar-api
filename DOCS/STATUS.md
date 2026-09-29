@@ -3,7 +3,7 @@
 **Last updated:** 28/09/2026  
 **Workspace:** `E:\OSC\api-projects\projects\calendar-api`  
 **Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
-**Frontend:** `https://calendar-api.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
+**Frontend:** `https://calendar-api-web.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
 
 ## Current State
 - Relocated into `E:\OSC\api-projects\projects\calendar-api`; git history and remotes preserved.
