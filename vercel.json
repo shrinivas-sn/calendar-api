@@ -1,0 +1,22 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
+  "functions": {
+    "api/index.js": {
+      "includeFiles": "backend/data/**",
+      "maxDuration": 15
+    }
+  },
+  "rewrites": [
+    { "source": "/v1/(.*)", "destination": "/api/index.js" },
+    { "source": "/health", "destination": "/api/index.js" },
+    { "source": "/docs", "destination": "/docs/index.html" },
+    { "source": "/guides", "destination": "/guides/index.html" },
+    { "source": "/guides/:id", "destination": "/guides/:id/index.html" },
+    { "source": "/status", "destination": "/status/index.html" },
+    { "source": "/playground", "destination": "/index.html" },
+    { "source": "/((?!assets|images|robots\\.txt|sitemap\\.xml|favicon\\.ico|favicon\\.svg|google.*\\.html).*)", "destination": "/index.html" }
+  ]
+}

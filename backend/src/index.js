@@ -6,6 +6,10 @@ const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+app.disable('x-powered-by');
+
+// Trust first proxy hop (Vercel / Render)
+app.set('trust proxy', 1);
 
 // Enable CORS
 app.use(cors());
@@ -425,6 +429,15 @@ v1Router.get('/calendar', (req, res) => {
 // Register the router
 app.use('/v1', v1Router);
 
+// Health check endpoint
+app.get('/health', (req, res) => {
+  res.json({
+    status: "ok",
+    service: "calendar-api",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Root route/health check
 app.get('/', (req, res) => {
   res.json({
@@ -450,7 +463,11 @@ app.use((err, req, res, next) => {
   sendError(res, status >= 500 ? "Internal Server Error" : err.message, status);
 });
 
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+// Start server when run directly; export app for Vercel / testing
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+module.exports = app;
