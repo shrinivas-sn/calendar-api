@@ -11,7 +11,7 @@ const distDir = path.join(projectDir, 'dist');
 const fileEnv = loadEnv('production', projectDir, '');
 const productionHost = process.env.SITE_URL || fileEnv.SITE_URL || 
   (process.env.VERCEL_PROJECT_PRODUCTION_URL && `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`) || 
-  'https://calendar-api.vercel.app';
+  'https://calendar-api-web.vercel.app';
 
 const siteUrl = new URL(productionHost);
 const escapeXml = (value) => 
