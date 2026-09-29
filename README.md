@@ -105,16 +105,30 @@ Generates 365/366 day slots for the year, detailing week dates, holiday statuses
 
 ## ⚡ Deployment Guide
 
-### Deploying the Backend on Railway
-1. Create a project from your GitHub repo.
-2. Under service settings, set the **Root Directory** to `/backend`.
-3. In settings, click **"Generate Domain"** to get your public API link.
+### Deploying the Backend on Render
+1. Create a Web Service from your GitHub repository.
+2. Set the **Root Directory** to `backend`.
+3. Deploy; Render assigns the public API URL (production: `https://calendar-api-d7a8.onrender.com`).
+4. The free instance sleeps when idle, so the first request after a pause returns `503` for roughly 30–60 seconds before serving normally.
 
 ### Deploying the Frontend on Vercel
 1. Link your repo in Vercel.
 2. Set the **Root Directory** to `/frontend`.
-3. Add the **Environment Variable** `VITE_API_URL` and set its value to your live Railway API URL.
-4. Click **"Deploy"**.
+3. Add the **Environment Variable** `VITE_API_URL` and set its value to your live backend URL.
+4. Click **"Deploy"** (production: `https://calendar-api-web.vercel.app`).
+
+---
+
+## 📚 Data Source & Attribution
+
+Holiday records are parsed from the **National Portal of India** calendar at
+[`https://www.india.gov.in/calendar`](https://www.india.gov.in/calendar) by
+`backend/scripts/parse-ics.js`, and `backend/scripts/verify-data.js` asserts that every
+stored record carries that URL in its `source` field. Records also keep the gazetted /
+restricted `type` used for the Central-versus-state merge.
+
+Holiday dates and names are factual government information republished from
+india.gov.in with attribution to the National Portal of India retained on every record.
 
 ---
 

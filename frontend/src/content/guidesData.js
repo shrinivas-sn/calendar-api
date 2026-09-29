@@ -73,7 +73,7 @@ A modern Human Resource Management System (HRMS) needs a decoupled holiday resol
 
 To compute this accurately:
 1. Determine the employee's work location state code (\`region\`).
-2. Query \`GET /v1/range?country=IN&year=2026&start={start_date}&end={end_date}&region={state}\`.
+2. Query \`GET /v1/holidays/range?country=IN&start={start_date}&end={end_date}&region={state}\`.
 3. Check if all surrounding workdays are marked as unpaid/leave.
 4. Calculate net deductible days without manual HR intervention.`
       },
@@ -81,7 +81,7 @@ To compute this accurately:
         heading: "3. Caching & Performance Architecture",
         content: `Since public holiday lists for a calendar year are largely deterministic with rare executive updates:
 - Fetch and cache the annual regional payload (\`GET /v1/calendar?country=IN&year=2026&region=TN\`) in Redis with a 24-hour TTL.
-- For transactional date validation (e.g. attendance punch reconciliation), hit \`GET /v1/is-holiday?country=IN&date=YYYY-MM-DD&region=DL\` with sub-10ms cache latency.
+- For transactional date validation (e.g. attendance punch reconciliation), hit \`GET /v1/date/is-holiday?country=IN&date=YYYY-MM-DD&region=DL\` with sub-10ms cache latency.
 - Invalidate cache entries automatically when the API's \`updated_at\` timestamp advances.`
       },
       {
@@ -91,7 +91,7 @@ import fetch from 'node-fetch';
 
 export async function isWorkday(req, res, next) {
   const { date, employeeState } = req.body;
-  const url = \`https://calendar-api-d7a8.onrender.com/v1/is-holiday?country=IN&date=\${date}&region=\${employeeState}\`;
+  const url = \`https://calendar-api-d7a8.onrender.com/v1/date/is-holiday?country=IN&date=\${date}&region=\${employeeState}\`;
   
   try {
     const response = await fetch(url);
@@ -164,7 +164,7 @@ if __name__ == "__main__":
  * Check if a given date is a public holiday in Delhi
  */
 async function checkDelhiHoliday(dateString) {
-  const url = new URL('https://calendar-api-d7a8.onrender.com/v1/is-holiday');
+  const url = new URL('https://calendar-api-d7a8.onrender.com/v1/date/is-holiday');
   url.searchParams.set('country', 'IN');
   url.searchParams.set('date', dateString);
   url.searchParams.set('region', 'DL');

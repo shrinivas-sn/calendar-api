@@ -223,7 +223,7 @@ export default function HomePage() {
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
             <div className="flex items-center gap-2 mb-2 font-mono text-xs">
               <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/is-holiday</span>
+              <span className="text-slate-200 font-semibold">/v1/date/is-holiday</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-3">
               Instant boolean check whether a specific calendar date is a public holiday in a given region.
@@ -234,7 +234,7 @@ export default function HomePage() {
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
             <div className="flex items-center gap-2 mb-2 font-mono text-xs">
               <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/next-holiday</span>
+              <span className="text-slate-200 font-semibold">/v1/date/next-holiday</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-3">
               Returns the immediate upcoming public holiday from today or an arbitrary reference date.
@@ -245,12 +245,12 @@ export default function HomePage() {
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
             <div className="flex items-center gap-2 mb-2 font-mono text-xs">
               <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/range</span>
+              <span className="text-slate-200 font-semibold">/v1/holidays/range</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed mb-3">
               Query all holiday events falling between two calendar dates (start and end bounds).
             </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, year, start, end, region</div>
+            <div className="text-[11px] font-mono text-slate-500">Params: country, start, end, region</div>
           </div>
 
           <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
