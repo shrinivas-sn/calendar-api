@@ -5,9 +5,6 @@
     { "source": "/guides", "destination": "/guides/index.html" },
     { "source": "/guides/:id", "destination": "/guides/:id/index.html" },
     { "source": "/status", "destination": "/status/index.html" },
-    {
-      "source": "/((?!assets|images|robots\\.txt|sitemap\\.xml|favicon\\.svg|logo\\.svg|google.*\\.html).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/playground", "destination": "/index.html" }
   ]
 }
