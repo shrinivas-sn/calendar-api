@@ -17,6 +17,9 @@
   "routes": [
     { "path": "/", "base": "portal", "kind": "page" },
     { "path": "/docs", "base": "portal", "kind": "page" },
+    { "path": "/playground", "base": "portal", "kind": "page" },
+    { "path": "/status", "base": "portal", "kind": "page" },
+    { "path": "/guides", "base": "portal", "kind": "page" },
     { "path": "/v1/holidays?country=IN&year=2026&region=KA", "base": "api", "kind": "api" },
     { "path": "/v1/date/is-holiday?country=IN&date=2026-01-26", "base": "api", "kind": "api" },
     { "path": "/v1/date/next-holiday?country=IN&date=2026-01-01", "base": "api", "kind": "api" },
@@ -26,6 +29,20 @@
   ],
   "submission": {
     "terms": ["India Public Holidays", "Indian public holidays", "gazetted holiday", "restricted holiday", "India calendar"],
-    "targets": [{ "repo": "public-apis/public-apis", "pr": 7591 }]
+    "targets": [
+      {
+        "repo": "public-apis/public-apis",
+        "pr": 7591,
+        "row": {
+          "title": "India Public Holidays",
+          "url": "https://calendar-api-web.vercel.app/docs",
+          "description": "Official Indian public holidays for the Central government and 36 states/UTs",
+          "category": "Calendar",
+          "auth": "No",
+          "https": "Yes",
+          "cors": "Yes"
+        }
+      }
+    ]
   }
 }
