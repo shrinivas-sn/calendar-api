@@ -17,7 +17,6 @@
   "routes": [
     { "path": "/", "base": "portal", "kind": "page" },
     { "path": "/docs", "base": "portal", "kind": "page" },
-    { "path": "/playground", "base": "portal", "kind": "page" },
     { "path": "/status", "base": "portal", "kind": "page" },
     { "path": "/guides", "base": "portal", "kind": "page" },
     { "path": "/v1/holidays?country=IN&year=2026&region=KA", "base": "api", "kind": "api" },
