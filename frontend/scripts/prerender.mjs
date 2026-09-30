@@ -89,6 +89,20 @@ try {
     await fs.writeFile(page.file, html, 'utf8');
   }
 
+  // 404.html: Vercel serves it with status 404 for any path no file or rewrite matches.
+  // noindex, no canonical, and kept out of allPages so it never reaches the sitemap.
+  const notFoundBody = renderToString(
+    React.createElement(MemoryRouter, { initialEntries: ['/__not-found__'] }, React.createElement(AppContent))
+  );
+  const notFoundHtml = template
+    .replace('<div id="root"></div>', `<div id="root">${notFoundBody}</div>`)
+    .replace(/<title>[^<]*<\/title>/, '<title>Page not found — India Public Holidays API</title>')
+    .replace(/<meta name="description" content="[^"]*"\s*\/?>/, '<meta name="description" content="This page does not exist." />')
+    .replace(/\s*<link rel="canonical" href="[^"]*"\s*\/?>/, '')
+    .replace(/\s*<meta property="og:url" content="[^"]*"\s*\/?>/, '')
+    .replace('</head>', '  <meta name="robots" content="noindex" />\n  </head>');
+  await fs.writeFile(path.join(distDir, '404.html'), notFoundHtml, 'utf8');
+
   // Generate sitemap.xml
   const sitemapEntries = allPages.map((page) => {
     const loc = new URL(page.route === '/' ? '' : page.route, siteUrl).href;
