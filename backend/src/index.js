@@ -170,8 +170,19 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // Create routes using express.Router()
   const v1Router = express.Router();
 
+  // Repeated (?a=1&a=2) or nested (?a[b]=1) params arrive as arrays/objects. Reject
+  // them up front so no handler ever calls a string method on a non-string.
+  v1Router.use((req, res, next) => {
+    for (const [key, value] of Object.entries(req.query)) {
+      if (typeof value !== 'string') {
+        return sendError(res, `Parameter '${key}' must be given once as plain text`, 400);
+      }
+    }
+    next();
+  });
+
   // 1 & 2: GET /v1/holidays
-  v1Router.get('/holidays', (req, res) => {
+  v1Router.get('/holidays', (req, res, next) => {
     try {
       const { country, year, region } = req.query;
       
@@ -196,12 +207,12 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       const holidays = loadAndMergeHolidays(year, region);
       return sendSuccess(res, country, year, region, holidays);
     } catch (err) {
-      return sendError(res, err.message, err.status || 500);
+      return next(err);
     }
   });
 
   // 3: GET /v1/date/is-holiday
-  v1Router.get('/date/is-holiday', (req, res) => {
+  v1Router.get('/date/is-holiday', (req, res, next) => {
     try {
       const { country, date, region } = req.query;
       
@@ -247,12 +258,12 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       
       return sendSuccess(res, country, year, region, responseData);
     } catch (err) {
-      return sendError(res, err.message, err.status || 500);
+      return next(err);
     }
   });
 
   // 4: GET /v1/date/next-holiday
-  v1Router.get('/date/next-holiday', (req, res) => {
+  v1Router.get('/date/next-holiday', (req, res, next) => {
     try {
       const { country, date, region } = req.query;
       
@@ -310,12 +321,12 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         return sendSuccess(res, country, year, region, []);
       }
     } catch (err) {
-      return sendError(res, err.message, err.status || 500);
+      return next(err);
     }
   });
 
   // 5: GET /v1/holidays/range
-  v1Router.get('/holidays/range', (req, res) => {
+  v1Router.get('/holidays/range', (req, res, next) => {
     try {
       const { country, start, end, region } = req.query;
       
@@ -373,12 +384,12 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       
       return sendSuccess(res, country, startYear, region, finalFiltered);
     } catch (err) {
-      return sendError(res, err.message, err.status || 500);
+      return next(err);
     }
   });
 
   // 6: GET /v1/calendar
-  v1Router.get('/calendar', (req, res) => {
+  v1Router.get('/calendar', (req, res, next) => {
     try {
       const { country, year, region } = req.query;
       
@@ -446,7 +457,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       
       return sendSuccess(res, country, year, region, calendar);
     } catch (err) {
-      return sendError(res, err.message, err.status || 500);
+      return next(err);
     }
   });
 
