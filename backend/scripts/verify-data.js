@@ -1,10 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const regions = [
-  "central", "AP", "AR", "AS", "BR", "CG", "GA", "GJ", "HR", "HP", "JH", "KA", "KL", "MP", "MH", "MN", "ML", "MZ", "NL", "OD", "PB", "RJ", "SK", "TN", "TS", "TR", "UP", "UK", "WB",
-  "AN", "CH", "DN", "DL", "JK", "LD", "PY", "LA"
-];
+const regions = require('../config/regions').map(r => r.code);
 
 const TARGET_YEAR = 2026;
 
