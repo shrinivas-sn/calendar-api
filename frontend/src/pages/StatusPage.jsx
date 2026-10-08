@@ -1,37 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import { Activity, ShieldCheck, Clock, Server, Layers, ShieldAlert, Cpu } from 'lucide-react';
+import React, { useState } from 'react';
+import { Activity, Server } from 'lucide-react';
 import StatusBadge from '../components/StatusBadge';
 
 export default function StatusPage() {
   const [baseUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:3000');
-  const [pingData, setPingData] = useState({ loading: true, latency: null, error: null });
-
-  useEffect(() => {
-    const ping = async () => {
-      const startTime = performance.now();
-      try {
-        const pingUrl = `${baseUrl}/v1/holidays?country=IN&year=2026&region=central`;
-        const res = await fetch(pingUrl);
-        if (!res.ok) throw new Error(`HTTP error ${res.status}`);
-        const duration = Math.round(performance.now() - startTime);
-        setPingData({ loading: false, latency: duration, error: null });
-      } catch (err) {
-        setPingData({ loading: false, latency: null, error: err.message });
-      }
-    };
-
-    ping();
-  }, [baseUrl]);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 animate-fadeIn">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header */}
-      <div className="text-center mb-12">
+      <div className="mb-10">
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-3">
-          Service <span className="text-saffron-500">Status</span>
+          Service status
         </h1>
         <p className="text-sm sm:text-base text-slate-400">
-          Real-time diagnostics and performance monitoring for the Calendar API nodes.
+          A live check of the API from your browser, and how the service is run.
         </p>
       </div>
 
@@ -49,56 +31,6 @@ export default function StatusPage() {
         <StatusBadge baseUrl={baseUrl} />
       </div>
 
-      {/* Stats Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        {/* Latency card */}
-        <div className="interactive-card p-6">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Latency</span>
-            <Clock size={16} className="text-saffron-500" />
-          </div>
-          <div className="flex items-baseline gap-1 font-mono">
-            <span className="text-3xl font-extrabold text-slate-100">
-              {pingData.loading ? '...' : pingData.error ? '—' : `${pingData.latency}ms`}
-            </span>
-            {!pingData.loading && !pingData.error && <span className="text-xs text-emerald-400 font-semibold ml-1">Fast</span>}
-          </div>
-          <p className="text-xs text-slate-400 mt-2 leading-relaxed">
-            Time elapsed for roundtrip fetch from regional node database.
-          </p>
-        </div>
-
-        {/* Caching card */}
-        <div className="interactive-card p-6">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">CDN Caching</span>
-            <Layers size={16} className="text-slate-400" />
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-extrabold text-slate-100">Active</span>
-            <span className="text-xs text-slate-400 font-semibold ml-1">(Cloudflare)</span>
-          </div>
-          <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-            Edge nodes caching JSON calendars globally to ensure instant responses.
-          </p>
-        </div>
-
-        {/* Uptime card */}
-        <div className="interactive-card p-6">
-          <div className="flex items-center justify-between mb-4">
-            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">Uptime Target</span>
-            <ShieldCheck size={16} className="text-saffron-500" />
-          </div>
-          <div className="flex items-baseline gap-1">
-            <span className="text-3xl font-extrabold text-slate-200">99.9%</span>
-            <span className="text-xs text-emerald-400 font-semibold">Guaranteed</span>
-          </div>
-          <p className="text-xs text-slate-500 mt-2 leading-relaxed">
-            Continuous operational testing monitors server health and availability.
-          </p>
-        </div>
-      </div>
-
       <div className="docs-card p-6 sm:p-8">
         <h3 className="font-display font-bold text-base text-slate-200 mb-6 flex items-center gap-2">
           <Server size={16} className="text-saffron-500" />
@@ -106,26 +38,25 @@ export default function StatusPage() {
         </h3>
 
         <div className="space-y-4 text-xs sm:text-sm">
-          <div className="flex items-center justify-between py-2 border-b border-white/5">
-            <span className="text-slate-400 font-medium">API Version</span>
-            <span className="font-mono text-slate-300">v1.0.0</span>
-          </div>
-          <div className="flex items-center justify-between py-2 border-b border-white/5">
-            <span className="text-slate-400 font-medium">Hosting Provider</span>
-            <span className="text-slate-300">Render (Node.js runtime)</span>
-          </div>
-          <div className="flex items-center justify-between py-2 border-b border-white/5">
-            <span className="text-slate-400 font-medium">Deployment Target</span>
-            <span className="text-slate-300">calendar-api-d7a8.onrender.com</span>
-          </div>
-          <div className="flex items-center justify-between py-2 border-b border-white/5">
-            <span className="text-slate-400 font-medium">Rate Limiting Threshold</span>
-            <span className="text-slate-300">100 requests per 15 mins per IP</span>
-          </div>
-          <div className="flex items-center justify-between py-2">
-            <span className="text-slate-400 font-medium">Data Storage Protocol</span>
-            <span className="text-slate-300">Static JSON flat-files (Zero database lockups)</span>
-          </div>
+          {[
+            ['API version', 'v1'],
+            ['Hosting', 'Render, free plan'],
+            ['Cold start', 'The first request after 15 minutes without traffic can take about a minute'],
+            ['API address', 'calendar-api-d7a8.onrender.com'],
+            ['Rate limit', '100 requests per 15 minutes per IP address'],
+            ['Response caching', 'Successful responses are cacheable for 1 hour'],
+            ['Data storage', 'JSON files in the public GitHub repository, no database'],
+            ['Data source', 'india.gov.in holiday calendar'],
+            ['Data refresh', 'Checked automatically on the 1st of every month'],
+          ].map(([label, value], i, rows) => (
+            <div
+              key={label}
+              className={`flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 py-2 ${i < rows.length - 1 ? 'border-b border-white/5' : ''}`}
+            >
+              <span className="text-slate-400 font-medium">{label}</span>
+              <span className="text-slate-300 sm:text-right">{value}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
