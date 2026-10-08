@@ -29,7 +29,7 @@ export const CALENDAR_GUIDES = [
 - **Gazetted Holidays (GH)**: Mandatory non-working days for government offices, courts, and banks in the specified jurisdiction. All employees receive paid time off by default.
 - **Restricted Holidays (RH / Optional Holidays)**: A curated list of cultural, regional, or religious observances. Employees are typically entitled to pick 2 or 3 optional days per calendar year from this approved list. They are not automatic enterprise closures.
 
-The Calendar API tags every holiday record with a \`type\` field (\`"gazetted"\`, \`"restricted"\`, or \`"observance"\`), allowing automated systems to filter out optional leaves from enterprise calendar schedules.`
+The Calendar API tags every holiday record with a \`type\` field (\`"gazetted_holiday"\`, \`"restricted_holiday"\`, or \`"observance"\`), allowing automated systems to filter out optional leaves from enterprise calendar schedules.`
       },
       {
         heading: "3. State-Level Autonomy and Regional Variations",
@@ -42,7 +42,7 @@ Always query the Calendar API with the exact state code (e.g. \`region=KA\`) to 
       },
       {
         heading: "4. cURL & Integration Example",
-        code: `curl -s "https://calendar-api-d7a8.onrender.com/v1/holidays?country=IN&year=2026&region=KA" | jq '.data[] | select(.type=="gazetted")'`
+        code: `curl -s "https://calendar-api-d7a8.onrender.com/v1/holidays?country=IN&year=2026&region=KA" | jq '.data[] | select(.type=="gazetted_holiday")'`
       }
     ]
   },

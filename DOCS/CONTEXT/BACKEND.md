@@ -55,6 +55,13 @@ The data pipeline runs locally to fetch and format the calendar data. It follows
    - Chronologically sorts and deduplicates events.
 4. **Save**: Writes the final schema to `data/<year>/IN/<region_code>/holidays.json` and updates the master `INDEX.json`.
 
+**Running it:** `node scripts/parse-ics.js --year <YYYY>`, then `npm run verify -- --year <YYYY>`.
+The year is required (nothing is hardcoded). Regions come from `config/regions.js`, shared with
+`verify-data.js`. The run is all-or-nothing: if any region fails, returns 0 holidays, returns a
+date outside the year, or reports more holidays than one page holds, nothing is written and it exits 1.
+`verify-data.js` checks every year folder (or `--year`), and fails on empty region files or a central
+list missing 26 Jan, 15 Aug or 2 Oct.
+
 ---
 
 ## 4. API Engine & Runtime Merge Logic (`src/index.js`)
@@ -73,6 +80,20 @@ To serve state-level calendars, the API merges two files at runtime to keep data
 3. It combines the lists and filters out duplicates by creating a unique hash (`date_name`).
 4. Central list entries are processed first (giving national holidays precedence), and state entries are skipped if a matching holiday already exists.
 5. The merged dataset is sorted chronologically and returned.
+6. Each returned holiday carries `level`: `"state"` when its `date_name` is on the requested state's own
+   list (even if central lists it too), else `"central"`. Additive; the items themselves are unchanged.
+
+### Hardening (08/10/2026)
+- Data files are parsed once per process and cached (`createApp({ dataDir })`; tests pass a temp dir,
+  `CALENDAR_DATA_DIR` overrides the default `data/`).
+- Missing or unreadable region file → `503 "Holiday data unavailable for this region"` (never an empty list).
+- Repeated or nested query params → `400 "Parameter '<name>' must be given once as plain text"`.
+- Unexpected errors → `500 "Internal Server Error"`; no internal message leaves the server.
+- `/holidays/range` spans at most `MAX_RANGE_YEARS` (5) calendar years.
+- `meta.yearsWithoutData` lists years a range or next-holiday lookup touched that have no data.
+- `region` accepted in any case (`ka` → `KA`).
+- Successful `/v1` responses send `Cache-Control: public, max-age=3600`.
+- Tests: `npm test` (root) runs `backend/test/` with `node:test`; CI in `.github/workflows/test.yml`.
 
 ---
 

@@ -397,9 +397,12 @@ export default function DocsPage() {
               <li><code className="text-saffron-400 font-semibold font-mono">country</code>: ISO alpha 2 country code (<code className="bg-white/5 font-mono px-1 rounded text-xs">IN</code>).</li>
               <li><code className="text-saffron-400 font-semibold font-mono">year</code>: The calendar year requested.</li>
               <li><code className="text-saffron-400 font-semibold font-mono">region</code>: The state code requested, or <code className="bg-white/5 font-mono px-1 rounded text-xs">central</code>.</li>
-              <li><code className="text-saffron-400 font-semibold font-mono">data</code>: Array containing corresponding holiday records.</li>
-              <li><code className="text-saffron-400 font-semibold font-mono">meta</code>: Contains payload metadata like <code className="font-mono text-xs">apiVersion</code>, <code className="font-mono text-xs">totalResults</code> and generation timestamp.</li>
+              <li><code className="text-saffron-400 font-semibold font-mono">data</code>: Array containing corresponding holiday records. Each holiday carries <code className="bg-white/5 font-mono px-1 rounded text-xs">level</code>: <code className="bg-white/5 font-mono px-1 rounded text-xs">state</code> when it is on the requested state's own list, otherwise <code className="bg-white/5 font-mono px-1 rounded text-xs">central</code>. Filter on <code className="bg-white/5 font-mono px-1 rounded text-xs">level</code> to get one state's list only.</li>
+              <li><code className="text-saffron-400 font-semibold font-mono">meta</code>: Contains payload metadata like <code className="font-mono text-xs">apiVersion</code>, <code className="font-mono text-xs">totalResults</code> and generation timestamp. When part of a request falls in a year with no published data yet, <code className="font-mono text-xs">yearsWithoutData</code> lists those years (for example a next-holiday lookup on 31 December).</li>
             </ul>
+            <p className="text-slate-400 text-sm leading-relaxed mt-4">
+              Successful responses are cacheable for one hour (<code className="bg-white/5 font-mono px-1 rounded text-xs">Cache-Control: public, max-age=3600</code>).
+            </p>
           </section>
 
           {/* Section: Errors & Rate Limits */}
@@ -450,8 +453,8 @@ export default function DocsPage() {
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Region parameter must be uppercase 2-letter code or 'central'</td>
-                    <td className="py-3 pl-4 leading-relaxed">The state code was lowercase or did not match the 2-letter format.</td>
+                    <td className="py-3 px-4 font-mono text-xs">Region parameter must be a 2-letter state/UT code or 'central'</td>
+                    <td className="py-3 pl-4 leading-relaxed">The state code did not match the 2-letter format. Any case is accepted (`ka` works like `KA`).</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
@@ -472,6 +475,16 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
                     <td className="py-3 px-4 font-mono text-xs">Start date cannot be after end date</td>
                     <td className="py-3 pl-4 leading-relaxed">The start range parameter occurs chronologically after the end parameter.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Parameter '&lt;name&gt;' must be given once as plain text</td>
+                    <td className="py-3 pl-4 leading-relaxed">A query parameter was repeated (e.g. `country=IN&amp;country=IN`) or sent as a nested value.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Range cannot span more than 5 calendar years</td>
+                    <td className="py-3 pl-4 leading-relaxed">The `/holidays/range` start and end fall in more than five calendar years.</td>
                   </tr>
 
                   {/* Status 404 Errors */}
@@ -499,6 +512,18 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
                     <td className="py-3 px-4 font-mono text-xs">Endpoint not found</td>
                     <td className="py-3 pl-4 leading-relaxed">The requested API route path or method is invalid.</td>
+                  </tr>
+
+                  {/* Status 5xx Errors */}
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">503 Service Unavailable</td>
+                    <td className="py-3 px-4 font-mono text-xs">Holiday data unavailable for this region</td>
+                    <td className="py-3 pl-4 leading-relaxed">The data file for that year and region is missing or unreadable on the server. Retry later.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-red-400">500 Internal Server Error</td>
+                    <td className="py-3 px-4 font-mono text-xs">Internal Server Error</td>
+                    <td className="py-3 pl-4 leading-relaxed">An unexpected server error. No internal details are returned.</td>
                   </tr>
 
                   {/* Status 429 Errors */}
