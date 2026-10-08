@@ -100,29 +100,33 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   }
 
   // Helper to load and merge holidays
+  // Every returned item is a copy carrying `level`: "state" when it is on the
+  // requested state's own list (even if central lists it too), else "central".
+  // Copies keep the cached file data untouched.
   function loadAndMergeHolidays(year, region) {
     const central = loadHolidaysFile(year, 'central');
     if (!region || region === 'central') {
-      const holidays = [...central];
+      const holidays = central.map(h => ({ ...h, level: 'central' }));
       holidays.sort((a, b) => a.date.localeCompare(b.date));
       return holidays;
     }
     
     const state = loadHolidaysFile(year, region);
+    const stateKeys = new Set(state.map(h => `${h.date}_${h.name}`));
     const seen = new Set();
     const merged = [];
     
     for (const h of central) {
       const key = `${h.date}_${h.name}`;
       seen.add(key);
-      merged.push(h);
+      merged.push({ ...h, level: stateKeys.has(key) ? 'state' : 'central' });
     }
     
     for (const h of state) {
       const key = `${h.date}_${h.name}`;
       if (!seen.has(key)) {
         seen.add(key);
-        merged.push(h);
+        merged.push({ ...h, level: 'state' });
       }
     }
     
