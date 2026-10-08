@@ -414,6 +414,8 @@ status file and in the session's final message.)*
 | 5 | 08/10/2026 | 2.2 | Export `parseIcsFile` | Parsing must happen before any write, so it takes text, not a path | local | Exported `parseIcs(icsText, regionCode, year)` and `runPipeline({ year, dataDir, icsDir, fetchIcs })` (fetch injectable for tests). Added `ics/` to `backend/.gitignore` (generated output). | — |
 | 6 | 08/10/2026 | 2.2 | Write the S13 test first, see it fail | Requiring the OLD `parse-ics.js` ran the pipeline at load: gov source failed and it wrote empty files over all 37 `backend/data/2026` files in the working copy (`git diff --stat`: 38 files changed) | data — working copy only, never committed | Restored with `git checkout -- backend/data`, removed generated `backend/ics/`; `verify` → SUCCESS. Live proof of the bug this task fixes. | — |
 | 7 | 08/10/2026 | 2.3 | S14 test red before the fix | Old `verify-data.js` calls `process.exit(0)` at load, so the new test file "passed" with no tests run (false green) | local | Rewrite exports `verifyYear` and only runs CLI under `require.main`; S14 now runs 4 real tests. | — |
+| 8 | 08/10/2026 | 3.1 | Verify with a green GitHub run | Branch not pushed (owner-only) | local | Workflow committed; hosted run pending owner push. | pending |
+| 9 | 08/10/2026 | 4.1/4.2 | Source returns JSON, then fetch 2027 | Node probe: central 2027 → 200, 49 items (total 49, 1 page); a second call → 504. Full run: central 504, all 36 states "0 holidays" → nothing written | data — 2027 blocked | States have not published 2027 yet; central is flaky. Re-run `node backend/scripts/parse-ics.js --year 2027` weekly from November; deadline 15/12/2026. curl is blocked by the edge but Node https gets through. | Owner: rerun weekly vs add a retry for 5xx vs publish central-only early (would need an all-or-nothing exception) |
 
 ---
 
@@ -458,3 +460,17 @@ Verified:   `npm test` → # pass 42, # fail 0. `npm --prefix backend run verify
 Surprises:  Issue 6 — the old script wiped the working-copy data the moment a test loaded it (restored from git). Issue 7 — old verify script gave a false green.
 Next:       Phase 3, Task 3.1 — .github/workflows/test.yml.
 Commit:     8b9af2b, b11cf2a, and the 2.3 commit (+ this checkpoint)
+
+### Phase 3 — 08/10/2026
+Done:       3.1 `.github/workflows/test.yml` (checkout@v7, setup-node@v7, Node 22, contents: read, no cache — no lockfile); 3.2 DocsPage documents `level`, `yearsWithoutData`, cache header, 400 repeat-param, 400 range cap, 503, 500; guide jq filter and type list use `gazetted_holiday`; BACKEND.md updated.
+Verified:   `npm --prefix frontend run build` → built, "Successfully rendered 7 pages"; built `dist/docs/index.html` contains `yearsWithoutData`, "unavailable for this region", "5 calendar years"; guides contain `select(.type==&quot;gazetted_holiday&quot;)`. Hosted CI run: not yet (issue 8).
+Surprises:  none.
+Next:       Owner pushes `harden/api`; check `gh run list --branch harden/api --limit 1` → success.
+Commit:     5e2444c, c1278ba
+
+### Phase 4 — 08/10/2026 (blocked, see issue 9)
+Done:       4.1 probe: source reachable from Node (curl blocked); central 2027 published (49). 4.2 run: 37/37 failed (central 504, states 0 holidays) → nothing written, `git status` clean.
+Verified:   script output "37 of 37 regions failed. Nothing was written."; `git status --short` → no data changes.
+Surprises:  The old script, run today, would have written 37 empty 2027 files and the API would have answered "not a holiday" for every 2027 date.
+Next:       From 01/11/2026, weekly: `node backend/scripts/parse-ics.js --year 2027`; when it succeeds, `npm --prefix backend run verify -- --year 2027`, `npm test`, commit `data: add 2027 holidays for central and 36 states/UTs`. Deadline 15/12/2026.
+Commit:     not committed (nothing to commit)

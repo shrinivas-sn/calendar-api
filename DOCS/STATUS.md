@@ -20,13 +20,13 @@
 - Registered in `E:\OSC\api-projects\SUBMISSION-READINESS.md` along with LGD and GST APIs.
 
 ## Blockers / In Flight
-- Production hardening in progress on branch `harden/api` (not pushed): see root `PLAN.md`.
-  Phases 1–2 done (tests, non-breaking API fixes, safe data scripts; `npm test` → 42 pass).
-- Data refresh: `node backend/scripts/parse-ics.js --year YYYY` then `npm --prefix backend run verify -- --year YYYY`.
-- 2026 data ends 31/12/2026; 2027 data not loaded. Gov source (`india.gov.in/internal/cms`) returned an HTML error 3/3 times on 08/10/2026.
-- Plan issues logged: 7 (issue 6 = old script wiped working-copy data during a test; restored, never committed), see `PLAN.md` → Plan issues.
+- Production hardening on branch `harden/api` (NOT pushed, NOT live): see root `PLAN.md`.
+  Phases 1–3 done: 42 tests (`npm test`), non-breaking API fixes, safe data scripts, CI workflow, docs.
+- Data refresh: `node backend/scripts/parse-ics.js --year YYYY` then `npm --prefix backend run verify -- --year YYYY` (all-or-nothing; writes nothing on any failure).
+- 2027 data BLOCKED: central 2027 published (49) but source flaky (504); states not published yet (0 each). Re-run weekly from 01/11/2026; deadline 15/12/2026.
+- Plan issues logged: 9, see `PLAN.md` → Plan issues (6 = old script wiped working-copy data during a test, restored; 9 = 2027 blocked).
 
 ## Next up (start here)
-1. Continue `PLAN.md` at the last Progress Log entry's `Next:` on branch `harden/api`.
-2. Owner: approve pushing `harden/api` and merging to `main` (merge = live deploy on Render).
-3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:OSCapi-projectsSUBMISSION-READINESS.md`.
+1. Owner: review branch `harden/api`, push it (CI runs), then merge to `main` (= live deploy on Render).
+2. From 01/11/2026 weekly: `node backend/scripts/parse-ics.js --year 2027` until it succeeds (PLAN.md Phase 4).
+3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.
