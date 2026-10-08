@@ -35,7 +35,7 @@ The backend is a **database-free REST API** serving pre-compiled static JSON hol
 ## 2. Monorepo File Structure & Layout
 All backend code resides in the `/backend` folder:
 - **`src/index.js`**: The Express.js application (routing, validation, merge logic, server configuration).
-- **`scripts/parse-ics.js`**: Offline data-ingestion pipeline script.
+- **`scripts/fetch-holidays.js`**: Fetches one year from india.gov.in into `data/` (manual or monthly CI).
 - **`scripts/verify-data.js`**: Test script to validate JSON structure and data integrity before deploy.
 - **`data/2026/IN/`**: Pre-generated holiday databases:
   - `INDEX.json`: Summary listing all regions and holiday counts.
@@ -43,24 +43,20 @@ All backend code resides in the `/backend` folder:
 
 ---
 
-## 3. Data Pipeline & ETL Flow (`parse-ics.js`)
-The data pipeline runs locally to fetch and format the calendar data. It follows this sequence:
-1. **Fetch from CMS**: Makes `POST` requests to `https://www.india.gov.in/internal/cms` requesting specific Strapi-style endpoints for Central and State/UT-level calendars.
-2. **Retrieve ICS**: Sends the raw events to `https://www.india.gov.in/api/calendar-ics` to generate a standard iCal (`.ics`) file.
-3. **Parse and Clean**:
-   - Parses the `.ics` events.
-   - Cleans character strings (e.g., converting escaped characters like `\,` to `,`).
-   - Standardizes date formats into `YYYY-MM-DD`.
-   - Maps event types: standardizes government descriptions to `gazetted_holiday`, `restricted_holiday`, or `observance`.
-   - Chronologically sorts and deduplicates events.
-4. **Save**: Writes the final schema to `data/<year>/IN/<region_code>/holidays.json` and updates the master `INDEX.json`.
+## 3. Data Pipeline (`fetch-holidays.js`)
+**Run:** `node scripts/fetch-holidays.js --year <YYYY>`, then `npm run verify -- --year <YYYY>`.
+1. **Fetch**: `POST https://www.india.gov.in/internal/cms` with a Strapi-style route per region (central: `/api/calendar-holidays`, states: `/api/state-holidays` filtered by alias), every page of 100.
+2. **Retry**: 5xx and non-JSON replies retried after 3s, 10s, 30s; failed regions get one more pass after 60s. 4xx is not retried.
+3. **Map**: `title`, `date`, `holiday_type` → `name`, `date`, `type`; `description` = `"<holiday_type> Holiday"`. Names are kept exactly as published (some end in a space). Output is identical to the earlier ICS-based pipeline (live check 08/10/2026: 2026 unchanged for all 37 regions).
+4. **Decide**: exit 1 (error, nothing written) if any region fails or a date is outside the year; exit 2 (not ready, nothing written) if any region has no holidays yet; else exit 0.
+5. **Write**: only regions whose holidays changed (order-insensitive compare), plus `INDEX.json`. An unchanged run touches no file.
 
-**Running it:** `node scripts/parse-ics.js --year <YYYY>`, then `npm run verify -- --year <YYYY>`.
-The year is required (nothing is hardcoded). Regions come from `config/regions.js`, shared with
-`verify-data.js`. The run is all-or-nothing: if any region fails, returns 0 holidays, returns a
-date outside the year, or reports more holidays than one page holds, nothing is written and it exits 1.
-`verify-data.js` checks every year folder (or `--year`), and fails on empty region files or a central
-list missing 26 Jan, 15 Aug or 2 Oct.
+Regions come from `config/regions.js`, shared with `verify-data.js`. `verify-data.js` checks every year
+folder (or `--year`) and fails on empty region files or a central list missing 26 Jan, 15 Aug or 2 Oct.
+
+**Monthly CI** (`.github/workflows/data-update.yml`): 1st of each month, this year and next year. Changed
+data → verify + tests → one pull request on branch `data-update`. Source errors, or next year still not
+ready in December, fail the run (GitHub emails the owner). It never pushes to `main`.
 
 ---
 
@@ -93,6 +89,7 @@ To serve state-level calendars, the API merges two files at runtime to keep data
 - `meta.yearsWithoutData` lists years a range or next-holiday lookup touched that have no data.
 - `region` accepted in any case (`ka` → `KA`).
 - Successful `/v1` responses send `Cache-Control: public, max-age=3600`.
+- Opt-in `scope=state` (all routes): only the region's own list. Opt-in `restricted=working` (`/calendar`): restricted-only days stay working days. Defaults keep v1 behaviour.
 - Tests: `npm test` (root) runs `backend/test/` with `node:test`; CI in `.github/workflows/test.yml`.
 
 ---

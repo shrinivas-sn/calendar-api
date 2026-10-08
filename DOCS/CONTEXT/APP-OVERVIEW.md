@@ -29,9 +29,8 @@ The codebase is organized as a monorepo with separate backend and frontend proje
 calendar-api/
 ├── backend/                  # REST API server & Data pipeline
 │   ├── data/                 # Ingested JSON holiday databases
-│   ├── ics/                  # Backup iCal calendar files
 │   ├── scripts/              # Data collection pipelines
-│   │   ├── parse-ics.js      # Scraper/Parser script
+│   │   ├── fetch-holidays.js # Fetches a year from india.gov.in
 │   │   └── verify-data.js    # Data validator
 │   ├── src/
 │   │   └── index.js          # Node.js + Express server code
@@ -73,18 +72,13 @@ calendar-api/
 
 The holiday data is stored statically as JSON, avoiding database lookup times and infrastructure costs.
 
-### Ingestion Flow (`backend/scripts/parse-ics.js`)
-1. **CMS API Extraction**: Queries the official government portal (`india.gov.in/calendar`) via an internal CMS route `/internal/cms`.
-2. **ICS Generation**: Sends the raw JSON list of holidays to the portal's `/api/calendar-ics` endpoint to download the standard iCal file.
-3. **Backup Storage**: Saves `.ics` files under `backend/ics/` (e.g. `IN_KA_2026.ics`).
-4. **Parsing**:
-   - Parses the iCal events (vevent) line-by-line.
-   - Cleans the summary (replaces `\,` with `,`).
-   - Converts dates to `YYYY-MM-DD`.
-   - Programmatically filters out duplicate events.
-   - Standardizes type mapping (`Gazetted Holiday` -> `gazetted_holiday`, `Restricted Holiday` -> `restricted_holiday`, others -> `observance`).
-5. **Output**: Writes sorted, structured JSON files to `backend/data/<year>/IN/<region>/holidays.json` (where `<region>` is the 2-letter uppercase code or `central`).
-6. **Index Creation**: Compiles a master list of all processed regions at `backend/data/<year>/IN/INDEX.json`.
+### Ingestion Flow (`backend/scripts/fetch-holidays.js --year YYYY`)
+1. **CMS API Extraction**: Queries the government portal's internal CMS route `/internal/cms` for each region, reading every page.
+2. **Retries**: 5xx and non-JSON replies are retried with growing waits; regions that still fail get one more pass.
+3. **Mapping**: `title` → `name`, `date` → `date`, `holiday_type` → `gazetted_holiday` / `restricted_holiday` / `observance`; same-date same-name duplicates dropped; sorted by date.
+4. **All or nothing**: any failed region, or a date outside the year, writes nothing (exit 1). Regions with no holidays yet mean "not ready" (exit 2), also writing nothing.
+5. **Output**: Rewrites only regions whose holidays changed (`backend/data/<year>/IN/<region>/holidays.json`) and the year's `INDEX.json`.
+6. **Schedule**: `.github/workflows/data-update.yml` runs it for this year and next year on the 1st of each month and opens a pull request when data changed.
 
 ---
 

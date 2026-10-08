@@ -133,7 +133,13 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Uppercase 2-letter state code or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>. Defaults to central.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>. Defaults to central.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -187,7 +193,13 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Uppercase 2-letter state code or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -249,7 +261,13 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Uppercase 2-letter state code or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -311,7 +329,13 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Uppercase 2-letter state code or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -367,7 +391,19 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Uppercase 2-letter state code or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">restricted</td>
+                    <td className="py-3 px-4 text-slate-500">No</td>
+                    <td className="py-3 px-4 font-mono text-slate-500">string</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">holiday</code> (default) counts restricted (optional) holidays as days off. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">working</code> keeps days that only have restricted holidays as working days.</td>
                   </tr>
                 </tbody>
               </table>
@@ -475,6 +511,11 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
                     <td className="py-3 px-4 font-mono text-xs">Start date cannot be after end date</td>
                     <td className="py-3 pl-4 leading-relaxed">The start range parameter occurs chronologically after the end parameter.</td>
+                  </tr>
+                  <tr>
+                    <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
+                    <td className="py-3 px-4 font-mono text-xs">Parameter 'scope' must be one of: all, state</td>
+                    <td className="py-3 pl-4 leading-relaxed">`scope` or `restricted` has a value outside the listed options.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>

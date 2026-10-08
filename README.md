@@ -121,9 +121,9 @@ Generates 365/366 day slots for the year, detailing week dates, holiday statuses
 
 ## 📚 Data Source & Attribution
 
-Holiday records are parsed from the **National Portal of India** calendar at
+Holiday records are fetched from the **National Portal of India** calendar at
 [`https://www.india.gov.in/calendar`](https://www.india.gov.in/calendar) by
-`backend/scripts/parse-ics.js`, and `backend/scripts/verify-data.js` asserts that every
+`backend/scripts/fetch-holidays.js` (run monthly by `.github/workflows/data-update.yml`), and `backend/scripts/verify-data.js` asserts that every
 stored record carries that URL in its `source` field. Records also keep the gazetted /
 restricted `type` used for the Central-versus-state merge.
 
