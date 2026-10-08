@@ -2,36 +2,28 @@
 
 **Last updated:** 09/10/2026  
 **Workspace:** `E:\OSC\api-projects\projects\calendar-api`  
-**Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
+**Live API:** `https://calendar-api-d7a8.onrender.com` (Render free plan, auto-deploys from `main`)  
 **Frontend:** `https://calendar-api-web.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
 
 ## Current State
-- Relocated into `E:\OSC\api-projects\projects\calendar-api`; git history and remotes preserved.
-- Deployed: `develop` and `main` pushed to `origin` (`97671a5`), auto-deploying to Render & Vercel.
-- All 6 OSC SEO & Indexing Invariants PASS:
-  1. Real URL routes (`/`, `/playground`, `/docs`, `/guides`, `/guides/:id`, `/status`, `404`).
-  2. Static Prerendering (SSG) via `scripts/prerender.mjs` rendering full static HTML into `dist/`.
-  3. Unique per-page meta tags, canonical URLs, and Schema.org `WebAPI` JSON-LD.
-  4. Automated `sitemap.xml` build generator with canonical URL paths.
-  5. `robots.txt` directive referencing sitemap.
-  6. Vercel rewrites configured with negative-lookahead static asset exemption.
-- Anti-slop UI polish complete across all pages (asymmetric hero, zero fake macOS widgets, disciplined palette, zero `transition-all`).
-- Backend operational on Express 5 (`express@5.2.1`) with JSON error envelope, rate limiting, and CORS.
-- Registered in `E:\OSC\api-projects\SUBMISSION-READINESS.md` along with LGD and GST APIs.
+- `main` at `39ba25e` is live (merged 09/10/2026): 56 tests (`npm test`), non-breaking API fixes,
+  opt-in `scope=state` / `restricted=working`, safe `backend/scripts/fetch-holidays.js`, CI tests, monthly data job.
+- Verified live 09/10/2026: `region=KA&scope=state` → 41 items; default `region=KA` → 87 (unchanged);
+  repeated `country` → 400 instead of a crash.
+- Monthly data job (`.github/workflows/data-update.yml`, 1st of each month) ran on GitHub: success
+  (2026 unchanged, 2027 not ready). Repo setting lets Actions open its PR.
+- SEO basics live: real routes, prerendered pages, per-page meta/canonical/JSON-LD, sitemap, robots.
+- Portal still has AI-slop and false claims (Status page, Docs "sub-50ms", Home ICS card, raw markdown in guides);
+  fix is planned in `PLAN-frontend-deslop.md`, not started.
 
 ## Blockers / In Flight
-- Branch `harden/api` ready to merge (pushed; not live until merged to `main`). See root `PLAN.md`.
-  Done: 56 tests, non-breaking API fixes, opt-in `scope=state` / `restricted=working`, safe `fetch-holidays.js`, CI tests, monthly data job, docs.
-- Data refresh: automatic on the 1st of each month (`.github/workflows/data-update.yml`) — opens a PR when data changed.
-  Manual: `node backend/scripts/fetch-holidays.js --year YYYY` then `npm --prefix backend run verify -- --year YYYY`.
-- 2027 data: not published yet by any state (live check 08/10/2026); central is out. The monthly job adds it when all 37 are out; it fails (emails) if still incomplete in December.
-- GitHub setting "Allow GitHub Actions to create and approve pull requests" is ON (checked 09/10/2026 via API).
-- CI: `test` workflow green on `harden/api` at e11ea9d.
-- Frontend de-slop: plan ready at `PLAN-frontend-deslop.md` (frontend/src only; dry-run on 09/10/2026 built clean, all checks 0, lint 31→26). Not started.
-- Plan issues logged: 13, see `PLAN.md` → Plan issues.
+- 2027 data: no state has published yet (checked 08/10/2026). The monthly job adds it when all 37 are out,
+  and fails (GitHub emails) if still incomplete in December.
+  Manual: `node backend/scripts/fetch-holidays.js --year YYYY`, then `npm --prefix backend run verify -- --year YYYY`.
+- Frontend de-slop plan: frontend/src only; dry run 09/10/2026 built clean, all checks 0, lint 31→26.
+- Backend plan `PLAN.md` stays open only for Phase 4 (2027 data); 13 plan issues logged there.
 
 ## Next up (start here)
-0. Run `PLAN-frontend-deslop.md` (any executor) on branch `frontend-deslop`; owner reviews before merge.
-1. Merge `harden/api` → `main` (= live deploy on Render), after CI is green.
-2. After merge: check the live API (`/v1/holidays?country=IN&year=2026&region=KA&scope=state` → 41 items), then run `gh workflow run data-update.yml` once and check it ends green (2026 unchanged, 2027 not-ready).
+1. Run `PLAN-frontend-deslop.md` exactly (any executor) on branch `frontend-deslop`; owner reviews the branch before merge.
+2. Review its Phase 5 mobile report and decide fixes.
 3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.
