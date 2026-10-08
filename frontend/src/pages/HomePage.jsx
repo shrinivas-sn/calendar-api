@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ArrowRight, Terminal, BookOpen, Check, Copy, Sparkles, CheckCircle2, Play, Code2 } from 'lucide-react';
+import { ArrowRight, Terminal, Check, Copy, Play } from 'lucide-react';
 import RegionSelector from '../components/RegionSelector';
 import JsonViewer from '../components/JsonViewer';
+
+const ENDPOINTS = [
+  { path: '/v1/holidays', returns: 'All holidays in a year, for the Central Government or one state', params: 'country, year, region, scope' },
+  { path: '/v1/date/is-holiday', returns: 'Whether a date is a holiday, and which holidays fall on it', params: 'country, date, region, scope' },
+  { path: '/v1/date/next-holiday', returns: 'The next holiday after a given date', params: 'country, date, region, scope' },
+  { path: '/v1/holidays/range', returns: 'Holidays between two dates, up to 5 calendar years', params: 'country, start, end, region, scope' },
+  { path: '/v1/calendar', returns: 'Every day of a year with weekend, holiday and working-day flags', params: 'country, year, region, scope, restricted' },
+];
 
 export default function HomePage() {
   const [baseUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:3000');
@@ -172,122 +180,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── Section 2: Endpoints Matrix ─── */}
-      <section className="mb-16 sm:mb-24 pt-12 border-t border-slate-800/80">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+      {/* Endpoints */}
+      <section className="mb-16 pt-12 border-t border-slate-800/80">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
-              API Endpoint Matrix
+              Endpoints
             </h2>
             <p className="text-slate-400 text-sm mt-1">
-              5 lightweight endpoints tailored for leave calculations, calendar renderers, and HRMS validation.
+              All endpoints are GET requests and need <code className="font-mono text-slate-300">country=IN</code>.
             </p>
           </div>
           <NavLink
             to="/docs"
             className="text-xs font-semibold text-saffron-400 hover:text-saffron-300 flex items-center gap-1"
           >
-            <span>View Complete API Reference</span>
+            <span>Full reference</span>
             <ArrowRight size={13} />
           </NavLink>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/holidays</span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              List all gazetted &amp; restricted holidays for Central Government or a specific State/UT.
-            </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, year, region</div>
-          </div>
+        <ul className="divide-y divide-slate-800 border-y border-slate-800">
+          {ENDPOINTS.map((endpoint) => (
+            <li key={endpoint.path} className="py-4 grid gap-1 md:grid-cols-12 md:gap-6 md:items-baseline">
+              <span className="md:col-span-4 font-mono text-sm text-slate-100">{endpoint.path}</span>
+              <span className="md:col-span-5 text-sm text-slate-300">{endpoint.returns}</span>
+              <span className="md:col-span-3 font-mono text-xs text-slate-400">{endpoint.params}</span>
+            </li>
+          ))}
+        </ul>
 
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/date/is-holiday</span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Instant boolean check whether a specific calendar date is a public holiday in a given region.
-            </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, date, region</div>
-          </div>
-
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/date/next-holiday</span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Returns the immediate upcoming public holiday from today or an arbitrary reference date.
-            </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, date, region</div>
-          </div>
-
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/holidays/range</span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Query all holiday events falling between two calendar dates (start and end bounds).
-            </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, start, end, region</div>
-          </div>
-
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors">
-            <div className="flex items-center gap-2 mb-2 font-mono text-xs">
-              <span className="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 font-bold">GET</span>
-              <span className="text-slate-200 font-semibold">/v1/calendar</span>
-            </div>
-            <p className="text-xs text-slate-400 leading-relaxed mb-3">
-              Month-by-month structured calendar matrix with total working day counts.
-            </p>
-            <div className="text-[11px] font-mono text-slate-500">Params: country, year, region</div>
-          </div>
-
-          <div className="bg-slate-950/70 border border-slate-800/80 rounded-xl p-5 hover:border-slate-700 transition-colors flex flex-col justify-between">
-            <div>
-              <div className="text-xs font-bold text-saffron-400 uppercase tracking-wider mb-1">Open Source</div>
-              <p className="text-xs text-slate-400 leading-relaxed">
-                Need raw datasets or offline ICS files? Access raw files directly in the repository.
-              </p>
-            </div>
-            <a
-              href="https://github.com/shrinivas-sn/calendar-api"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-semibold text-slate-300 hover:text-white flex items-center gap-1 mt-3"
-            >
-              <span>GitHub Repository</span>
-              <ArrowRight size={12} />
-            </a>
-          </div>
-        </div>
+        <p className="text-xs text-slate-400 mt-4">
+          Data and source code:{' '}
+          <a
+            href="https://github.com/shrinivas-sn/calendar-api"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-slate-300 hover:text-white underline underline-offset-4 decoration-slate-600"
+          >
+            github.com/shrinivas-sn/calendar-api
+          </a>
+        </p>
       </section>
 
-      {/* ─── Section 3: Technical Guides Callout ─── */}
-      <section className="bg-slate-950/90 border border-slate-800/80 rounded-xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
-        <div className="space-y-1 max-w-2xl">
-          <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-saffron-400">
-            <BookOpen size={13} />
-            <span>Developer Guides</span>
-          </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white">
-            Architecture, Compliance Rules &amp; Integration Recipes
-          </h3>
-          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
-            Read in-depth articles on Central vs State gazette rules, HRMS sandwich leave calculations, and multi-language SDK examples.
-          </p>
-        </div>
+      {/* Guides */}
+      <section className="pt-12 border-t border-slate-800/80">
+        <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+          Guides
+        </h2>
+        <p className="text-slate-400 text-sm mt-1 max-w-2xl">
+          Gazetted vs restricted holidays, HR leave calculations, and code examples in Node.js, Python and Go.
+        </p>
         <NavLink
           to="/guides"
-          className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 border border-slate-700 transition-colors flex-shrink-0"
+          className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-saffron-400 hover:text-saffron-300"
         >
-          <span>Read Technical Guides</span>
-          <ArrowRight size={14} />
+          <span>Read the guides</span>
+          <ArrowRight size={13} />
         </NavLink>
       </section>
     </div>
