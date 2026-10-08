@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { BookOpen, Clock, Tag, ChevronRight, Copy, Check, ArrowUpRight } from 'lucide-react';
+import { Clock, Tag, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { CALENDAR_GUIDES } from '../content/guidesData';
 import CodeSnippet from '../components/CodeSnippet';
 import GuideText from '../components/GuideText';
@@ -21,16 +21,12 @@ export default function GuidesPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Header section */}
-      <div className="mb-10 text-center sm:text-left">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-xs font-semibold uppercase tracking-wider mb-3">
-          <BookOpen size={13} />
-          <span>Developer Knowledge Hub</span>
-        </div>
+      <div className="mb-10">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
-          Technical Guides & Architecture
+          Guides
         </h1>
         <p className="text-slate-400 text-sm sm:text-base max-w-3xl">
-          Authoritative references on Indian holiday regulations, HRMS leave automation patterns, and multi-state compliance integration.
+          How Indian public holidays work, and how to use this API in HR and payroll systems.
         </p>
       </div>
 
@@ -139,27 +135,16 @@ export default function GuidesPage() {
             ))}
           </div>
 
-          {/* Keywords & Footer */}
-          <div className="mt-10 pt-6 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-slate-400 font-semibold mr-1">Topics:</span>
-              {selectedGuide.keywords.map((kw, i) => (
-                <span
-                  key={i}
-                  className="px-2 py-0.5 rounded text-[11px] bg-slate-900 text-slate-400 border border-slate-800"
-                >
-                  #{kw}
-                </span>
-              ))}
+            {/* Footer */}
+            <div className="mt-10 pt-6 border-t border-slate-800/80 flex justify-end">
+              <Link
+                to="/playground"
+                className="inline-flex items-center gap-1.5 text-xs font-semibold text-saffron-400 hover:text-saffron-300 transition-colors"
+              >
+                <span>Try these requests in the playground</span>
+                <ArrowUpRight size={13} />
+              </Link>
             </div>
-            <Link
-              to="/playground"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-saffron-400 hover:text-saffron-300 transition-colors"
-            >
-              <span>Test in API Playground</span>
-              <ArrowUpRight size={13} />
-            </Link>
-          </div>
         </article>
       </div>
     </div>
