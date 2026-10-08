@@ -1,0 +1,96 @@
+# Monthly holiday data check.
+#
+# On the 1st of every month it fetches this year and next year from india.gov.in.
+# - Nothing changed, or next year not published yet: does nothing.
+# - Something changed: runs the data checks and tests, then opens (or updates) one
+#   pull request on branch `data-update`. Merging it deploys the new data.
+# - The source failed, or next year is still not fully published in December:
+#   the run fails, so GitHub emails the repo owner.
+# It never pushes to main and never writes partial data (see fetch-holidays.js).
+#
+# Opening the pull request needs the repo setting "Allow GitHub Actions to create
+# and approve pull requests" (Settings > Actions > General > Workflow permissions).
+name: data-update
+
+on:
+  schedule:
+    - cron: '30 3 1 * *'  # 03:30 UTC (09:00 IST) on the 1st of every month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: data-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install --prefix backend
+
+      - name: Fetch this year and next year
+        id: fetch
+        run: |
+          YEAR=$(date -u +%Y)
+          NEXT=$((YEAR + 1))
+          set +e
+          node backend/scripts/fetch-holidays.js --year "$YEAR"; CURRENT_EXIT=$?
+          node backend/scripts/fetch-holidays.js --year "$NEXT"; NEXT_EXIT=$?
+          set -e
+          {
+            echo "year=$YEAR"
+            echo "next=$NEXT"
+            echo "current_exit=$CURRENT_EXIT"
+            echo "next_exit=$NEXT_EXIT"
+            if [ -n "$(git status --porcelain backend/data)" ]; then echo "changed=true"; else echo "changed=false"; fi
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Check changed data
+        if: steps.fetch.outputs.changed == 'true'
+        run: |
+          npm --prefix backend run verify
+          npm test
+
+      - name: Open or update the pull request
+        if: steps.fetch.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git switch -C data-update
+          git add backend/data
+          git commit -m "data: holiday update $(date -u +%Y-%m-%d)"
+          git push --force origin data-update
+          if [ -z "$(gh pr list --head data-update --state open --json number --jq '.[0].number')" ]; then
+            gh pr create --base main --head data-update \
+              --title "Holiday data update $(date -u +%Y-%m-%d)" \
+              --body "Automatic monthly check found changed holiday data. Review the file changes, then merge to deploy. Data checks and tests passed in the run that opened this."
+          fi
+
+      - name: Fail on source errors or late next-year data
+        run: |
+          CURRENT_EXIT=${{ steps.fetch.outputs.current_exit }}
+          NEXT_EXIT=${{ steps.fetch.outputs.next_exit }}
+          MONTH=$(date -u +%-m)
+          STATUS=0
+          if [ "$CURRENT_EXIT" -ne 0 ]; then
+            echo "::error::${{ steps.fetch.outputs.year }}: fetch did not complete (exit $CURRENT_EXIT). Nothing was written for that year."
+            STATUS=1
+          fi
+          if [ "$NEXT_EXIT" -eq 1 ]; then
+            echo "::error::${{ steps.fetch.outputs.next }}: the source failed. Nothing was written for that year."
+            STATUS=1
+          elif [ "$NEXT_EXIT" -eq 2 ] && [ "$MONTH" -eq 12 ]; then
+            echo "::error::${{ steps.fetch.outputs.next }}: still not published by every region in December. Check the log for which ones."
+            STATUS=1
+          fi
+          exit $STATUS
