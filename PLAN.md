@@ -411,6 +411,9 @@ status file and in the session's final message.)*
 | 2 | 08/10/2026 | 1.5 | Extend `sendSuccess` with optional `extraMeta` | Its `status` parameter had no caller passing it | local | Replaced the unused `status` param with `extraMeta`; always 200. | — |
 | 3 | 08/10/2026 | 1.6 | Normalize region | Error text said "must be uppercase", now false | local | Message now `Region parameter must be a 2-letter state/UT code or 'central'` (error text only, no 200 change). | — |
 | 4 | 08/10/2026 | 1.3 | 503 for missing/corrupt file | Missing **central** file in an existing year now also 503 (was `[]`) | local, same intent | Kept: an absent central list is broken data, not "no holidays". | — |
+| 5 | 08/10/2026 | 2.2 | Export `parseIcsFile` | Parsing must happen before any write, so it takes text, not a path | local | Exported `parseIcs(icsText, regionCode, year)` and `runPipeline({ year, dataDir, icsDir, fetchIcs })` (fetch injectable for tests). Added `ics/` to `backend/.gitignore` (generated output). | — |
+| 6 | 08/10/2026 | 2.2 | Write the S13 test first, see it fail | Requiring the OLD `parse-ics.js` ran the pipeline at load: gov source failed and it wrote empty files over all 37 `backend/data/2026` files in the working copy (`git diff --stat`: 38 files changed) | data — working copy only, never committed | Restored with `git checkout -- backend/data`, removed generated `backend/ics/`; `verify` → SUCCESS. Live proof of the bug this task fixes. | — |
+| 7 | 08/10/2026 | 2.3 | S14 test red before the fix | Old `verify-data.js` calls `process.exit(0)` at load, so the new test file "passed" with no tests run (false green) | local | Rewrite exports `verifyYear` and only runs CLI under `require.main`; S14 now runs 4 real tests. | — |
 
 ---
 
@@ -448,3 +451,10 @@ Verified:   `npm test` → # pass 30, # fail 0. `PORT=3917 node backend/src/inde
 Surprises:  Test command path form fails on Node 22 (issue 1). Earlier chat claim that repeated region crashes was wrong — only repeated country did.
 Next:       Phase 2, Task 2.1 — create backend/config/regions.js.
 Commit:     b76addf, a9379d1, b870807, eb1dda4, 242124f, ff8c60d, a3a18cc, 3a08784 (+ this checkpoint)
+
+### Phase 2 — 08/10/2026
+Done:       Tasks 2.1–2.3: `backend/config/regions.js` shared by both scripts; `parse-ics.js --year YYYY`, all-or-nothing (fails on any region error, 0 holidays, wrong-year date, or incomplete page; writes nothing); `verify-data.js` checks every year folder or `--year`, rejects empty files and a central list missing 01-26/08-15/10-02.
+Verified:   `npm test` → # pass 42, # fail 0. `npm --prefix backend run verify` → Years Checked: 2026, Total Errors: 0, [SUCCESS]. `node backend/scripts/parse-ics.js` → usage, exit 1. `git status` clean for backend/data.
+Surprises:  Issue 6 — the old script wiped the working-copy data the moment a test loaded it (restored from git). Issue 7 — old verify script gave a false green.
+Next:       Phase 3, Task 3.1 — .github/workflows/test.yml.
+Commit:     8b9af2b, b11cf2a, and the 2.3 commit (+ this checkpoint)

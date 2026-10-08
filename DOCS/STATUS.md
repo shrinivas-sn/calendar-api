@@ -21,9 +21,10 @@
 
 ## Blockers / In Flight
 - Production hardening in progress on branch `harden/api` (not pushed): see root `PLAN.md`.
-  Phase 1 done (tests + non-breaking API fixes, `npm test` → 30 pass).
+  Phases 1–2 done (tests, non-breaking API fixes, safe data scripts; `npm test` → 42 pass).
+- Data refresh: `node backend/scripts/parse-ics.js --year YYYY` then `npm --prefix backend run verify -- --year YYYY`.
 - 2026 data ends 31/12/2026; 2027 data not loaded. Gov source (`india.gov.in/internal/cms`) returned an HTML error 3/3 times on 08/10/2026.
-- Plan issues logged: 4 (all local), see `PLAN.md` → Plan issues.
+- Plan issues logged: 7 (issue 6 = old script wiped working-copy data during a test; restored, never committed), see `PLAN.md` → Plan issues.
 
 ## Next up (start here)
 1. Continue `PLAN.md` at the last Progress Log entry's `Next:` on branch `harden/api`.
