@@ -19,4 +19,4 @@ The portal cleanup plan completed its five phases in seven commits on `frontend-
 
 ## Disposition
 
-The original plan's Windows route-probe issue was resolved with a PowerShell run. The owner explicitly authorized local merge, superseding its earlier review hold. The frontend changes have not been pushed or deployed; the 2027 data phase in root `PLAN.md` remains separate.
+The original plan's Windows route-probe issue was resolved with a PowerShell run. The owner explicitly authorized local merge, superseding its earlier review hold. The frontend changes are merged into `main`; live deployment verification remains separate. The 2027 data phase in root `PLAN.md` also remains separate.

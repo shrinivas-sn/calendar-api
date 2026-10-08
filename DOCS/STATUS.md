@@ -13,8 +13,8 @@
 - Monthly data job (`.github/workflows/data-update.yml`, 1st of each month) ran on GitHub: success
   (2026 unchanged, 2027 not ready). Repo setting lets Actions open its PR.
 - SEO basics live: real routes, prerendered pages, per-page meta/canonical/JSON-LD, sitemap, robots.
-- Local `main` includes portal cleanup and the calendar, status, playground, spacing, and mobile fixes
-  recorded in `DOCS/WORK/2026-10-09/WORK.md`. This frontend work is not yet pushed or deployed.
+- `main` includes portal cleanup and the calendar, status, playground, spacing, and mobile fixes
+  recorded in `DOCS/WORK/2026-10-09/WORK.md`. Live frontend deployment remains to be verified.
 
 ## Blockers / In Flight
 - 2027 data: no state has published yet (checked 08/10/2026). The monthly job adds it when all 37 are out,
@@ -25,6 +25,6 @@
 - Backend plan `PLAN.md` stays open only for Phase 4 (2027 data); 13 plan issues logged there.
 
 ## Next up (start here)
-1. Push local `main` when the portal changes should deploy; verify the Vercel build.
+1. Verify the Vercel build and live portal after the `main` push.
 2. Let the monthly job check for 2027 data, or run the documented manual fetch when published.
 3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.
