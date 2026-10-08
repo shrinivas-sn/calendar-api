@@ -62,6 +62,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // Helper to send success response
   // extraMeta adds keys to meta; it never replaces the standard ones.
   function sendSuccess(res, country, year, region, data, extraMeta = {}) {
+    // Holiday data changes a few times a year; an hour of caching is safe.
+    res.set('Cache-Control', 'public, max-age=3600');
     return res.status(200).json({
       country,
       year: year ? parseInt(year, 10) : null,

@@ -74,3 +74,11 @@ test('S9: a malformed region is still 400', async () => {
   const { status } = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}&region=k1`);
   assert.equal(status, 400);
 });
+
+test('S11: 200 responses are cacheable for an hour; errors are not', async () => {
+  const ok = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}`);
+  assert.equal(ok.headers.get('cache-control'), 'public, max-age=3600');
+  const bad = await getJson(server.baseUrl, '/v1/holidays?country=IN&year=abcd');
+  assert.equal(bad.status, 400);
+  assert.equal(bad.headers.get('cache-control'), null);
+});
