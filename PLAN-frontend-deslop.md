@@ -25,6 +25,11 @@ root `npm test` passes, and `git diff --name-only main` lists only the allowed f
 
 ## Read this first
 
+0. **Run the whole plan in one go: Phase 1 → Phase 5, every task, without stopping to ask.**
+   Checkpoints are save points, not pauses — do the checkpoint steps and continue immediately.
+   Nothing in this plan needs the owner before the end. If a task fails, follow **Failure
+   handling** (log it, move on); stop only after Phase 5, then report: commits made, Task 5.2
+   output, mobile findings, and every Plan issues row.
 1. From the repo root: `git switch main && git pull` then `git switch -c frontend-deslop`.
    If the branch already exists: `git switch frontend-deslop`.
 2. Read only: `DOCS/STATUS.md`, this file's **Rules**, your current task, the last Progress Log
