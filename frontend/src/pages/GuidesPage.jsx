@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { BookOpen, Clock, Tag, ChevronRight, Copy, Check, ArrowUpRight } from 'lucide-react';
 import { CALENDAR_GUIDES } from '../content/guidesData';
 import CodeSnippet from '../components/CodeSnippet';
+import GuideText from '../components/GuideText';
 
 export default function GuidesPage() {
   const { id } = useParams();
@@ -104,9 +105,7 @@ export default function GuidesPage() {
                   {section.heading}
                 </h3>
                 {section.content && (
-                  <div className="text-slate-300 text-sm sm:text-[15px] leading-relaxed whitespace-pre-line">
-                    {section.content}
-                  </div>
+                  <GuideText text={section.content} />
                 )}
                 {section.code && (
                   <div className="mt-4 relative group">
