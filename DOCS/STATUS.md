@@ -1,6 +1,6 @@
 # Project Status — India Calendar API
 
-**Last updated:** 08/10/2026  
+**Last updated:** 09/10/2026  
 **Workspace:** `E:\OSC\api-projects\projects\calendar-api`  
 **Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
 **Frontend:** `https://calendar-api-web.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
@@ -25,10 +25,11 @@
 - Data refresh: automatic on the 1st of each month (`.github/workflows/data-update.yml`) — opens a PR when data changed.
   Manual: `node backend/scripts/fetch-holidays.js --year YYYY` then `npm --prefix backend run verify -- --year YYYY`.
 - 2027 data: not published yet by any state (live check 08/10/2026); central is out. The monthly job adds it when all 37 are out; it fails (emails) if still incomplete in December.
-- Owner setting needed: GitHub repo → Settings → Actions → General → "Allow GitHub Actions to create and approve pull requests" (currently off), or the monthly job cannot open its PR.
+- GitHub setting "Allow GitHub Actions to create and approve pull requests" is ON (checked 09/10/2026 via API).
+- CI: `test` workflow green on `harden/api` at e11ea9d.
 - Plan issues logged: 13, see `PLAN.md` → Plan issues.
 
 ## Next up (start here)
 1. Merge `harden/api` → `main` (= live deploy on Render), after CI is green.
-2. Enable the Actions PR setting above, then run `gh workflow run data-update.yml` once and check it succeeds.
+2. After merge: check the live API (`/v1/holidays?country=IN&year=2026&region=KA&scope=state` → 41 items), then run `gh workflow run data-update.yml` once and check it ends green (2026 unchanged, 2027 not-ready).
 3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.
