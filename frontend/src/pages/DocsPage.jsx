@@ -66,12 +66,12 @@ export default function DocsPage() {
           <section id="overview" className="scroll-mt-24">
             <h2 className="font-display font-extrabold text-2xl sm:text-3xl text-slate-100 mb-4">API Overview</h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
-              Welcome to the India Calendar API documentation. This open-source REST API serves official Indian government holidays (Central and State level) directly from structured datasets with zero keys and sub-50ms latency.
+              This open-source REST API serves official Indian government holidays for the Central Government and all 36 States and Union Territories. No API key or sign-up is needed.
             </p>
             <div className="bg-slate-900/90 border border-slate-800 p-4 rounded-xl flex gap-3 text-slate-300 text-xs sm:text-sm">
               <Info size={16} className="text-saffron-500 flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
-                <strong className="text-white">Zero Setup:</strong> The API is completely keyless, requires no registration or billing tokens, and serves data instantly.
+                <strong className="text-white">Cold starts:</strong> The API runs on a free server that sleeps after 15 minutes without traffic. The first request after that can take about a minute; requests after it are fast.
               </p>
             </div>
           </section>
