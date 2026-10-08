@@ -116,16 +116,12 @@ export default function PlaygroundPage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
       {/* Page Header */}
-      <div className="text-center max-w-2xl mx-auto mb-10">
-        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-xs font-bold uppercase tracking-wider mb-4">
-          <Zap size={12} />
-          <span>Live API Console</span>
-        </div>
+      <div className="max-w-2xl mb-8">
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">
-          Interactive <span className="text-saffron-500">Playground</span>
+          Playground
         </h1>
         <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
-          Build requests, preview live outputs, and copy production-ready code snippets.
+          Build a request, run it against the live API, and copy the code.
         </p>
       </div>
 
