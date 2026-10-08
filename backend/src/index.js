@@ -9,6 +9,16 @@ const DEFAULT_DATA_DIR = path.join(__dirname, '..', 'data');
 // Longest span /v1/holidays/range accepts, counted in calendar years (2025-12-01 to
 // 2026-01-31 is 2). Bounds the work one request can cause.
 const MAX_RANGE_YEARS = 5;
+// Opt-in query options. The first value of each list is the default, which keeps
+// the original v1 behaviour.
+//   scope: "all" merges the central list into a state's results; "state" returns
+//          only the requested region's own list.
+//   restricted (/calendar): "holiday" counts restricted holidays as days off;
+//          "working" counts days that only have restricted holidays as working days.
+const OPTION_VALUES = {
+  scope: ['all', 'state'],
+  restricted: ['holiday', 'working'],
+};
 
 // A region's data file is missing or unreadable. 503, not an empty list, so a broken
 // file never looks like "no holidays". expose: the message is safe to send to clients.
@@ -105,7 +115,13 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // Every returned item is a copy carrying `level`: "state" when it is on the
   // requested state's own list (even if central lists it too), else "central".
   // Copies keep the cached file data untouched.
-  function loadAndMergeHolidays(year, region) {
+  // scope "state": only the region's own list (for central, the central list).
+  function loadAndMergeHolidays(year, region, scope = 'all') {
+    if (scope === 'state' && region && region !== 'central') {
+      const holidays = loadHolidaysFile(year, region).map(h => ({ ...h, level: 'state' }));
+      holidays.sort((a, b) => a.date.localeCompare(b.date));
+      return holidays;
+    }
     const central = loadHolidaysFile(year, 'central');
     if (!region || region === 'central') {
       const holidays = central.map(h => ({ ...h, level: 'central' }));
@@ -198,6 +214,12 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         return sendError(res, `Parameter '${key}' must be given once as plain text`, 400);
       }
     }
+    for (const [name, allowed] of Object.entries(OPTION_VALUES)) {
+      const value = req.query[name];
+      if (value !== undefined && !allowed.includes(value)) {
+        return sendError(res, `Parameter '${name}' must be one of: ${allowed.join(', ')}`, 400);
+      }
+    }
     next();
   });
 
@@ -206,6 +228,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     try {
       const { country, year } = req.query;
       const region = normalizeRegion(req.query.region);
+      const scope = req.query.scope || OPTION_VALUES.scope[0];
       
       // Country check
       const countryVal = validateCountry(country);
@@ -225,7 +248,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         return sendError(res, regionVal.message, regionVal.status);
       }
       
-      const holidays = loadAndMergeHolidays(year, region);
+      const holidays = loadAndMergeHolidays(year, region, scope);
       return sendSuccess(res, country, year, region, holidays);
     } catch (err) {
       return next(err);
@@ -237,6 +260,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     try {
       const { country, date } = req.query;
       const region = normalizeRegion(req.query.region);
+      const scope = req.query.scope || OPTION_VALUES.scope[0];
       
       // Country check
       const countryVal = validateCountry(country);
@@ -266,7 +290,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         return sendError(res, regionVal.message, regionVal.status);
       }
       
-      const holidays = loadAndMergeHolidays(year, region);
+      const holidays = loadAndMergeHolidays(year, region, scope);
       const matches = holidays.filter(h => h.date === date);
       
       const isHoliday = matches.length > 0;
@@ -289,6 +313,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     try {
       const { country, date } = req.query;
       const region = normalizeRegion(req.query.region);
+      const scope = req.query.scope || OPTION_VALUES.scope[0];
       
       // Country check
       const countryVal = validateCountry(country);
@@ -319,7 +344,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       }
       
       let currentYear = parseInt(year, 10);
-      let holidays = loadAndMergeHolidays(currentYear, region);
+      let holidays = loadAndMergeHolidays(currentYear, region, scope);
       let upcoming = holidays.filter(h => h.date > date);
       const nextYear = currentYear + 1;
       
@@ -327,7 +352,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       if (upcoming.length === 0) {
         if (yearHasData(nextYear)) {
           try {
-            const nextYearHolidays = loadAndMergeHolidays(nextYear, region);
+            const nextYearHolidays = loadAndMergeHolidays(nextYear, region, scope);
             upcoming = nextYearHolidays.filter(h => h.date > date);
             currentYear = nextYear;
           } catch (e) {
@@ -355,6 +380,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     try {
       const { country, start, end } = req.query;
       const region = normalizeRegion(req.query.region);
+      const scope = req.query.scope || OPTION_VALUES.scope[0];
       
       // Country check
       const countryVal = validateCountry(country);
@@ -393,7 +419,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
             return sendError(res, `${regionVal.message} for year ${y}`, regionVal.status);
           }
           hasAnyData = true;
-          const yearHolidays = loadAndMergeHolidays(y, region);
+          const yearHolidays = loadAndMergeHolidays(y, region, scope);
           mergedHolidays = mergedHolidays.concat(yearHolidays);
         }
       }
@@ -426,6 +452,7 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     try {
       const { country, year } = req.query;
       const region = normalizeRegion(req.query.region);
+      const scope = req.query.scope || OPTION_VALUES.scope[0];
       
       // Country check
       const countryVal = validateCountry(country);
@@ -446,7 +473,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       }
       
       const yearInt = parseInt(year, 10);
-      const holidays = loadAndMergeHolidays(yearInt, region);
+      const holidays = loadAndMergeHolidays(yearInt, region, scope);
+      const restrictedAsWorking = req.query.restricted === 'working';
       
       // Create map of holidays for O(1) lookup
       const holidayMap = new Map();
@@ -474,7 +502,11 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         const isHoliday = matches.length > 0;
         const holidayName = isHoliday ? matches.map(h => h.name).join(' / ') : null;
         const holidayType = isHoliday ? matches.map(h => h.type).join(' / ') : null;
-        const isWorkingDay = !(isWeekend || isHoliday);
+        // restricted=working: a day whose only holidays are restricted stays a working day.
+        const isDayOff = restrictedAsWorking
+          ? matches.some(h => h.type !== 'restricted_holiday')
+          : isHoliday;
+        const isWorkingDay = !(isWeekend || isDayOff);
         
         calendar.push({
           date: dateStr,
