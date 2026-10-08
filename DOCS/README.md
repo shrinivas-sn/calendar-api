@@ -11,6 +11,7 @@ the only format that sorts correctly on disk and in `git log`.
 | Date | Summary | Status | Load-bearing | Touches | Continues |
 |---|---|---|---|---|---|
 | 29/05/2026 | Frontend redesign plan: multi-page router, Tailwind v3, playground/docs/status pages | done | yes | `frontend/` | — |
+| 08/10/2026 | API production hardening: tests, CI, non-breaking fixes, safe data pipeline, 2027 data (root `PLAN.md`) | active | yes | `backend/`, `.github/` | — |
 
 Status/Load-bearing above are inferred defaults, not confirmed — the source plan's own
 header still read "Awaiting Approval" and no execution log was found alongside it (see
