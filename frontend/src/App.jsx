@@ -11,7 +11,7 @@ import NotFoundPage from './pages/NotFoundPage';
 
 export function AppContent() {
   return (
-    <div className="flex flex-col min-h-screen relative z-10">
+    <div className="flex flex-col min-h-dvh relative z-10">
       {/* Background Decorative Glows */}
       <div className="glow-backdrop">
         <div className="glow-circle-1"></div>

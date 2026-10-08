@@ -6,9 +6,9 @@ export default function StatusPage() {
   const [baseUrl] = useState(import.meta.env.VITE_API_URL || 'http://localhost:3000');
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Header */}
-      <div className="mb-10">
+      <div className="mb-6">
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-slate-100 mb-3">
           Service status
         </h1>
@@ -17,7 +17,7 @@ export default function StatusPage() {
         </p>
       </div>
 
-      <div className="interactive-card p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 mb-8">
+      <div className="interactive-card p-5 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
         <div className="flex items-center gap-4">
           <div className="w-12 h-12 rounded-full bg-saffron-500/10 flex items-center justify-center text-saffron-500">
             <Activity size={24} />
@@ -31,13 +31,13 @@ export default function StatusPage() {
         <StatusBadge baseUrl={baseUrl} />
       </div>
 
-      <div className="docs-card p-6 sm:p-8">
-        <h3 className="font-display font-bold text-base text-slate-200 mb-6 flex items-center gap-2">
+      <div className="docs-card p-5 sm:p-6">
+        <h3 className="font-display font-bold text-base text-slate-200 mb-4 flex items-center gap-2">
           <Server size={16} className="text-saffron-500" />
           <span>Operational Details</span>
         </h3>
 
-        <div className="space-y-4 text-xs sm:text-sm">
+        <div className="text-sm">
           {[
             ['API version', 'v1'],
             ['Hosting', 'Render, free plan'],

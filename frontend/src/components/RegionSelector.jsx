@@ -62,7 +62,9 @@ export default function RegionSelector({ value, onChange }) {
               placeholder="Search central or state..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full bg-transparent border-0 p-0 text-sm text-slate-200 placeholder-slate-500 focus:ring-0 focus:outline-none"
+              aria-label="Search regions"
+              autoComplete="off"
+              className="w-full bg-transparent border-0 p-0 text-base sm:text-sm text-slate-200 placeholder-slate-500 focus:ring-0 focus:outline-none"
               autoFocus
             />
           </div>

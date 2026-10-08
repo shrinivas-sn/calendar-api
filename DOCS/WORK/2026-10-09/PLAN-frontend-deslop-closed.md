@@ -601,6 +601,7 @@ status file and in the session's final message.)*
 
 | # | When | Task | Plan said | Reality (evidence) | Impact | Action taken | Owner decision |
 |---|---|---|---|---|---|---|---|
+| 1 | 09/10/2026 | Task 5.3 | bash probe command with `--routes /,/docs,...` | MSYS bash on Windows converts `,/` to `C:/Program Files/Git/` and `NODE_PATH` requires Windows syntax | Route `/` initially ran against converted path; other 4 routes unaffected | Probed route `/` with `$env:NODE_PATH` in PowerShell to complete all 15 results files | Pending owner review |
 
 ---
 
@@ -629,3 +630,135 @@ status file and in the session's final message.)*
 *(Append only. Newest at the bottom. Never rewrite an entry — if it turned out wrong,
 add a new one saying so. This log is what makes resuming cheap: a cold session reads
 the last entry and knows exactly where to start.)*
+
+- **09/10/2026 — Phase 1 complete.**
+  - Task 1.1: `StatusPage.jsx` updated with honest service facts, deleted fake stat cards. Verified build and grep `0`. Committed `7c0e706`.
+  - Task 1.2: `DocsPage.jsx` updated to mention cold starts and remove latency claim. Verified build and grep `0`. Committed `9dc4ba5`.
+  - Checkpoint Phase 1 passed: build clean (7 pages), all Phase 1 greps 0, lint 29 problems.
+- **09/10/2026 — Phase 2 complete.**
+  - Task 2.1: Created `GuideText.jsx` to render bold, inline code, and lists. Replaced `whitespace-pre-line` in `GuidesPage.jsx`. Verified build, `**National` grep `0`, `<strong` grep `9`, `\`MH\`` grep `0`. Committed `8a9a44e`.
+  - Task 2.2: Removed "Developer Knowledge Hub" pill from header and removed hashtag/topics row from footer in `GuidesPage.jsx`. Cleaned unused BookOpen/ChevronRight imports. Verified build and grep `0`. Committed `d1b928f`.
+  - Checkpoint Phase 2 passed: build clean (7 pages), all Phase 2 greps as stated, lint 29 problems.
+- **09/10/2026 — Phase 3 complete.**
+  - Task 3.1: Cleaned `HomePage.jsx` hero heading, value prop text, actions (button + text link), removed metrics strip, updated terminal demo label. Verified build and grep `0`. Committed `6e1be04`.
+  - Task 3.2: Replaced 3-column card grid with accurate 5-endpoint list (`ul`) using `ENDPOINTS` constant. Converted guides callout to a clean section without eyebrow label. Cleaned unused imports. Verified build and grep `0`. Committed `1ca02a2`.
+  - Checkpoint Phase 3 passed: build clean (7 pages), all Phase 3 greps 0, lint 26 problems.
+- **09/10/2026 — Phase 4 complete.**
+  - Task 4.1: Replaced `PlaygroundPage.jsx` header with clean left-aligned heading without "Live API Console" pill. Kept `Zap` import. Verified build and grep `0`. Committed `5649990`.
+  - Checkpoint Phase 4 passed: build clean (7 pages), all Phase 4 checks passed, lint 26 problems.
+- **09/10/2026 — Phase 5 complete.**
+  - Task 5.1: Scope guard verified `git diff --name-only main...HEAD`:
+    - `frontend/src/components/GuideText.jsx`
+    - `frontend/src/pages/DocsPage.jsx`
+    - `frontend/src/pages/GuidesPage.jsx`
+    - `frontend/src/pages/HomePage.jsx`
+    - `frontend/src/pages/PlaygroundPage.jsx`
+    - `frontend/src/pages/StatusPage.jsx`
+    Root `npm test` verified: 56 passed, 0 failed.
+  - Task 5.2: Verification greps on `frontend/src` and `frontend/dist`:
+    - Cloudflare: 0
+    - 99.9%: 0
+    - Guaranteed: 0
+    - node database: 0
+    - Zero database: 0
+    - sub-50ms: 0
+    - serves data instantly: 0
+    - ICS files: 0
+    - Month-by-month: 0
+    - 0 Key: 0
+    - Instant Access: 0
+    - Explore Interactive: 0
+    - Endpoint Matrix: 0
+    - Developer Guides: 0
+    - Developer Knowledge Hub: 0
+    - Live API Console: 0
+    - Topics:: 0
+    - Raw bold (`**National`, `**Sandwich`, `**Gazetted Holidays`) in `frontend/dist/guides`: 0
+    - Lint problem count: 26 problems (baseline: 31).
+  - Task 5.3: Mobile measurement findings (no source code modified, servers stopped, ports 3000 & 4173 closed):
+    - / md fixed-bar-budget: fail — {"fixedHeightSumPx":1089,"viewportHeightPx":1024,"budgetPct":106.3}
+    - / md tap-targets: warn — {"totalTargets":15,"failingFloor":0,"warnBelowTarget":10,"excludedCount":0}
+    - / sm dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":844,"visualViewportHeight":844,"viewportFitCover":false}
+    - / sm fixed-bar-budget: fail — {"fixedHeightSumPx":909,"viewportHeightPx":844,"budgetPct":107.7}
+    - / sm media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - / sm reduced-motion: fail — {"animatedElementsSampled":26,"stillAnimatingUnderReduce":2,"motionLibraryDetected":false,"matchMediaGuardFound":false}
+    - / sm tap-targets: warn — {"totalTargets":9,"failingFloor":0,"warnBelowTarget":8,"excludedCount":0}
+    - / sm text-legibility: fail — {"totalNodes":16,"failing":5,"warn":7}
+    - / sm touch-affordance: fail — {"unguardedHoverRules":12,"dragSurfacesChecked":0}
+    - / sm nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - / xs dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":568,"visualViewportHeight":568,"viewportFitCover":false}
+    - / xs fixed-bar-budget: fail — {"fixedHeightSumPx":633,"viewportHeightPx":568,"budgetPct":111.4}
+    - / xs media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - / xs tap-targets: warn — {"totalTargets":6,"failingFloor":0,"warnBelowTarget":5,"excludedCount":0}
+    - / xs text-legibility: fail — {"totalNodes":16,"failing":5,"warn":7}
+    - / xs nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /docs md fixed-bar-budget: fail — {"fixedHeightSumPx":1089,"viewportHeightPx":1024,"budgetPct":106.3}
+    - /docs md tap-targets: warn — {"totalTargets":7,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /docs sm dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":844,"visualViewportHeight":844,"viewportFitCover":false}
+    - /docs sm fixed-bar-budget: fail — {"fixedHeightSumPx":909,"viewportHeightPx":844,"budgetPct":107.7}
+    - /docs sm media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /docs sm reduced-motion: fail — {"animatedElementsSampled":23,"stillAnimatingUnderReduce":2,"motionLibraryDetected":false,"matchMediaGuardFound":false}
+    - /docs sm tap-targets: warn — {"totalTargets":2,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /docs sm text-legibility: fail — {"totalNodes":71,"failing":56,"warn":13}
+    - /docs sm touch-affordance: fail — {"unguardedHoverRules":12,"dragSurfacesChecked":0}
+    - /docs sm nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /docs xs dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":568,"visualViewportHeight":568,"viewportFitCover":false}
+    - /docs xs fixed-bar-budget: fail — {"fixedHeightSumPx":633,"viewportHeightPx":568,"budgetPct":111.4}
+    - /docs xs media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /docs xs tap-targets: warn — {"totalTargets":2,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /docs xs text-legibility: fail — {"totalNodes":71,"failing":56,"warn":13}
+    - /docs xs nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /guides md fixed-bar-budget: fail — {"fixedHeightSumPx":1089,"viewportHeightPx":1024,"budgetPct":106.3}
+    - /guides md tap-targets: warn — {"totalTargets":10,"failingFloor":0,"warnBelowTarget":3,"excludedCount":0}
+    - /guides sm dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":844,"visualViewportHeight":844,"viewportFitCover":false}
+    - /guides sm fixed-bar-budget: fail — {"fixedHeightSumPx":909,"viewportHeightPx":844,"budgetPct":107.7}
+    - /guides sm layout-collision: fail — {"occluded":0,"clipped":3,"distorted":0}
+    - /guides sm media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /guides sm reduced-motion: fail — {"animatedElementsSampled":23,"stillAnimatingUnderReduce":2,"motionLibraryDetected":false,"matchMediaGuardFound":false}
+    - /guides sm tap-targets: warn — {"totalTargets":5,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /guides sm text-legibility: fail — {"totalNodes":29,"failing":8,"warn":16}
+    - /guides sm touch-affordance: fail — {"unguardedHoverRules":12,"dragSurfacesChecked":0}
+    - /guides sm nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /guides xs dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":568,"visualViewportHeight":568,"viewportFitCover":false}
+    - /guides xs fixed-bar-budget: fail — {"fixedHeightSumPx":633,"viewportHeightPx":568,"budgetPct":111.4}
+    - /guides xs layout-collision: fail — {"occluded":0,"clipped":3,"distorted":0}
+    - /guides xs media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /guides xs tap-targets: warn — {"totalTargets":4,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /guides xs text-legibility: fail — {"totalNodes":29,"failing":8,"warn":16}
+    - /guides xs nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /playground md fixed-bar-budget: fail — {"fixedHeightSumPx":1089,"viewportHeightPx":1024,"budgetPct":106.3}
+    - /playground md tap-targets: warn — {"totalTargets":18,"failingFloor":0,"warnBelowTarget":13,"excludedCount":0}
+    - /playground sm dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":844,"visualViewportHeight":844,"viewportFitCover":false}
+    - /playground sm fixed-bar-budget: fail — {"fixedHeightSumPx":909,"viewportHeightPx":844,"budgetPct":107.7}
+    - /playground sm form-input-zoom: fail — {"totalFields":3,"failing":3}
+    - /playground sm media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /playground sm reduced-motion: fail — {"animatedElementsSampled":35,"stillAnimatingUnderReduce":2,"motionLibraryDetected":false,"matchMediaGuardFound":false}
+    - /playground sm tap-targets: warn — {"totalTargets":8,"failingFloor":0,"warnBelowTarget":7,"excludedCount":0}
+    - /playground sm text-legibility: fail — {"totalNodes":9,"failing":3,"warn":4}
+    - /playground sm touch-affordance: fail — {"unguardedHoverRules":12,"dragSurfacesChecked":0}
+    - /playground sm nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /playground xs dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":568,"visualViewportHeight":568,"viewportFitCover":false}
+    - /playground xs fixed-bar-budget: fail — {"fixedHeightSumPx":633,"viewportHeightPx":568,"budgetPct":111.4}
+    - /playground xs form-input-zoom: fail — {"totalFields":3,"failing":3}
+    - /playground xs media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /playground xs tap-targets: warn — {"totalTargets":5,"failingFloor":0,"warnBelowTarget":5,"excludedCount":0}
+    - /playground xs text-legibility: fail — {"totalNodes":9,"failing":3,"warn":4}
+    - /playground xs nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /status md fixed-bar-budget: fail — {"fixedHeightSumPx":1089,"viewportHeightPx":1024,"budgetPct":106.3}
+    - /status md tap-targets: warn — {"totalTargets":7,"failingFloor":0,"warnBelowTarget":3,"excludedCount":0}
+    - /status sm dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":844,"visualViewportHeight":844,"viewportFitCover":false}
+    - /status sm fixed-bar-budget: fail — {"fixedHeightSumPx":909,"viewportHeightPx":844,"budgetPct":107.7}
+    - /status sm media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /status sm reduced-motion: fail — {"animatedElementsSampled":20,"stillAnimatingUnderReduce":2,"motionLibraryDetected":false,"matchMediaGuardFound":false}
+    - /status sm tap-targets: warn — {"totalTargets":2,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /status sm text-legibility: fail — {"totalNodes":11,"failing":7,"warn":2}
+    - /status sm touch-affordance: fail — {"unguardedHoverRules":12,"dragSurfacesChecked":0}
+    - /status sm nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+    - /status xs dvh-safe-area: fail — {"bareViewportUnitFiles":3,"innerHeight":568,"visualViewportHeight":568,"viewportFitCover":false}
+    - /status xs fixed-bar-budget: fail — {"fixedHeightSumPx":633,"viewportHeightPx":568,"budgetPct":111.4}
+    - /status xs media-cls: fail — {"cls":0,"missingIntrinsic":2,"missingLazyBelowFold":1,"totalImageBytes":0,"heavyImageCount":0}
+    - /status xs tap-targets: warn — {"totalTargets":2,"failingFloor":0,"warnBelowTarget":2,"excludedCount":0}
+    - /status xs text-legibility: fail — {"totalNodes":11,"failing":7,"warn":2}
+    - /status xs nav-drawer: fail — {"step1_opens":false,"step2_focusInPanel":false,"step3_scrollLocked":false,"step4_tabCycles":false,"step5_escapeCloses":false,"step6_closesOnNav":true}
+  - Checkpoint Phase 5 passed: All 5 phases executed, 7 commits on `frontend-deslop`, all truth greps 0, backend tests 56/56 passing, mobile report logged.
+- **09/10/2026 — Owner-authorized follow-on and closure.** The owner requested the remaining calendar/status/playground fixes, a tighter spacing pass across all pages, mobile fixes, and a local merge to `main` without waiting for review. These changes and their measured results are recorded in `DOCS/WORK/2026-10-09/WORK.md` and `MOBILE.md`. Plan issue 1's route probe was completed in PowerShell; its pending owner review was superseded by the owner's merge instruction. Phases 1–5 are complete, and this plan is archived under that WORK folder.

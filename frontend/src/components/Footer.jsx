@@ -7,12 +7,12 @@ export default function Footer() {
   };
 
   return (
-    <footer className="border-t border-slate-900 bg-slate-950/80 py-12">
+    <footer className="border-t border-slate-900 bg-slate-950/80 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand logo */}
           <NavLink to="/" onClick={handleLogoClick} className="flex items-center gap-2 group hover:opacity-90 transition-opacity duration-200">
-            <img src="/images/favicon.svg" alt="Calendar API Logo" className="w-7 h-7 object-contain" />
+            <img src="/images/favicon.svg" alt="Calendar API Logo" width="28" height="28" loading="lazy" className="w-7 h-7 object-contain" />
             <span className="font-display font-bold text-slate-200">Calendar API</span>
           </NavLink>
 

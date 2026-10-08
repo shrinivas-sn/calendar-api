@@ -19,9 +19,9 @@ export default function GuidesPage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Header section */}
-      <div className="mb-10">
+      <div className="mb-6">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mb-2">
           Guides
         </h1>
@@ -31,7 +31,7 @@ export default function GuidesPage() {
       </div>
 
       {/* Main Content Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Sidebar - Guide Directory */}
         <aside className="lg:col-span-4 space-y-3">
           <h2 className="text-xs font-bold uppercase tracking-wider text-slate-400 px-1 mb-2">
@@ -60,10 +60,10 @@ export default function GuidesPage() {
                     {guide.readTime}
                   </span>
                 </div>
-                <h3 className={`text-sm font-bold leading-snug line-clamp-2 ${isActive ? 'text-white' : 'text-slate-200'}`}>
+                <h3 className={`text-sm font-bold leading-normal line-clamp-2 ${isActive ? 'text-white' : 'text-slate-200'}`}>
                   {guide.title}
                 </h3>
-                <p className="text-xs text-slate-400 mt-1 line-clamp-2 leading-relaxed">
+                <p className="text-sm text-slate-400 mt-1 leading-relaxed">
                   {guide.summary}
                 </p>
               </Link>
@@ -72,9 +72,9 @@ export default function GuidesPage() {
         </aside>
 
         {/* Right Article Content */}
-        <article className="lg:col-span-8 bg-slate-950/70 border border-slate-800/80 rounded-xl p-6 sm:p-8 shadow-xl">
+        <article className="lg:col-span-8 bg-slate-950/70 border border-slate-800/80 rounded-xl p-4 sm:p-6 shadow-xl">
           {/* Article Header */}
-          <div className="border-b border-slate-800/80 pb-6 mb-8">
+          <div className="border-b border-slate-800/80 pb-4 mb-5">
             <div className="flex flex-wrap items-center gap-3 mb-3">
               <span className="px-2.5 py-0.5 rounded-full bg-saffron-500/10 border border-saffron-500/20 text-saffron-400 text-xs font-semibold">
                 {selectedGuide.category}
@@ -85,7 +85,7 @@ export default function GuidesPage() {
               </span>
               <span className="text-xs text-slate-500">Updated {selectedGuide.date}</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-tight mb-3">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white leading-normal mb-3">
               {selectedGuide.title}
             </h2>
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
@@ -94,7 +94,7 @@ export default function GuidesPage() {
           </div>
 
           {/* Article Sections */}
-          <div className="space-y-8">
+          <div className="space-y-6">
             {selectedGuide.sections.map((section, idx) => (
               <div key={idx} className="space-y-3">
                 <h3 className="text-lg sm:text-xl font-bold text-white tracking-tight">
@@ -105,7 +105,7 @@ export default function GuidesPage() {
                 )}
                 {section.code && (
                   <div className="mt-4 relative group">
-                    <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-xs sm:text-sm text-slate-200 overflow-x-auto">
+                    <div className="bg-slate-900 border border-slate-800 rounded-lg p-4 font-mono text-sm text-slate-200 overflow-x-auto">
                       <div className="flex justify-between items-center pb-2 mb-2 border-b border-slate-800 text-[11px] text-slate-500">
                         <span>Code Reference</span>
                         <button
@@ -136,7 +136,7 @@ export default function GuidesPage() {
           </div>
 
             {/* Footer */}
-            <div className="mt-10 pt-6 border-t border-slate-800/80 flex justify-end">
+            <div className="mt-6 pt-4 border-t border-slate-800/80 flex justify-end">
               <Link
                 to="/playground"
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-saffron-400 hover:text-saffron-300 transition-colors"

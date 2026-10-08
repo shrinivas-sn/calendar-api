@@ -12,8 +12,9 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
   const [currentMonthIndex, setCurrentMonthIndex] = useState(0); // 0-11
   const [hoveredDay, setHoveredDay] = useState(null);
 
-  // Check if response is from /v1/calendar (which is a 365/366 element list) or /v1/holidays
-  const isCalendarEndpoint = responseData && Array.isArray(responseData.data) && responseData.data.length > 50;
+  // Calendar rows have day flags; holiday lists can also contain more than 50 rows.
+  const isCalendarEndpoint = Array.isArray(responseData?.data) &&
+    responseData.data.some((day) => day && Object.hasOwn(day, 'is_holiday'));
   const rawHolidays = isCalendarEndpoint ? [] : (responseData?.data || []);
   const rawCalendar = isCalendarEndpoint ? (responseData?.data || []) : [];
 
@@ -145,12 +146,17 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
           }
 
           const { dayNum, dateStr, isWeekend, isHoliday, holidayName, holidayType } = cell;
+          const DayTag = isHoliday ? 'button' : 'div';
 
           return (
-            <div
+            <DayTag
               key={dateStr}
+              type={isHoliday ? 'button' : undefined}
               onMouseEnter={() => isHoliday && setHoveredDay(cell)}
               onMouseLeave={() => setHoveredDay(null)}
+              onFocus={() => isHoliday && setHoveredDay(cell)}
+              onClick={() => isHoliday && setHoveredDay(cell)}
+              aria-label={isHoliday ? `${dateStr}: ${holidayName}` : undefined}
               className={`relative flex flex-col items-center justify-center py-2.5 rounded-lg text-xs font-medium border border-transparent transition-[background-color,border-color,color] duration-150 ${
                 isHoliday
                   ? getHolidayColorClass(holidayType)
@@ -163,24 +169,24 @@ export default function CalendarGrid({ responseData, year = 2026 }) {
               {isHoliday && (
                 <span className={`absolute bottom-1 w-1.5 h-1.5 rounded-full ${getHolidayIndicatorColor(holidayType)}`} />
               )}
-            </div>
+            </DayTag>
           );
         })}
       </div>
 
       {/* Tooltip detail block */}
-      <div className="mt-4 pt-3 border-t border-white/5 min-h-[50px] flex items-center justify-center text-center">
+      <div aria-live="polite" className="mt-4 pt-3 border-t border-white/5 min-h-[50px] flex items-center justify-center text-center">
         {hoveredDay ? (
           <div className="text-xs text-slate-300 animate-fadeIn">
             <p className="font-bold text-saffron-400">{hoveredDay.holidayName}</p>
             <p className="text-[10px] text-slate-500 uppercase tracking-widest mt-0.5 font-semibold">
-              {hoveredDay.holidayType.replace(/_/g, ' ')}
+              {hoveredDay.holidayType?.replace(/_/g, ' ')}
             </p>
           </div>
         ) : (
           <div className="text-xs text-slate-500 flex items-center gap-1.5">
             <Info size={12} />
-            <span>Hover over marked dates to see holiday details</span>
+            <span>Select a marked date to see holiday details</span>
           </div>
         )}
       </div>

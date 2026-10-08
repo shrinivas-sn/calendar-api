@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { ShieldAlert, ShieldCheck, Activity } from 'lucide-react';
 
 export default function StatusBadge({ baseUrl }) {
-  const [status, setStatus] = useState('checking'); // checking, sleeping, online, offline
+  const [status, setStatus] = useState('checking');
   const [latency, setLatency] = useState(null);
 
   useEffect(() => {
     let active = true;
     
-    // Set a timeout to assume backend is in sleep mode if no response within 2 seconds
+    // A slow request does not prove that the host is sleeping.
     const timeoutId = setTimeout(() => {
       if (active) {
-        setStatus('sleeping');
+        setStatus('slow');
       }
     }, 2000);
 
@@ -19,23 +19,24 @@ export default function StatusBadge({ baseUrl }) {
       const startTime = performance.now();
       try {
         const rawBaseUrl = baseUrl || import.meta.env.VITE_API_URL || 'http://localhost:3000';
-        const pingUrl = rawBaseUrl.replace(/\/$/, '');
-        const res = await fetch(pingUrl);
+        const pingUrl = `${rawBaseUrl.replace(/\/$/, '')}/health`;
+        const res = await fetch(pingUrl, { cache: 'no-store' });
+        const health = res.ok ? await res.json() : null;
         
         if (!active) return;
         clearTimeout(timeoutId);
 
-        if (res.ok || res.status === 404) { // 404 from root is still a response showing it's online
+        if (res.ok && health?.status === 'ok' && health?.service === 'calendar-api') {
           const duration = Math.round(performance.now() - startTime);
           setLatency(duration);
           setStatus('online');
         } else {
-          setStatus('offline');
+          setStatus('unavailable');
         }
-      } catch (err) {
+      } catch {
         if (!active) return;
         clearTimeout(timeoutId);
-        setStatus('offline');
+        setStatus('unavailable');
       }
     };
 
@@ -56,11 +57,11 @@ export default function StatusBadge({ baseUrl }) {
     );
   }
 
-  if (status === 'sleeping') {
+  if (status === 'slow') {
     return (
       <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-xs text-amber-400 font-medium">
         <Activity size={12} className="animate-spin text-amber-400" />
-        <span>Backend Sleeping (Waking up...)</span>
+        <span>Still checking the API...</span>
       </div>
     );
   }
@@ -69,7 +70,7 @@ export default function StatusBadge({ baseUrl }) {
     return (
       <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-400 font-medium">
         <ShieldCheck size={12} />
-        <span>API Live {latency ? `(${latency}ms)` : ''}</span>
+        <span>API responding {latency !== null ? `(${latency}ms)` : ''}</span>
       </div>
     );
   }
@@ -77,7 +78,7 @@ export default function StatusBadge({ baseUrl }) {
   return (
     <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-red-500/10 border border-red-500/20 text-xs text-red-400 font-medium">
       <ShieldAlert size={12} />
-      <span>API Offline</span>
+      <span>Unable to verify API</span>
     </div>
   );
 }

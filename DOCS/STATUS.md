@@ -6,24 +6,25 @@
 **Frontend:** `https://calendar-api-web.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
 
 ## Current State
-- `main` at `39ba25e` is live (merged 09/10/2026): 56 tests (`npm test`), non-breaking API fixes,
+- The backend version at `39ba25e` is live (merged 09/10/2026): 56 tests (`npm test`), non-breaking API fixes,
   opt-in `scope=state` / `restricted=working`, safe `backend/scripts/fetch-holidays.js`, CI tests, monthly data job.
 - Verified live 09/10/2026: `region=KA&scope=state` → 41 items; default `region=KA` → 87 (unchanged);
   repeated `country` → 400 instead of a crash.
 - Monthly data job (`.github/workflows/data-update.yml`, 1st of each month) ran on GitHub: success
   (2026 unchanged, 2027 not ready). Repo setting lets Actions open its PR.
 - SEO basics live: real routes, prerendered pages, per-page meta/canonical/JSON-LD, sitemap, robots.
-- Portal still has AI-slop and false claims (Status page, Docs "sub-50ms", Home ICS card, raw markdown in guides);
-  fix is planned in `PLAN-frontend-deslop.md`, not started.
+- Local `main` includes portal cleanup and the calendar, status, playground, spacing, and mobile fixes
+  recorded in `DOCS/WORK/2026-10-09/WORK.md`. This frontend work is not yet pushed or deployed.
 
 ## Blockers / In Flight
 - 2027 data: no state has published yet (checked 08/10/2026). The monthly job adds it when all 37 are out,
   and fails (GitHub emails) if still incomplete in December.
   Manual: `node backend/scripts/fetch-holidays.js --year YYYY`, then `npm --prefix backend run verify -- --year YYYY`.
-- Frontend de-slop plan: frontend/src only; dry run 09/10/2026 built clean, all checks 0, lint 31→26.
+- Frontend: seven-page build and 56 backend tests pass; mobile measurements in `MOBILE.md`.
+  Lint has 22 existing errors (26 before this pass), not a new regression.
 - Backend plan `PLAN.md` stays open only for Phase 4 (2027 data); 13 plan issues logged there.
 
 ## Next up (start here)
-1. Run `PLAN-frontend-deslop.md` exactly (any executor) on branch `frontend-deslop`; owner reviews the branch before merge.
-2. Review its Phase 5 mobile report and decide fixes.
+1. Push local `main` when the portal changes should deploy; verify the Vercel build.
+2. Let the monthly job check for 2027 data, or run the documented manual fetch when published.
 3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.

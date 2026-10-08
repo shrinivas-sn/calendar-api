@@ -97,7 +97,7 @@ func main() {
 
       {/* Snippet display */}
       <div className="p-4 bg-black/60 overflow-x-auto min-h-[140px] flex items-center">
-        <pre className="font-mono text-xs text-slate-300 leading-relaxed whitespace-pre-wrap break-all w-full">
+        <pre className="font-mono text-sm text-slate-300 leading-relaxed whitespace-pre-wrap break-all w-full">
           {currentSnippet}
         </pre>
       </div>

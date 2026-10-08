@@ -52,11 +52,11 @@ export default function HomePage() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* ─── Hero Section: Asymmetric 2-Column Split ─── */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center mb-6 sm:mb-8">
         {/* Left Column: Heading, Value Props, CTAs */}
-        <div className="lg:col-span-6 space-y-6 text-left">
+        <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
           <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-white tracking-tight leading-[1.12]">
             Indian public holidays API
           </h1>
@@ -132,10 +132,10 @@ export default function HomePage() {
             </div>
 
             {/* Terminal Body */}
-            <div className="p-4 bg-black/80 font-mono text-xs text-slate-300 min-h-[200px] max-h-[260px] overflow-y-auto">
+            <div className="p-4 bg-black/80 font-mono text-sm text-slate-300 max-h-[260px] overflow-y-auto">
               {activeTab === 'curl' ? (
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between text-slate-500 text-[11px] pb-1 border-b border-slate-800">
+                  <div className="flex items-center justify-between text-slate-500 text-sm pb-1 border-b border-slate-800">
                     <span># Copy and execute directly in your terminal</span>
                     <button
                       onClick={handleCopyQuickStart}
@@ -157,7 +157,7 @@ export default function HomePage() {
                   <pre className="text-emerald-400 whitespace-pre-wrap break-all leading-relaxed">
                     {quickStartCmd}
                   </pre>
-                  <p className="text-slate-500 text-[11px]">
+                  <p className="text-slate-500 text-sm">
                     Tip: Click "Run Request" above to execute inside the browser.
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default function HomePage() {
       </section>
 
       {/* Endpoints */}
-      <section className="mb-16 pt-12 border-t border-slate-800/80">
+      <section className="mb-6 sm:mb-8 pt-4 sm:pt-6 border-t border-slate-800/80">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
@@ -205,12 +205,12 @@ export default function HomePage() {
             <li key={endpoint.path} className="py-4 grid gap-1 md:grid-cols-12 md:gap-6 md:items-baseline">
               <span className="md:col-span-4 font-mono text-sm text-slate-100">{endpoint.path}</span>
               <span className="md:col-span-5 text-sm text-slate-300">{endpoint.returns}</span>
-              <span className="md:col-span-3 font-mono text-xs text-slate-400">{endpoint.params}</span>
+              <span className="md:col-span-3 font-mono text-sm text-slate-400">{endpoint.params}</span>
             </li>
           ))}
         </ul>
 
-        <p className="text-xs text-slate-400 mt-4">
+        <p className="text-sm text-slate-400 mt-4">
           Data and source code:{' '}
           <a
             href="https://github.com/shrinivas-sn/calendar-api"
@@ -224,7 +224,7 @@ export default function HomePage() {
       </section>
 
       {/* Guides */}
-      <section className="pt-12 border-t border-slate-800/80">
+      <section className="pt-4 sm:pt-6 border-t border-slate-800/80">
         <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
           Guides
         </h2>

@@ -34,10 +34,10 @@ export default function DocsPage() {
   ];
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Sidebar Nav */}
-        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100vh-120px)] overflow-y-auto py-2 pr-6 border-r border-slate-800/60 scrollbar-none hidden lg:block">
+        <aside className="lg:col-span-3 sticky top-24 max-h-[calc(100dvh-120px)] overflow-y-auto py-2 pr-6 border-r border-slate-800/60 scrollbar-none hidden lg:block">
           <h2 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest px-2 mb-4 flex items-center gap-1.5">
             <BookOpen size={12} className="text-saffron-500" />
             <span>API Reference</span>
@@ -60,7 +60,7 @@ export default function DocsPage() {
         </aside>
 
         {/* Documentation Content */}
-        <div className="lg:col-span-9 flex flex-col gap-16 docs-card p-6 sm:p-10">
+        <div className="lg:col-span-9 flex flex-col gap-6 sm:gap-8 docs-card p-4 sm:p-6">
           
           {/* Section: Overview */}
           <section id="overview" className="scroll-mt-24">
@@ -68,7 +68,7 @@ export default function DocsPage() {
             <p className="text-slate-300 text-sm sm:text-base leading-relaxed mb-4">
               This open-source REST API serves official Indian government holidays for the Central Government and all 36 States and Union Territories. No API key or sign-up is needed.
             </p>
-            <div className="bg-slate-900/90 border border-slate-800 p-4 rounded-xl flex gap-3 text-slate-300 text-xs sm:text-sm">
+            <div className="bg-slate-900/90 border border-slate-800 p-4 rounded-xl flex gap-3 text-slate-300 text-sm">
               <Info size={16} className="text-saffron-500 flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
                 <strong className="text-white">Cold starts:</strong> The API runs on a free server that sleeps after 15 minutes without traffic. The first request after that can take about a minute; requests after it are fast.
@@ -77,18 +77,18 @@ export default function DocsPage() {
           </section>
 
           {/* Section: Base URL */}
-          <section id="base-url" className="scroll-mt-24 border-t border-slate-800/80 pt-10">
+          <section id="base-url" className="scroll-mt-24 border-t border-slate-800/80 pt-6 sm:pt-8">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-100 mb-4">Base URL</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               All requests are issued to the production deployment URL below. Always use HTTPS.
             </p>
-            <div className="bg-black/60 border border-slate-800 rounded-xl p-3 sm:p-4 font-mono text-xs sm:text-sm text-slate-100 font-bold break-all select-all">
+            <div className="bg-black/60 border border-slate-800 rounded-xl p-3 sm:p-4 font-mono text-sm text-slate-100 font-bold break-all select-all">
               https://calendar-api-d7a8.onrender.com
             </div>
           </section>
 
           {/* Section: API Endpoints Reference Group */}
-          <div id="endpoints-ref" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <div id="endpoints-ref" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <h2 className="font-display font-extrabold text-2xl text-slate-100 mb-2">API Endpoints</h2>
             <p className="text-slate-400 text-sm leading-relaxed">
               The API provides five lightweight, database-free routes to query holiday data. Review details and parameter schemas below.
@@ -96,7 +96,7 @@ export default function DocsPage() {
           </div>
 
           {/* Section: GET /v1/holidays */}
-          <section id="holidays" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="holidays" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">GET</span>
               <h2 className="font-mono font-bold text-lg sm:text-xl text-slate-100">/v1/holidays</h2>
@@ -107,7 +107,7 @@ export default function DocsPage() {
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Query Parameters</h3>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400">
                     <th className="py-2 pr-4 font-bold">Parameter</th>
@@ -121,25 +121,25 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">country</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">IN</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">IN</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">year</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">number</td>
-                    <td className="py-3 pl-4 leading-relaxed">4-digit year, e.g. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">2026</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">4-digit year, e.g. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">2026</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>. Defaults to central.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">central</code>. Defaults to central.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -156,7 +156,7 @@ export default function DocsPage() {
           </section>
 
           {/* Section: GET /v1/date/is-holiday */}
-          <section id="is-holiday" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="is-holiday" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">GET</span>
               <h2 className="font-mono font-bold text-lg sm:text-xl text-slate-100">/v1/date/is-holiday</h2>
@@ -167,7 +167,7 @@ export default function DocsPage() {
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Query Parameters</h3>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400">
                     <th className="py-2 pr-4 font-bold">Parameter</th>
@@ -181,25 +181,25 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">country</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">IN</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">IN</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">date</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Format <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">YYYY-MM-DD</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Format <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">YYYY-MM-DD</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">central</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -224,7 +224,7 @@ export default function DocsPage() {
           </section>
 
           {/* Section: GET /v1/date/next-holiday */}
-          <section id="next-holiday" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="next-holiday" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">GET</span>
               <h2 className="font-mono font-bold text-lg sm:text-xl text-slate-100">/v1/date/next-holiday</h2>
@@ -235,7 +235,7 @@ export default function DocsPage() {
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Query Parameters</h3>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400">
                     <th className="py-2 pr-4 font-bold">Parameter</th>
@@ -249,25 +249,25 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">country</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">IN</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">IN</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">date</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Base date in format <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">YYYY-MM-DD</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Base date in format <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">YYYY-MM-DD</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">central</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -286,7 +286,7 @@ export default function DocsPage() {
           </section>
 
           {/* Section: GET /v1/holidays/range */}
-          <section id="range" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="range" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">GET</span>
               <h2 className="font-mono font-bold text-lg sm:text-xl text-slate-100">/v1/holidays/range</h2>
@@ -297,7 +297,7 @@ export default function DocsPage() {
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Query Parameters</h3>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400">
                     <th className="py-2 pr-4 font-bold">Parameter</th>
@@ -311,31 +311,31 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">country</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">IN</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">IN</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">start</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Start date boundary <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">YYYY-MM-DD</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Start date boundary <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">YYYY-MM-DD</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">end</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">End date boundary <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">YYYY-MM-DD</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">End date boundary <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">YYYY-MM-DD</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">central</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                 </tbody>
               </table>
@@ -354,7 +354,7 @@ export default function DocsPage() {
           </section>
 
           {/* Section: GET /v1/calendar */}
-          <section id="calendar" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="calendar" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <div className="flex items-center gap-3 mb-4">
               <span className="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold uppercase tracking-wider">GET</span>
               <h2 className="font-mono font-bold text-lg sm:text-xl text-slate-100">/v1/calendar</h2>
@@ -365,7 +365,7 @@ export default function DocsPage() {
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Query Parameters</h3>
             <div className="overflow-x-auto mb-6">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400">
                     <th className="py-2 pr-4 font-bold">Parameter</th>
@@ -379,31 +379,31 @@ export default function DocsPage() {
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">country</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">IN</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">Must be <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">IN</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">year</td>
                     <td className="py-3 px-4 text-red-400 font-semibold">Yes</td>
                     <td className="py-3 px-4 font-mono text-slate-500">number</td>
-                    <td className="py-3 pl-4 leading-relaxed">4-digit year, e.g. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">2026</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">4-digit year, e.g. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">2026</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">region</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">central</code>.</td>
+                    <td className="py-3 pl-4 leading-relaxed">2-letter state code (any case) or <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">central</code>.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">scope</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">all</code> (default) adds the Central list to a state's holidays. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">state</code> returns only the state's own list, with no Central entries and no cross-list duplicates.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono text-saffron-400 font-semibold">restricted</td>
                     <td className="py-3 px-4 text-slate-500">No</td>
                     <td className="py-3 px-4 font-mono text-slate-500">string</td>
-                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">holiday</code> (default) counts restricted (optional) holidays as days off. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-xs">working</code> keeps days that only have restricted holidays as working days.</td>
+                    <td className="py-3 pl-4 leading-relaxed"><code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">holiday</code> (default) counts restricted (optional) holidays as days off. <code className="bg-white/5 px-1 py-0.5 rounded font-mono text-sm">working</code> keeps days that only have restricted holidays as working days.</td>
                   </tr>
                 </tbody>
               </table>
@@ -424,17 +424,17 @@ export default function DocsPage() {
           </section>
 
           {/* Section: Response Schema */}
-          <section id="response-schema" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="response-schema" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-100 mb-4">Response Schema</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               All success requests return JSON matching the standard schema format:
             </p>
-            <ul className="list-disc pl-5 text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed">
+            <ul className="list-disc pl-5 text-sm text-slate-300 space-y-2 leading-relaxed">
               <li><code className="text-saffron-400 font-semibold font-mono">country</code>: ISO alpha 2 country code (<code className="bg-white/5 font-mono px-1 rounded text-xs">IN</code>).</li>
               <li><code className="text-saffron-400 font-semibold font-mono">year</code>: The calendar year requested.</li>
               <li><code className="text-saffron-400 font-semibold font-mono">region</code>: The state code requested, or <code className="bg-white/5 font-mono px-1 rounded text-xs">central</code>.</li>
               <li><code className="text-saffron-400 font-semibold font-mono">data</code>: Array containing corresponding holiday records. Each holiday carries <code className="bg-white/5 font-mono px-1 rounded text-xs">level</code>: <code className="bg-white/5 font-mono px-1 rounded text-xs">state</code> when it is on the requested state's own list, otherwise <code className="bg-white/5 font-mono px-1 rounded text-xs">central</code>. Filter on <code className="bg-white/5 font-mono px-1 rounded text-xs">level</code> to get one state's list only.</li>
-              <li><code className="text-saffron-400 font-semibold font-mono">meta</code>: Contains payload metadata like <code className="font-mono text-xs">apiVersion</code>, <code className="font-mono text-xs">totalResults</code> and generation timestamp. When part of a request falls in a year with no published data yet, <code className="font-mono text-xs">yearsWithoutData</code> lists those years (for example a next-holiday lookup on 31 December).</li>
+              <li><code className="text-saffron-400 font-semibold font-mono">meta</code>: Contains payload metadata like <code className="font-mono text-sm">apiVersion</code>, <code className="font-mono text-sm">totalResults</code> and generation timestamp. When part of a request falls in a year with no published data yet, <code className="font-mono text-sm">yearsWithoutData</code> lists those years (for example a next-holiday lookup on 31 December).</li>
             </ul>
             <p className="text-slate-400 text-sm leading-relaxed mt-4">
               Successful responses are cacheable for one hour (<code className="bg-white/5 font-mono px-1 rounded text-xs">Cache-Control: public, max-age=3600</code>).
@@ -442,7 +442,7 @@ export default function DocsPage() {
           </section>
 
           {/* Section: Errors & Rate Limits */}
-          <section id="errors" className="scroll-mt-24 border-t border-white/5 pt-10">
+          <section id="errors" className="scroll-mt-24 border-t border-white/5 pt-6 sm:pt-8">
             <h2 className="font-display font-extrabold text-xl sm:text-2xl text-slate-100 mb-4">Errors & Rate Limits</h2>
             <p className="text-slate-400 text-sm leading-relaxed mb-6">
               When queries fail, validation checks fail, or limits are exceeded, the API returns a standardized JSON structure with the corresponding HTTP status code.
@@ -453,7 +453,7 @@ export default function DocsPage() {
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               All error responses include the following three parameters:
             </p>
-            <ul className="list-disc pl-5 text-xs sm:text-sm text-slate-300 space-y-2 leading-relaxed mb-6">
+            <ul className="list-disc pl-5 text-sm text-slate-300 space-y-2 leading-relaxed mb-6">
               <li><code className="text-saffron-400 font-semibold font-mono">error</code>: Always set to <code className="bg-white/5 font-mono px-1 rounded text-xs">true</code>.</li>
               <li><code className="text-saffron-400 font-semibold font-mono">message</code>: Human-readable explanation of why the query failed.</li>
               <li><code className="text-saffron-400 font-semibold font-mono">status</code>: The HTTP status code corresponding to the response header.</li>
@@ -462,7 +462,7 @@ export default function DocsPage() {
             {/* Status Catalog Table */}
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3">Validation Check Catalog</h3>
             <div className="overflow-x-auto mb-8">
-              <table className="w-full text-left border-collapse text-xs sm:text-sm">
+              <table className="w-full text-left border-collapse text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-slate-400 font-bold">
                     <th className="py-2 pr-4">Status</th>
@@ -474,103 +474,103 @@ export default function DocsPage() {
                   {/* Status 400 Errors */}
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: country</td>
+                    <td className="py-3 px-4 font-mono text-sm">Missing required parameter: country</td>
                     <td className="py-3 pl-4 leading-relaxed">The `country` query parameter was not provided.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: year</td>
+                    <td className="py-3 px-4 font-mono text-sm">Missing required parameter: year</td>
                     <td className="py-3 pl-4 leading-relaxed">The `year` parameter is required for lists and calendar endpoints.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Invalid year format. Use a 4-digit number</td>
+                    <td className="py-3 px-4 font-mono text-sm">Invalid year format. Use a 4-digit number</td>
                     <td className="py-3 pl-4 leading-relaxed">The `year` value is not formatted as YYYY (e.g. `26` or `20265`).</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Region parameter must be a 2-letter state/UT code or 'central'</td>
+                    <td className="py-3 px-4 font-mono text-sm">Region parameter must be a 2-letter state/UT code or 'central'</td>
                     <td className="py-3 pl-4 leading-relaxed">The state code did not match the 2-letter format. Any case is accepted (`ka` works like `KA`).</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Missing required parameter: date</td>
+                    <td className="py-3 px-4 font-mono text-sm">Missing required parameter: date</td>
                     <td className="py-3 pl-4 leading-relaxed">Required parameter `date` is missing for checkers or next-holiday queries.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Invalid date format. Use YYYY-MM-DD</td>
+                    <td className="py-3 px-4 font-mono text-sm">Invalid date format. Use YYYY-MM-DD</td>
                     <td className="py-3 pl-4 leading-relaxed">The `date`, `start`, or `end` values are not matching standard ISO formats.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Missing required parameters: start and end</td>
+                    <td className="py-3 px-4 font-mono text-sm">Missing required parameters: start and end</td>
                     <td className="py-3 pl-4 leading-relaxed">The `/holidays/range` endpoint requires both query bounds.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Start date cannot be after end date</td>
+                    <td className="py-3 px-4 font-mono text-sm">Start date cannot be after end date</td>
                     <td className="py-3 pl-4 leading-relaxed">The start range parameter occurs chronologically after the end parameter.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Parameter 'scope' must be one of: all, state</td>
+                    <td className="py-3 px-4 font-mono text-sm">Parameter 'scope' must be one of: all, state</td>
                     <td className="py-3 pl-4 leading-relaxed">`scope` or `restricted` has a value outside the listed options.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Parameter '&lt;name&gt;' must be given once as plain text</td>
+                    <td className="py-3 px-4 font-mono text-sm">Parameter '&lt;name&gt;' must be given once as plain text</td>
                     <td className="py-3 pl-4 leading-relaxed">A query parameter was repeated (e.g. `country=IN&amp;country=IN`) or sent as a nested value.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-500">400 Bad Request</td>
-                    <td className="py-3 px-4 font-mono text-xs">Range cannot span more than 5 calendar years</td>
+                    <td className="py-3 px-4 font-mono text-sm">Range cannot span more than 5 calendar years</td>
                     <td className="py-3 pl-4 leading-relaxed">The `/holidays/range` start and end fall in more than five calendar years.</td>
                   </tr>
 
                   {/* Status 404 Errors */}
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
-                    <td className="py-3 px-4 font-mono text-xs">Only IN is supported in v1</td>
+                    <td className="py-3 px-4 font-mono text-sm">Only IN is supported in v1</td>
                     <td className="py-3 pl-4 leading-relaxed">The `country` query parameter is not `IN`.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
-                    <td className="py-3 px-4 font-mono text-xs">Data not available for this year</td>
+                    <td className="py-3 px-4 font-mono text-sm">Data not available for this year</td>
                     <td className="py-3 pl-4 leading-relaxed">Data has not been scraped or generated for the requested year folder.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
-                    <td className="py-3 px-4 font-mono text-xs">Region not found</td>
+                    <td className="py-3 px-4 font-mono text-sm">Region not found</td>
                     <td className="py-3 pl-4 leading-relaxed">The state/UT code provided does not exist in our system database.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
-                    <td className="py-3 px-4 font-mono text-xs">Data not available for the requested year range</td>
+                    <td className="py-3 px-4 font-mono text-sm">Data not available for the requested year range</td>
                     <td className="py-3 pl-4 leading-relaxed">The range query dates do not match any year directories on the server.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">404 Not Found</td>
-                    <td className="py-3 px-4 font-mono text-xs">Endpoint not found</td>
+                    <td className="py-3 px-4 font-mono text-sm">Endpoint not found</td>
                     <td className="py-3 pl-4 leading-relaxed">The requested API route path or method is invalid.</td>
                   </tr>
 
                   {/* Status 5xx Errors */}
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">503 Service Unavailable</td>
-                    <td className="py-3 px-4 font-mono text-xs">Holiday data unavailable for this region</td>
+                    <td className="py-3 px-4 font-mono text-sm">Holiday data unavailable for this region</td>
                     <td className="py-3 pl-4 leading-relaxed">The data file for that year and region is missing or unreadable on the server. Retry later.</td>
                   </tr>
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-red-400">500 Internal Server Error</td>
-                    <td className="py-3 px-4 font-mono text-xs">Internal Server Error</td>
+                    <td className="py-3 px-4 font-mono text-sm">Internal Server Error</td>
                     <td className="py-3 pl-4 leading-relaxed">An unexpected server error. No internal details are returned.</td>
                   </tr>
 
                   {/* Status 429 Errors */}
                   <tr>
                     <td className="py-3 pr-4 font-mono font-bold text-amber-400">429 Rate Limited</td>
-                    <td className="py-3 px-4 font-mono text-xs">Too many requests, please try again later</td>
+                    <td className="py-3 px-4 font-mono text-sm">Too many requests, please try again later</td>
                     <td className="py-3 pl-4 leading-relaxed">Your IP exceeded 100 queries within a 15-minute window.</td>
                   </tr>
                 </tbody>
@@ -578,7 +578,7 @@ export default function DocsPage() {
             </div>
 
             <h3 className="font-display font-bold text-xs uppercase tracking-wider text-slate-400 mb-3 font-mono">Example Validation Error Response (400)</h3>
-            <div className="bg-red-500/5 border border-red-500/20 p-4 rounded-xl flex gap-3 text-red-400 text-xs sm:text-sm mb-6">
+            <div className="bg-red-500/5 border border-red-500/20 p-4 rounded-xl flex gap-3 text-red-400 text-sm mb-6">
               <ShieldAlert size={16} className="flex-shrink-0 mt-0.5" />
               <p className="leading-relaxed">
                 Errors always return in the standard format below, making handling consistent across environments.

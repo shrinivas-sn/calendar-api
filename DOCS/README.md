@@ -12,8 +12,9 @@ the only format that sorts correctly on disk and in `git log`.
 |---|---|---|---|---|---|
 | 29/05/2026 | Frontend redesign plan: multi-page router, Tailwind v3, playground/docs/status pages | done | yes | `frontend/` | — |
 | 08/10/2026 | API production hardening: tests, CI, non-breaking fixes, safe data pipeline, 2027 data (root `PLAN.md`) | active | yes | `backend/`, `.github/` | — |
+| 09/10/2026 | Portal cleanup, behavior fixes, spacing, and measured mobile check | done | yes | `frontend/`, `MOBILE.md` | — |
 
-Status/Load-bearing above are inferred defaults, not confirmed — the source plan's own
+The 29/05/2026 row's status/load-bearing values were inferred, not confirmed — the source plan's own
 header still read "Awaiting Approval" and no execution log was found alongside it (see
 `WORK/2026-05-29/WORK.md`'s Execution section). Verify against the current `frontend/`
 source or `CONTEXT/frontend.md` before relying on `done`/`yes` here.

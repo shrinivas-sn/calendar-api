@@ -12,6 +12,8 @@ export default function PlaygroundPage() {
   
   const [year, setYear] = useState('2026');
   const [region, setRegion] = useState('central');
+  const [scope, setScope] = useState('all');
+  const [restricted, setRestricted] = useState('holiday');
   const [date, setDate] = useState('2026-01-26');
   const [startDate, setStartDate] = useState('2026-01-01');
   const [endDate, setEndDate] = useState('2026-01-31');
@@ -30,6 +32,7 @@ export default function PlaygroundPage() {
     let path = '/v1/holidays';
     const params = new URLSearchParams();
     params.append('country', 'IN');
+    if (scope === 'state') params.append('scope', scope);
 
     if (endpoint === 'holidays') {
       path = '/v1/holidays';
@@ -52,10 +55,11 @@ export default function PlaygroundPage() {
       path = '/v1/calendar';
       params.append('year', year);
       if (region && region !== 'central') params.append('region', region);
+      if (restricted === 'working') params.append('restricted', restricted);
     }
 
     setApiUrl(`${baseUrl}${path}?${params.toString()}`);
-  }, [baseUrl, endpoint, year, region, date, startDate, endDate]);
+  }, [baseUrl, endpoint, year, region, scope, restricted, date, startDate, endDate]);
 
   const handleFetch = async () => {
     setLoading(true);
@@ -114,9 +118,9 @@ export default function PlaygroundPage() {
   const currentEndpoint = endpointOptions.find(e => e.value === endpoint);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
       {/* Page Header */}
-      <div className="max-w-2xl mb-8">
+      <div className="max-w-2xl mb-6">
         <h1 className="font-display font-extrabold text-3xl sm:text-4xl text-white mb-3">
           Playground
         </h1>
@@ -165,7 +169,7 @@ export default function PlaygroundPage() {
         {/* URL Bar */}
         <div className="flex items-center gap-2 px-5 py-2.5 bg-black/40 border-b border-slate-800/40">
           <Globe size={14} className="text-slate-500 flex-shrink-0" />
-          <span className="font-mono text-xs text-slate-200 overflow-x-auto whitespace-nowrap flex-1 scrollbar-none select-all">
+          <span className="font-mono text-sm text-slate-200 overflow-x-auto whitespace-nowrap flex-1 scrollbar-none select-all">
             {apiUrl}
           </span>
           <button
@@ -179,11 +183,11 @@ export default function PlaygroundPage() {
         </div>
 
         {/* ───── Main Console Body: Split Layout ───── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 min-h-[560px]">
+        <div className="grid grid-cols-1 lg:grid-cols-12">
 
           {/* ─── Left Panel: Request Builder ─── */}
           <div className="lg:col-span-5 flex flex-col border-b lg:border-b-0 lg:border-r border-slate-800/40">
-            <div className="flex-1 flex flex-col gap-5 p-5 sm:p-6">
+            <div className="flex-1 flex flex-col gap-4 p-4 sm:p-5">
               <h3 className="font-display font-bold text-xs text-slate-400 uppercase tracking-widest flex items-center gap-2">
                 <span className="w-5 h-5 rounded bg-saffron-500/10 flex items-center justify-center">
                   <ChevronDown size={12} className="text-saffron-500" />
@@ -193,22 +197,26 @@ export default function PlaygroundPage() {
 
               {/* API Server */}
               <div className="group">
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">API Server URL</label>
+                <label htmlFor="playground-server" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">API Server URL</label>
                 <input 
+                  id="playground-server"
                   type="text" 
+                  autoComplete="url"
                   value={baseUrl} 
                   onChange={(e) => setBaseUrl(e.target.value)} 
-                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 font-mono focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
+                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 font-mono focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                 />
               </div>
 
               {/* Endpoint Selector */}
               <div className="group">
-                <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Endpoint Route</label>
+                <label htmlFor="playground-endpoint" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Endpoint Route</label>
                 <select 
+                  id="playground-endpoint"
+                  autoComplete="off"
                   value={endpoint} 
                   onChange={(e) => setEndpoint(e.target.value)} 
-                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
+                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
                 >
                   {endpointOptions.map(opt => (
                     <option key={opt.value} value={opt.value}>GET {opt.label} — {opt.desc}</option>
@@ -219,14 +227,46 @@ export default function PlaygroundPage() {
               {/* Region selector */}
               <RegionSelector value={region} onChange={setRegion} />
 
+              <div className="group">
+                <label htmlFor="playground-scope" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Holiday scope</label>
+                <select
+                  id="playground-scope"
+                  autoComplete="off"
+                  value={scope}
+                  onChange={(e) => setScope(e.target.value)}
+                  className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40"
+                >
+                  <option value="all">All applicable holidays</option>
+                  <option value="state">Selected region only</option>
+                </select>
+              </div>
+
+              {endpoint === 'calendar' && (
+                <div className="group">
+                  <label htmlFor="playground-restricted" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5">Restricted holidays</label>
+                  <select
+                    id="playground-restricted"
+                    autoComplete="off"
+                    value={restricted}
+                    onChange={(e) => setRestricted(e.target.value)}
+                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40"
+                  >
+                    <option value="holiday">Count as days off</option>
+                    <option value="working">Count as working days</option>
+                  </select>
+                </div>
+              )}
+
               {/* Conditional Parameters */}
               {(endpoint === 'holidays' || endpoint === 'calendar') && (
                 <div className="group">
-                  <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Calendar Year</label>
+                  <label htmlFor="playground-year" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Calendar Year</label>
                   <select 
+                    id="playground-year"
+                    autoComplete="off"
                     value={year} 
                     onChange={(e) => setYear(e.target.value)} 
-                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
+                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow] appearance-none cursor-pointer"
                   >
                     <option value="2026">2026</option>
                   </select>
@@ -235,12 +275,14 @@ export default function PlaygroundPage() {
 
               {(endpoint === 'is-holiday' || endpoint === 'next-holiday') && (
                 <div className="group">
-                  <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Date Check</label>
+                  <label htmlFor="playground-date" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Date Check</label>
                   <input 
+                    id="playground-date"
                     type="date" 
+                    autoComplete="off"
                     value={date} 
                     onChange={(e) => setDate(e.target.value)} 
-                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
+                    className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                   />
                 </div>
               )}
@@ -248,21 +290,25 @@ export default function PlaygroundPage() {
               {endpoint === 'range' && (
                 <div className="grid grid-cols-2 gap-3">
                   <div className="group">
-                    <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Start Date</label>
+                    <label htmlFor="playground-start" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">Start Date</label>
                     <input 
+                      id="playground-start"
                       type="date" 
+                      autoComplete="off"
                       value={startDate} 
                       onChange={(e) => setStartDate(e.target.value)} 
-                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
+                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                     />
                   </div>
                   <div className="group">
-                    <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">End Date</label>
+                    <label htmlFor="playground-end" className="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1.5 group-focus-within:text-saffron-400 transition-colors">End Date</label>
                     <input 
+                      id="playground-end"
                       type="date" 
+                      autoComplete="off"
                       value={endDate} 
                       onChange={(e) => setEndDate(e.target.value)} 
-                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
+                      className="w-full bg-black/40 border border-slate-800 focus:border-saffron-500 rounded-lg px-3 py-2.5 text-base sm:text-sm text-slate-200 focus:outline-none focus:ring-1 focus:ring-saffron-500/40 transition-[border-color,box-shadow]"
                     />
                   </div>
                 </div>
@@ -284,7 +330,7 @@ export default function PlaygroundPage() {
             </div>
 
             {/* Code Snippet — inside left panel, below the form */}
-            <div className="border-t border-slate-800/40 p-5 sm:p-6">
+            <div className="border-t border-slate-800/40 p-4 sm:p-5">
               <CodeSnippet url={apiUrl} />
             </div>
           </div>
@@ -327,7 +373,7 @@ export default function PlaygroundPage() {
             </div>
 
             {/* Response Body */}
-            <div className="flex-1 flex flex-col p-5 sm:p-6 relative min-h-[400px]">
+            <div className="flex-1 flex flex-col p-4 sm:p-5 relative min-h-[240px] lg:min-h-[320px]">
               {/* Loading Overlay */}
               {loading && (
                 <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center z-10 gap-3 text-center px-4">
@@ -346,8 +392,8 @@ export default function PlaygroundPage() {
                   </div>
                   <div>
                     <h4 className="font-bold text-red-400 text-sm mb-1">Request Failed</h4>
-                    <p className="text-red-400/80 text-xs sm:text-sm leading-relaxed">{error}</p>
-                    <p className="mt-2 text-slate-500 text-[11px]">
+                    <p className="text-red-400/80 text-sm leading-relaxed">{error}</p>
+                    <p className="mt-2 text-slate-400 text-sm">
                       Check that the server address matches your running local or cloud port.
                     </p>
                   </div>
@@ -361,7 +407,7 @@ export default function PlaygroundPage() {
                     <Terminal size={26} className="text-slate-500" />
                   </div>
                   <h4 className="font-display font-bold text-slate-300 text-sm mb-1.5">Ready to Query</h4>
-                  <p className="text-xs text-slate-400 max-w-xs leading-relaxed">
+                  <p className="text-sm text-slate-400 max-w-xs leading-relaxed">
                     Configure your request parameters on the left and click <strong className="text-saffron-400">Send Request</strong> to see results here.
                   </p>
                 </div>
