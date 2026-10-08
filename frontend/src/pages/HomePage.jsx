@@ -46,48 +46,32 @@ export default function HomePage() {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
       {/* ─── Hero Section: Asymmetric 2-Column Split ─── */}
-      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16 sm:mb-24">
+      <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center mb-16">
         {/* Left Column: Heading, Value Props, CTAs */}
         <div className="lg:col-span-6 space-y-6 text-left">
           <h1 className="text-3xl sm:text-5xl lg:text-[52px] font-extrabold text-white tracking-tight leading-[1.12]">
-            Indian Public Holidays &amp; Calendar <span className="text-saffron-500">REST API</span>
+            Indian public holidays API
           </h1>
 
           <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-xl">
-            Free, keyless REST API serving official Gazetted and Restricted holiday schedules for the Central Government plus all 36 States and Union Territories.
+            Official gazetted and restricted holidays for the Central Government and all 36 States and Union Territories, as JSON. No API key, no sign-up.
           </p>
 
-          {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-3 pt-2">
+          {/* Actions */}
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-2">
             <NavLink
               to="/playground"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 shadow-sm hover:shadow transition-[transform,background-color] active:scale-[0.99]"
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-white bg-saffron-600 hover:bg-saffron-500 active:bg-saffron-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
-              <span>Explore Interactive Playground</span>
+              <span>Try it in the playground</span>
               <ArrowRight size={16} />
             </NavLink>
             <NavLink
               to="/docs"
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold text-slate-300 bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700 transition-[background-color,border-color]"
+              className="text-sm font-semibold text-slate-300 hover:text-white underline underline-offset-4 decoration-slate-600 hover:decoration-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-saffron-400 rounded"
             >
-              <span>API Reference</span>
+              Read the docs
             </NavLink>
-          </div>
-
-          {/* Architectural Metrics Strip */}
-          <div className="pt-6 border-t border-slate-800/80 grid grid-cols-3 gap-4">
-            <div>
-              <div className="text-xl sm:text-2xl font-extrabold text-white font-mono">37</div>
-              <div className="text-xs text-slate-400 mt-0.5">States &amp; UTs</div>
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-extrabold text-white font-mono">5</div>
-              <div className="text-xs text-slate-400 mt-0.5">REST Routes</div>
-            </div>
-            <div>
-              <div className="text-xl sm:text-2xl font-extrabold text-emerald-400 font-mono">0 Key</div>
-              <div className="text-xs text-slate-400 mt-0.5">Instant Access</div>
-            </div>
           </div>
         </div>
 
@@ -98,7 +82,7 @@ export default function HomePage() {
             <div className="flex items-center justify-between px-4 py-3 bg-slate-900/90 border-b border-slate-800/80">
               <div className="flex items-center gap-2">
                 <Terminal size={14} className="text-saffron-500" />
-                <span className="text-xs font-mono text-slate-300 font-semibold">api-live-demo</span>
+                <span className="text-xs font-mono text-slate-300 font-semibold">Example request</span>
               </div>
               <div className="flex gap-1 bg-black/40 p-0.5 rounded-md border border-white/5 text-[11px] font-mono">
                 <button
