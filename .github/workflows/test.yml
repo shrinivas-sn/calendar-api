@@ -1,0 +1,22 @@
+# Runs the API tests and the holiday data checks on every push and pull request.
+# No dependency cache: the backend has three small dependencies and no committed lockfile.
+name: test
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - run: npm install --prefix backend
+      - run: npm test
+      - run: npm --prefix backend run verify
