@@ -6,6 +6,9 @@ const path = require('path');
 
 const PORT = process.env.PORT || 3000;
 const DEFAULT_DATA_DIR = path.join(__dirname, '..', 'data');
+// Longest span /v1/holidays/range accepts, counted in calendar years (2025-12-01 to
+// 2026-01-31 is 2). Bounds the work one request can cause.
+const MAX_RANGE_YEARS = 5;
 
 // A region's data file is missing or unreadable. 503, not an empty list, so a broken
 // file never looks like "no holidays". expose: the message is safe to send to clients.
@@ -57,8 +60,9 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   }
 
   // Helper to send success response
-  function sendSuccess(res, country, year, region, data, status = 200) {
-    return res.status(status).json({
+  // extraMeta adds keys to meta; it never replaces the standard ones.
+  function sendSuccess(res, country, year, region, data, extraMeta = {}) {
+    return res.status(200).json({
       country,
       year: year ? parseInt(year, 10) : null,
       region: region || 'central',
@@ -66,7 +70,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       meta: {
         apiVersion: "v1",
         totalResults: Array.isArray(data) ? data.length : 1,
-        generatedAt: new Date().toISOString()
+        generatedAt: new Date().toISOString(),
+        ...extraMeta
       }
     });
   }
@@ -298,10 +303,10 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       let currentYear = parseInt(year, 10);
       let holidays = loadAndMergeHolidays(currentYear, region);
       let upcoming = holidays.filter(h => h.date > date);
+      const nextYear = currentYear + 1;
       
       // If no holidays left in this year, check next year
       if (upcoming.length === 0) {
-        const nextYear = currentYear + 1;
         if (yearHasData(nextYear)) {
           try {
             const nextYearHolidays = loadAndMergeHolidays(nextYear, region);
@@ -318,7 +323,9 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
         const matching = upcoming.filter(h => h.date === nextDate);
         return sendSuccess(res, country, currentYear, region, matching);
       } else {
-        return sendSuccess(res, country, year, region, []);
+        // An empty answer because next year's data is not published yet must say so.
+        const extraMeta = yearHasData(nextYear) ? {} : { yearsWithoutData: [nextYear] };
+        return sendSuccess(res, country, year, region, [], extraMeta);
       }
     } catch (err) {
       return next(err);
@@ -349,12 +356,18 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       
       const startYear = parseInt(start.split('-')[0], 10);
       const endYear = parseInt(end.split('-')[0], 10);
+      if (endYear - startYear + 1 > MAX_RANGE_YEARS) {
+        return sendError(res, `Range cannot span more than ${MAX_RANGE_YEARS} calendar years`, 400);
+      }
       
       let hasAnyData = false;
       let mergedHolidays = [];
+      const yearsWithoutData = [];
       
       for (let y = startYear; y <= endYear; y++) {
-        if (yearHasData(y)) {
+        if (!yearHasData(y)) {
+          yearsWithoutData.push(y);
+        } else {
           // Validate region for this year if region is requested
           const regionVal = validateRegion(y, region);
           if (!regionVal.valid) {
@@ -382,7 +395,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
       }
       finalFiltered.sort((a, b) => a.date.localeCompare(b.date));
       
-      return sendSuccess(res, country, startYear, region, finalFiltered);
+      const extraMeta = yearsWithoutData.length ? { yearsWithoutData } : {};
+      return sendSuccess(res, country, startYear, region, finalFiltered, extraMeta);
     } catch (err) {
       return next(err);
     }
