@@ -407,6 +407,10 @@ status file and in the session's final message.)*
 
 | # | When | Task | Plan said | Reality (evidence) | Impact | Action taken | Owner decision |
 |---|---|---|---|---|---|---|---|
+| 1 | 08/10/2026 | 1.2 | `"test": "node --test test/"` | Node 22 treats `test/` as a module path: `Cannot find module ...backend\test` | local | Used `"test": "node --test"` (default discovery, works on Node 20+). Side effect: helper files under `test/` are also counted as passing test files. | — |
+| 2 | 08/10/2026 | 1.5 | Extend `sendSuccess` with optional `extraMeta` | Its `status` parameter had no caller passing it | local | Replaced the unused `status` param with `extraMeta`; always 200. | — |
+| 3 | 08/10/2026 | 1.6 | Normalize region | Error text said "must be uppercase", now false | local | Message now `Region parameter must be a 2-letter state/UT code or 'central'` (error text only, no 200 change). | — |
+| 4 | 08/10/2026 | 1.3 | 503 for missing/corrupt file | Missing **central** file in an existing year now also 503 (was `[]`) | local, same intent | Kept: an absent central list is broken data, not "no holidays". | — |
 
 ---
 
@@ -437,3 +441,10 @@ status file and in the session's final message.)*
 *(Append only. Newest at the bottom. Never rewrite an entry — if it turned out wrong,
 add a new one saying so. This log is what makes resuming cheap: a cold session reads
 the last entry and knows exactly where to start.)*
+
+### Phase 1 — 08/10/2026
+Done:       Tasks 1.1–1.8: scenario table, node:test harness + characterization snapshots, createApp({dataDir}) with cached loads and 503 on missing/corrupt files, repeated-param 400 + no error leak, range cap (5 years) + meta.yearsWithoutData, case-insensitive region, per-item `level`, Cache-Control on 200.
+Verified:   `npm test` → # pass 30, # fail 0. `PORT=3917 node backend/src/index.js` → `/v1/holidays?country=IN&year=2026` 200; `country=IN&country=IN` → 400 "Parameter 'country' must be given once as plain text". `require('./api/index.js')` → function with createApp.
+Surprises:  Test command path form fails on Node 22 (issue 1). Earlier chat claim that repeated region crashes was wrong — only repeated country did.
+Next:       Phase 2, Task 2.1 — create backend/config/regions.js.
+Commit:     b76addf, a9379d1, b870807, eb1dda4, 242124f, ff8c60d, a3a18cc, 3a08784 (+ this checkpoint)

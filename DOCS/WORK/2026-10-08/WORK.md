@@ -1,4 +1,4 @@
-# 08/10/2026 — API production hardening
+| proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) || proven | `npm test` → # pass 30, # fail 0 (local, 08/10/2026) |# 08/10/2026 — API production hardening
 
 Executes `PLAN.md` (root). Review findings, decisions and verification for the hardening work.
 

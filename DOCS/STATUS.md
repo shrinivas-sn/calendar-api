@@ -1,6 +1,6 @@
 # Project Status — India Calendar API
 
-**Last updated:** 28/09/2026  
+**Last updated:** 08/10/2026  
 **Workspace:** `E:\OSC\api-projects\projects\calendar-api`  
 **Live API:** `https://calendar-api-d7a8.onrender.com` (Render, auto-deploys from `main`)  
 **Frontend:** `https://calendar-api-web.vercel.app` (Vercel, React 19 + Tailwind v3 + SSG)
@@ -20,7 +20,12 @@
 - Registered in `E:\OSC\api-projects\SUBMISSION-READINESS.md` along with LGD and GST APIs.
 
 ## Blockers / In Flight
-- None. All quality gates pass and working tree is clean.
+- Production hardening in progress on branch `harden/api` (not pushed): see root `PLAN.md`.
+  Phase 1 done (tests + non-breaking API fixes, `npm test` → 30 pass).
+- 2026 data ends 31/12/2026; 2027 data not loaded. Gov source (`india.gov.in/internal/cms`) returned an HTML error 3/3 times on 08/10/2026.
+- Plan issues logged: 4 (all local), see `PLAN.md` → Plan issues.
 
 ## Next up (start here)
-1. In `E:\OSC\api-projects\projects\public-apis-fork`, branch off `upstream/master` and create the 3 PRs for Calendar, LGD, and GST APIs using `SUBMISSION-READINESS.md`.
+1. Continue `PLAN.md` at the last Progress Log entry's `Next:` on branch `harden/api`.
+2. Owner: approve pushing `harden/api` and merging to `main` (merge = live deploy on Render).
+3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:OSCapi-projectsSUBMISSION-READINESS.md`.
