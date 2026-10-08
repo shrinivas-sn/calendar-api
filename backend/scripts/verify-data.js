@@ -1,186 +1,205 @@
+// Checks the holiday data files for schema, sorting, counts and completeness.
+//
+// Usage: node scripts/verify-data.js              (every year folder under data/)
+//        node scripts/verify-data.js --year 2027  (one year)
+//
+// Exits 1 when any check fails.
 const fs = require('fs');
 const path = require('path');
 
 const regions = require('../config/regions').map(r => r.code);
 
-const TARGET_YEAR = 2026;
+const DATA_DIR = path.join(__dirname, '..', 'data');
+const VALID_TYPES = ["gazetted_holiday", "restricted_holiday", "observance"];
+const SOURCE_URL = "https://www.india.gov.in/calendar";
+// Fixed-date national holidays every central list must contain (month-day).
+const NATIONAL_HOLIDAYS = ["01-26", "08-15", "10-02"];
 
-function runValidation() {
-  console.log("=== STARTING DATA VALIDATION CHECKS ===");
-  const baseDir = path.join(__dirname, '..', 'data', String(TARGET_YEAR), 'IN');
+// Returns { errors, warnings } as arrays of messages for one year.
+function verifyYear(dataDir, year) {
+  const errors = [];
+  const warnings = [];
+  const baseDir = path.join(dataDir, String(year), 'IN');
 
   if (!fs.existsSync(baseDir)) {
-    console.error(`[FAIL] Base directory does not exist: ${baseDir}`);
-    process.exit(1);
+    errors.push(`Base directory does not exist: ${baseDir}`);
+    return { errors, warnings };
   }
-
-  let totalErrors = 0;
-  let totalWarnings = 0;
 
   // 1. Verify INDEX.json
   const indexPath = path.join(baseDir, 'INDEX.json');
   if (!fs.existsSync(indexPath)) {
-    console.error("[FAIL] INDEX.json is missing!");
-    totalErrors++;
+    errors.push("INDEX.json is missing!");
   } else {
     try {
       const index = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
       if (index.country !== "IN") {
-        console.error(`[FAIL] INDEX.json country is not 'IN': ${index.country}`);
-        totalErrors++;
+        errors.push(`INDEX.json country is not 'IN': ${index.country}`);
       }
-      if (index.year !== TARGET_YEAR) {
-        console.error(`[FAIL] INDEX.json year is not ${TARGET_YEAR}: ${index.year}`);
-        totalErrors++;
+      if (index.year !== year) {
+        errors.push(`INDEX.json year is not ${year}: ${index.year}`);
       }
       if (index.totalRegions !== regions.length) {
-        console.error(`[FAIL] INDEX.json totalRegions count mismatch: expected ${regions.length}, found ${index.totalRegions}`);
-        totalErrors++;
+        errors.push(`INDEX.json totalRegions count mismatch: expected ${regions.length}, found ${index.totalRegions}`);
       }
-      console.log("[PASS] INDEX.json basic structure verified.");
     } catch (err) {
-      console.error(`[FAIL] Failed to parse INDEX.json: ${err.message}`);
-      totalErrors++;
+      errors.push(`Failed to parse INDEX.json: ${err.message}`);
     }
   }
 
   // 2. Verify each region folder
   for (const region of regions) {
-    const regionDir = path.join(baseDir, region);
-    const jsonPath = path.join(regionDir, 'holidays.json');
-
-    if (!fs.existsSync(regionDir)) {
-      console.error(`[FAIL] Region directory is missing: ${region}`);
-      totalErrors++;
-      continue;
-    }
+    const jsonPath = path.join(baseDir, region, 'holidays.json');
 
     if (!fs.existsSync(jsonPath)) {
-      console.error(`[FAIL] holidays.json is missing for region: ${region}`);
-      totalErrors++;
+      errors.push(`[${region}] holidays.json is missing`);
       continue;
     }
 
+    let content;
     try {
-      const content = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
-
-      // Validate schema
-      if (content.country !== "IN") {
-        console.error(`[FAIL] [${region}] country must be 'IN', got: ${content.country}`);
-        totalErrors++;
-      }
-      if (content.year !== TARGET_YEAR) {
-        console.error(`[FAIL] [${region}] year must be ${TARGET_YEAR}, got: ${content.year}`);
-        totalErrors++;
-      }
-      if (content.region !== region) {
-        console.error(`[FAIL] [${region}] region code mismatch, got: ${content.region}`);
-        totalErrors++;
-      }
-
-      // Validate data array
-      if (!Array.isArray(content.data)) {
-        console.error(`[FAIL] [${region}] 'data' field must be an array`);
-        totalErrors++;
-        continue;
-      }
-
-      // Check dates sorting and format
-      let lastDate = "";
-      let hasDuplicates = false;
-      const seenNamesAndDates = new Set();
-
-      for (let i = 0; i < content.data.length; i++) {
-        const holiday = content.data[i];
-        const date = holiday.date;
-        const name = holiday.name;
-
-        // Check format YYYY-MM-DD
-        if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-          console.error(`[FAIL] [${region}] Invalid date format: ${date}`);
-          totalErrors++;
-        }
-
-        // Check year match
-        if (date && !date.startsWith(String(TARGET_YEAR))) {
-          console.error(`[FAIL] [${region}] Holiday date does not match targeted year ${TARGET_YEAR}: ${date}`);
-          totalErrors++;
-        }
-
-        // Check ascending sort
-        if (lastDate && date.localeCompare(lastDate) < 0) {
-          console.error(`[FAIL] [${region}] Holidays are not sorted by date ascending: ${lastDate} -> ${date}`);
-          totalErrors++;
-        }
-        lastDate = date;
-
-        // Check duplicate
-        const uniqueKey = `${date}_${name.toLowerCase()}`;
-        if (seenNamesAndDates.has(uniqueKey)) {
-          console.warn(`[WARN] [${region}] Duplicate holiday entry detected: "${name}" on ${date}`);
-          totalWarnings++;
-          hasDuplicates = true;
-        }
-        seenNamesAndDates.add(uniqueKey);
-
-        // Check holiday type
-        const validTypes = ["gazetted_holiday", "restricted_holiday", "observance"];
-        if (!validTypes.includes(holiday.type)) {
-          console.error(`[FAIL] [${region}] Invalid holiday type: ${holiday.type}`);
-          totalErrors++;
-        }
-
-        // Check source
-        if (holiday.source !== "https://www.india.gov.in/calendar") {
-          console.error(`[FAIL] [${region}] Source URL mismatch: ${holiday.source}`);
-          totalErrors++;
-        }
-      }
-
-      // Validate meta block
-      const meta = content.meta;
-      if (!meta) {
-        console.error(`[FAIL] [${region}] Missing 'meta' block`);
-        totalErrors++;
-      } else {
-        if (meta.apiVersion !== "v1") {
-          console.error(`[FAIL] [${region}] meta.apiVersion must be 'v1', got: ${meta.apiVersion}`);
-          totalErrors++;
-        }
-        if (meta.totalHolidays !== content.data.length) {
-          console.error(`[FAIL] [${region}] meta.totalHolidays count mismatch: meta=${meta.totalHolidays}, actual=${content.data.length}`);
-          totalErrors++;
-        }
-        const gazettedCount = content.data.filter(h => h.type === "gazetted_holiday").length;
-        const restrictedCount = content.data.filter(h => h.type === "restricted_holiday").length;
-        if (meta.gazettedCount !== gazettedCount) {
-          console.error(`[FAIL] [${region}] meta.gazettedCount mismatch: meta=${meta.gazettedCount}, actual=${gazettedCount}`);
-          totalErrors++;
-        }
-        if (meta.restrictedCount !== restrictedCount) {
-          console.error(`[FAIL] [${region}] meta.restrictedCount mismatch: meta=${meta.restrictedCount}, actual=${restrictedCount}`);
-          totalErrors++;
-        }
-      }
-
+      content = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
     } catch (err) {
-      console.error(`[FAIL] Failed to parse JSON for ${region}: ${err.message}`);
-      totalErrors++;
+      errors.push(`[${region}] Failed to parse JSON: ${err.message}`);
+      continue;
+    }
+
+    // Validate schema
+    if (content.country !== "IN") {
+      errors.push(`[${region}] country must be 'IN', got: ${content.country}`);
+    }
+    if (content.year !== year) {
+      errors.push(`[${region}] year must be ${year}, got: ${content.year}`);
+    }
+    if (content.region !== region) {
+      errors.push(`[${region}] region code mismatch, got: ${content.region}`);
+    }
+
+    // Validate data array
+    if (!Array.isArray(content.data)) {
+      errors.push(`[${region}] 'data' field must be an array`);
+      continue;
+    }
+    if (content.data.length === 0) {
+      errors.push(`[${region}] data is empty (a failed fetch, not a year without holidays)`);
+    }
+
+    // Check dates sorting and format
+    let lastDate = "";
+    const seenNamesAndDates = new Set();
+
+    for (const holiday of content.data) {
+      const { date, name } = holiday;
+
+      // Check format YYYY-MM-DD
+      if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        errors.push(`[${region}] Invalid date format: ${date}`);
+      }
+
+      // Check year match
+      if (date && !date.startsWith(String(year))) {
+        errors.push(`[${region}] Holiday date does not match year ${year}: ${date}`);
+      }
+
+      // Check ascending sort
+      if (lastDate && date.localeCompare(lastDate) < 0) {
+        errors.push(`[${region}] Holidays are not sorted by date ascending: ${lastDate} -> ${date}`);
+      }
+      lastDate = date;
+
+      // Check duplicate
+      const uniqueKey = `${date}_${name.toLowerCase()}`;
+      if (seenNamesAndDates.has(uniqueKey)) {
+        warnings.push(`[${region}] Duplicate holiday entry detected: "${name}" on ${date}`);
+      }
+      seenNamesAndDates.add(uniqueKey);
+
+      // Check holiday type
+      if (!VALID_TYPES.includes(holiday.type)) {
+        errors.push(`[${region}] Invalid holiday type: ${holiday.type}`);
+      }
+
+      // Check source
+      if (holiday.source !== SOURCE_URL) {
+        errors.push(`[${region}] Source URL mismatch: ${holiday.source}`);
+      }
+    }
+
+    // The central list must carry the fixed national holidays.
+    if (region === 'central') {
+      const dates = new Set(content.data.map(h => h.date));
+      for (const monthDay of NATIONAL_HOLIDAYS) {
+        if (!dates.has(`${year}-${monthDay}`)) {
+          errors.push(`[central] National holiday ${year}-${monthDay} is missing`);
+        }
+      }
+    }
+
+    // Validate meta block
+    const meta = content.meta;
+    if (!meta) {
+      errors.push(`[${region}] Missing 'meta' block`);
+    } else {
+      if (meta.apiVersion !== "v1") {
+        errors.push(`[${region}] meta.apiVersion must be 'v1', got: ${meta.apiVersion}`);
+      }
+      if (meta.totalHolidays !== content.data.length) {
+        errors.push(`[${region}] meta.totalHolidays count mismatch: meta=${meta.totalHolidays}, actual=${content.data.length}`);
+      }
+      const gazettedCount = content.data.filter(h => h.type === "gazetted_holiday").length;
+      const restrictedCount = content.data.filter(h => h.type === "restricted_holiday").length;
+      if (meta.gazettedCount !== gazettedCount) {
+        errors.push(`[${region}] meta.gazettedCount mismatch: meta=${meta.gazettedCount}, actual=${gazettedCount}`);
+      }
+      if (meta.restrictedCount !== restrictedCount) {
+        errors.push(`[${region}] meta.restrictedCount mismatch: meta=${meta.restrictedCount}, actual=${restrictedCount}`);
+      }
     }
   }
 
+  return { errors, warnings };
+}
+
+// Years named by --year, else every 4-digit folder under the data directory.
+function yearsToCheck(argv, dataDir) {
+  const i = argv.indexOf('--year');
+  if (i >= 0) {
+    const value = argv[i + 1];
+    return /^\d{4}$/.test(value || '') ? [Number(value)] : null;
+  }
+  return fs.readdirSync(dataDir).filter(name => /^\d{4}$/.test(name)).map(Number).sort();
+}
+
+module.exports = { verifyYear };
+
+if (require.main === module) {
+  const years = yearsToCheck(process.argv, DATA_DIR);
+  if (!years || years.length === 0) {
+    console.error('Usage: node scripts/verify-data.js [--year <YYYY>]  (no year folders found, or invalid --year)');
+    process.exit(1);
+  }
+
+  let totalErrors = 0;
+  let totalWarnings = 0;
+  for (const year of years) {
+    console.log(`=== VERIFYING ${year} ===`);
+    const { errors, warnings } = verifyYear(DATA_DIR, year);
+    errors.forEach(e => console.error(`[FAIL] ${e}`));
+    warnings.forEach(w => console.warn(`[WARN] ${w}`));
+    totalErrors += errors.length;
+    totalWarnings += warnings.length;
+  }
+
   console.log("\n=== VALIDATION SUMMARY ===");
-  console.log(`Total Regions Checked: ${regions.length}`);
+  console.log(`Years Checked: ${years.join(', ')}`);
+  console.log(`Total Regions Checked per year: ${regions.length}`);
   console.log(`Total Errors: ${totalErrors}`);
   console.log(`Total Warnings: ${totalWarnings}`);
 
   if (totalErrors === 0) {
     console.log("[SUCCESS] All data validation checks passed successfully! 🎉");
-    process.exit(0);
   } else {
     console.error("[FAILURE] One or more data validation checks failed. Please fix the errors above.");
     process.exit(1);
   }
 }
-
-runValidation();
