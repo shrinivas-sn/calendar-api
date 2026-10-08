@@ -27,9 +27,11 @@
 - 2027 data: not published yet by any state (live check 08/10/2026); central is out. The monthly job adds it when all 37 are out; it fails (emails) if still incomplete in December.
 - GitHub setting "Allow GitHub Actions to create and approve pull requests" is ON (checked 09/10/2026 via API).
 - CI: `test` workflow green on `harden/api` at e11ea9d.
+- Frontend de-slop: plan ready at `PLAN-frontend-deslop.md` (frontend/src only; dry-run on 09/10/2026 built clean, all checks 0, lint 31→26). Not started.
 - Plan issues logged: 13, see `PLAN.md` → Plan issues.
 
 ## Next up (start here)
+0. Run `PLAN-frontend-deslop.md` (any executor) on branch `frontend-deslop`; owner reviews before merge.
 1. Merge `harden/api` → `main` (= live deploy on Render), after CI is green.
 2. After merge: check the live API (`/v1/holidays?country=IN&year=2026&region=KA&scope=state` → 41 items), then run `gh workflow run data-update.yml` once and check it ends green (2026 unchanged, 2027 not-ready).
 3. Public-apis submission: Calendar PR #7591 already submitted (`api.json`); LGD and GST PRs per `E:\OSC\api-projects\SUBMISSION-READINESS.md`.
