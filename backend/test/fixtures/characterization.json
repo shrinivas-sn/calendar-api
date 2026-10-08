@@ -1,0 +1,4981 @@
+{
+ "/v1/holidays?country=IN&year=2026": {
+  "country": "IN",
+  "year": 2026,
+  "region": "central",
+  "data": [
+   {
+    "name": "New Year's Day",
+    "date": "2026-01-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-01-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Makar Sankranti / Magha Bihu / Pongal",
+    "date": "2026-01-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Panchami, Basant Panchami",
+    "date": "2026-01-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Republic Day",
+    "date": "2026-01-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Ravi Das's Birthday",
+    "date": "2026-02-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Swami Dayananda Saraswati",
+    "date": "2026-02-12",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Maha Shivratri",
+    "date": "2026-02-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Shiva ji Jayanti",
+    "date": "2026-02-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holika dahan / Dolyatra",
+    "date": "2026-03-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holi",
+    "date": "2026-03-04",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Chaitra Sukladi / Gudi Padava/ Ugadi/ Cheti Chand",
+    "date": "2026-03-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Jamat- Ul- Vida",
+    "date": "2026-03-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Fitr",
+    "date": "2026-03-21",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ram Navami",
+    "date": "2026-03-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahavir Jayanti",
+    "date": "2026-03-31",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Good Friday",
+    "date": "2026-04-03",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Easter Sunday",
+    "date": "2026-04-05",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhi / Vishu / Meshadi (Tamil New Year's Day)",
+    "date": "2026-04-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Dr. B.R. Ambedkar",
+    "date": "2026-04-14",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhadi (Bengal) / Bahag Bihu (Assam)",
+    "date": "2026-04-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Budha Purnima",
+    "date": "2026-05-01",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Guru Rabindranath Tagore",
+    "date": "2026-05-09",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Zuha (Bakrid)",
+    "date": "2026-05-28",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Muharram",
+    "date": "2026-06-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Rath Yatra",
+    "date": "2026-07-16",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Independence Day",
+    "date": "2026-08-15",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Parsi New Year's day/ Nauraj",
+    "date": "2026-08-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Milad- un- Nabi or Id- e- Milad (Birthday of Prophet Mohammad)",
+    "date": "2026-08-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Onam or Thiru Onam Day",
+    "date": "2026-08-26",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Raksha Bandhan",
+    "date": "2026-08-28",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Janmashtami (Vaishnva)",
+    "date": "2026-09-04",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ganesh Chaturthi / Vinayaka Chaturthi",
+    "date": "2026-09-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahatma Gandhi's Birthday",
+    "date": "2026-10-02",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dusshera (Saptami)",
+    "date": "2026-10-18",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra (Mahashtami)",
+    "date": "2026-10-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra",
+    "date": "2026-10-20",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra (Mahanavmi)",
+    "date": "2026-10-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Maharishi Valmiki's Birthday",
+    "date": "2026-10-26",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Karaka Chaturthi (Karwa Chouth)",
+    "date": "2026-10-29",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Diwali (Deepavali)",
+    "date": "2026-11-08",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Naraka Chaturdasi",
+    "date": "2026-11-08",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Govardhan Puja",
+    "date": "2026-11-09",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Bhai Duj",
+    "date": "2026-11-11",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Pratihar Shashthi or Surya Shashthi (Chhat Puja)",
+    "date": "2026-11-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Nanak's Birthday",
+    "date": "2026-11-24",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Teg Bahadur's Martyrdom Day",
+    "date": "2026-11-24",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-12-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Christmas Eve",
+    "date": "2026-12-24",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Christmas Day",
+    "date": "2026-12-25",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   }
+  ],
+  "totalResults": 50
+ },
+ "/v1/holidays?country=IN&year=2026&region=KA": {
+  "country": "IN",
+  "year": 2026,
+  "region": "KA",
+  "data": [
+   {
+    "name": "New Year's Day",
+    "date": "2026-01-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "New Year",
+    "date": "2026-01-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-01-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Makar Sankranti / Magha Bihu / Pongal",
+    "date": "2026-01-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Uttarayana Punyakala, Makara Sankranti Festival",
+    "date": "2026-01-15",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Panchami, Basant Panchami",
+    "date": "2026-01-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Republic Day",
+    "date": "2026-01-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Madvanavami",
+    "date": "2026-01-27",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Ravi Das's Birthday",
+    "date": "2026-02-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Shab-E-Barath",
+    "date": "2026-02-04",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Swami Dayananda Saraswati",
+    "date": "2026-02-12",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Maha Shivratri",
+    "date": "2026-02-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Shiva ji Jayanti",
+    "date": "2026-02-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holi Festival",
+    "date": "2026-03-02",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holika dahan / Dolyatra",
+    "date": "2026-03-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holi",
+    "date": "2026-03-04",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Shab-E-Qadar",
+    "date": "2026-03-17",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Chaitra Sukladi / Gudi Padava/ Ugadi/ Cheti Chand",
+    "date": "2026-03-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ugadi Festival",
+    "date": "2026-03-19",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Jamat- Ul- Vida",
+    "date": "2026-03-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Jumat-Ul-Wida",
+    "date": "2026-03-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Fitr",
+    "date": "2026-03-21",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Khutub-E-Ramzan",
+    "date": "2026-03-21",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Devara Dasemaiha Jayanti",
+    "date": "2026-03-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ram Navami",
+    "date": "2026-03-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Ramanavami",
+    "date": "2026-03-27",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahavir Jayanti",
+    "date": "2026-03-31",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahaveera Jayanti",
+    "date": "2026-03-31",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Good Friday",
+    "date": "2026-04-03",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holy Saturday",
+    "date": "2026-04-04",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Easter Sunday",
+    "date": "2026-04-05",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhi / Vishu / Meshadi (Tamil New Year's Day)",
+    "date": "2026-04-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Dr. B.R. Ambedkar",
+    "date": "2026-04-14",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dr. B.R. Ambedkar Jayanti",
+    "date": "2026-04-14",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhadi (Bengal) / Bahag Bihu (Assam)",
+    "date": "2026-04-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Basava Jayanti, Akshaya Tritiya",
+    "date": "2026-04-20",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Shankaracharya Jayanti",
+    "date": "2026-04-21",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Ramanujacharya Jayanti",
+    "date": "2026-04-22",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Budha Purnima",
+    "date": "2026-05-01",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "May Day",
+    "date": "2026-05-01",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Guru Rabindranath Tagore",
+    "date": "2026-05-09",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Zuha (Bakrid)",
+    "date": "2026-05-28",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Bakrid (Eid-Ul-Zuha)",
+    "date": "2026-05-28",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Muharram",
+    "date": "2026-06-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Last Day of Moharam",
+    "date": "2026-06-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Rath Yatra",
+    "date": "2026-07-16",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Independence Day",
+    "date": "2026-08-15",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Parsi New Year's day/ Nauraj",
+    "date": "2026-08-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Varamahalakshmi Vrata",
+    "date": "2026-08-21",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Milad- un- Nabi or Id- e- Milad (Birthday of Prophet Mohammad)",
+    "date": "2026-08-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Onam or Thiru Onam Day",
+    "date": "2026-08-26",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Eid-Milad",
+    "date": "2026-08-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Yajur Upakarma",
+    "date": "2026-08-27",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Raksha Bandhan",
+    "date": "2026-08-28",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Brahma Shri Narayana Guru Jayanti, Raksha Bandhan",
+    "date": "2026-08-28",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Janmashtami (Vaishnva)",
+    "date": "2026-09-04",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Krishna Janmashtami",
+    "date": "2026-09-04",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Kanya Mariamma Jayanti",
+    "date": "2026-09-08",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ganesh Chaturthi / Vinayaka Chaturthi",
+    "date": "2026-09-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Varasiddhi Vinayaka Vrata",
+    "date": "2026-09-14",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vishwakarma Jayanti",
+    "date": "2026-09-17",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ananta Padmanabha Vrata",
+    "date": "2026-09-25",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahatma Gandhi's Birthday",
+    "date": "2026-10-02",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Gandhi Jayanti",
+    "date": "2026-10-02",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dusshera (Saptami)",
+    "date": "2026-10-18",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra (Mahashtami)",
+    "date": "2026-10-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra",
+    "date": "2026-10-20",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Dussehra (Mahanavmi)",
+    "date": "2026-10-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahanavami, Ayudhapooja",
+    "date": "2026-10-20",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vijayadasami",
+    "date": "2026-10-21",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Maharishi Valmiki's Birthday",
+    "date": "2026-10-26",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Karaka Chaturthi (Karwa Chouth)",
+    "date": "2026-10-29",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Diwali (Deepavali)",
+    "date": "2026-11-08",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Naraka Chaturdasi",
+    "date": "2026-11-08",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Govardhan Puja",
+    "date": "2026-11-09",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Balipadyami, Deepavali",
+    "date": "2026-11-10",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Bhai Duj",
+    "date": "2026-11-11",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Pratihar Shashthi or Surya Shashthi (Chhat Puja)",
+    "date": "2026-11-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Nanak's Birthday",
+    "date": "2026-11-24",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Teg Bahadur's Martyrdom Day",
+    "date": "2026-11-24",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Nanak Jayanti",
+    "date": "2026-11-24",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Huttari Festival",
+    "date": "2026-11-26",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Kannadasa Jayanti",
+    "date": "2026-11-27",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-12-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Christmas Eve",
+    "date": "2026-12-24",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Christmas Day",
+    "date": "2026-12-25",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Christmas",
+    "date": "2026-12-25",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   }
+  ],
+  "totalResults": 87
+ },
+ "/v1/date/is-holiday?country=IN&date=2026-01-26": {
+  "country": "IN",
+  "year": 2026,
+  "region": "central",
+  "data": [
+   {
+    "date": "2026-01-26",
+    "is_holiday": true,
+    "holidays": [
+     {
+      "name": "Republic Day",
+      "date": "2026-01-26",
+      "type": "gazetted_holiday",
+      "region": [
+       "IN"
+      ],
+      "description": "Gazetted Holiday",
+      "source": "https://www.india.gov.in/calendar"
+     }
+    ]
+   }
+  ],
+  "totalResults": 1
+ },
+ "/v1/date/next-holiday?country=IN&date=2026-01-01": {
+  "country": "IN",
+  "year": 2026,
+  "region": "central",
+  "data": [
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-01-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   }
+  ],
+  "totalResults": 1
+ },
+ "/v1/holidays/range?country=IN&start=2026-01-01&end=2026-06-30": {
+  "country": "IN",
+  "year": 2026,
+  "region": "central",
+  "data": [
+   {
+    "name": "New Year's Day",
+    "date": "2026-01-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Hazarat Ali's Birthday",
+    "date": "2026-01-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Makar Sankranti / Magha Bihu / Pongal",
+    "date": "2026-01-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Sri Panchami, Basant Panchami",
+    "date": "2026-01-23",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Republic Day",
+    "date": "2026-01-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Guru Ravi Das's Birthday",
+    "date": "2026-02-01",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Swami Dayananda Saraswati",
+    "date": "2026-02-12",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Maha Shivratri",
+    "date": "2026-02-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Shiva ji Jayanti",
+    "date": "2026-02-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holika dahan / Dolyatra",
+    "date": "2026-03-03",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Holi",
+    "date": "2026-03-04",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Chaitra Sukladi / Gudi Padava/ Ugadi/ Cheti Chand",
+    "date": "2026-03-19",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Jamat- Ul- Vida",
+    "date": "2026-03-20",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Fitr",
+    "date": "2026-03-21",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Ram Navami",
+    "date": "2026-03-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Mahavir Jayanti",
+    "date": "2026-03-31",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Good Friday",
+    "date": "2026-04-03",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Easter Sunday",
+    "date": "2026-04-05",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhi / Vishu / Meshadi (Tamil New Year's Day)",
+    "date": "2026-04-14",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Dr. B.R. Ambedkar",
+    "date": "2026-04-14",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Vaisakhadi (Bengal) / Bahag Bihu (Assam)",
+    "date": "2026-04-15",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Budha Purnima",
+    "date": "2026-05-01",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Birthday of Guru Rabindranath Tagore",
+    "date": "2026-05-09",
+    "type": "restricted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Restricted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Id- ul- Zuha (Bakrid)",
+    "date": "2026-05-28",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   },
+   {
+    "name": "Muharram",
+    "date": "2026-06-26",
+    "type": "gazetted_holiday",
+    "region": [
+     "IN"
+    ],
+    "description": "Gazetted Holiday",
+    "source": "https://www.india.gov.in/calendar"
+   }
+  ],
+  "totalResults": 25
+ },
+ "/v1/calendar?country=IN&year=2026&region=KA": {
+  "country": "IN",
+  "year": 2026,
+  "region": "KA",
+  "data": [
+   {
+    "date": "2026-01-01",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "New Year's Day / New Year",
+    "holiday_type": "restricted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-02",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-03",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Hazarat Ali's Birthday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-04",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-05",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-06",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-07",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-08",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-09",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-10",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-11",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-12",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-13",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-14",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Makar Sankranti / Magha Bihu / Pongal",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-15",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Uttarayana Punyakala, Makara Sankranti Festival",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-16",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-17",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-18",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-19",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-20",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-21",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-22",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-23",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Sri Panchami, Basant Panchami",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-24",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-25",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-26",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Republic Day",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-27",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Sri Madvanavami",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-01-28",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-29",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-30",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-01-31",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-01",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Guru Ravi Das's Birthday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-02",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-03",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-04",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Shab-E-Barath",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-05",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-06",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-07",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-08",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-09",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-10",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-11",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-12",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Birthday of Swami Dayananda Saraswati",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-13",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-14",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-15",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Maha Shivratri",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-16",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-17",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-18",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-19",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Shiva ji Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-20",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-21",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-22",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-02-23",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-24",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-25",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-26",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-27",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-02-28",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-01",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-02",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Holi Festival",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-03",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Holika dahan / Dolyatra",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-04",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Holi",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-05",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-06",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-07",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-08",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-09",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-10",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-11",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-12",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-13",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-14",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-15",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-16",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-17",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Shab-E-Qadar",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-18",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-19",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Chaitra Sukladi / Gudi Padava/ Ugadi/ Cheti Chand / Ugadi Festival",
+    "holiday_type": "restricted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-20",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Jamat- Ul- Vida / Jumat-Ul-Wida",
+    "holiday_type": "restricted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-21",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Id- ul- Fitr / Khutub-E-Ramzan",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-22",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-23",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Devara Dasemaiha Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-24",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-25",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-26",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Ram Navami",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-27",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Sri Ramanavami",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-28",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-29",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-03-30",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-03-31",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Mahavir Jayanti / Mahaveera Jayanti",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-01",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-02",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-03",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Good Friday",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-04",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Holy Saturday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-05",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Easter Sunday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-06",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-07",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-08",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-09",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-10",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-11",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-12",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-13",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-14",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Vaisakhi / Vishu / Meshadi (Tamil New Year's Day) / Birthday of Dr. B.R. Ambedkar / Dr. B.R. Ambedkar Jayanti",
+    "holiday_type": "restricted_holiday / gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-15",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Vaisakhadi (Bengal) / Bahag Bihu (Assam)",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-16",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-17",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-18",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-19",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-20",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Basava Jayanti, Akshaya Tritiya",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-21",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Sri Shankaracharya Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-22",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Sri Ramanujacharya Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-23",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-24",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-25",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-26",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-04-27",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-28",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-29",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-04-30",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-01",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Budha Purnima / May Day",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-02",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-03",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-04",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-05",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-06",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-07",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-08",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-09",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Birthday of Guru Rabindranath Tagore",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-10",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-11",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-12",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-13",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-14",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-15",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-16",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-17",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-18",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-19",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-20",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-21",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-22",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-23",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-24",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-25",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-26",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-27",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-28",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Id- ul- Zuha (Bakrid) / Bakrid (Eid-Ul-Zuha)",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-29",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-05-30",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-05-31",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-01",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-02",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-03",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-04",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-05",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-06",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-07",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-08",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-09",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-10",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-11",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-12",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-13",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-14",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-15",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-16",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-17",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-18",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-19",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-20",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-21",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-22",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-23",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-24",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-25",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-26",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Muharram / Last Day of Moharam",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-27",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-28",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-06-29",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-06-30",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-01",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-02",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-03",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-04",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-05",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-06",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-07",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-08",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-09",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-10",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-11",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-12",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-13",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-14",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-15",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-16",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Rath Yatra",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-17",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-18",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-19",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-20",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-21",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-22",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-23",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-24",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-25",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-26",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-07-27",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-28",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-29",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-30",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-07-31",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-01",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-02",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-03",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-04",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-05",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-06",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-07",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-08",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-09",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-10",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-11",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-12",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-13",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-14",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-15",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Independence Day / Parsi New Year's day/ Nauraj",
+    "holiday_type": "gazetted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-16",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-17",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-18",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-19",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-20",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-21",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Varamahalakshmi Vrata",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-22",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-23",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-24",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-25",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-08-26",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Milad- un- Nabi or Id- e- Milad (Birthday of Prophet Mohammad) / Onam or Thiru Onam Day / Eid-Milad",
+    "holiday_type": "gazetted_holiday / restricted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-27",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Yajur Upakarma",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-28",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Raksha Bandhan / Brahma Shri Narayana Guru Jayanti, Raksha Bandhan",
+    "holiday_type": "restricted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-29",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-30",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-08-31",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-01",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-02",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-03",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-04",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Janmashtami (Vaishnva) / Sri Krishna Janmashtami",
+    "holiday_type": "gazetted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-05",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-06",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-07",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-08",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Kanya Mariamma Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-09",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-10",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-11",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-12",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-13",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-14",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Ganesh Chaturthi / Vinayaka Chaturthi / Varasiddhi Vinayaka Vrata",
+    "holiday_type": "restricted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-15",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-16",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-17",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Vishwakarma Jayanti",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-18",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-19",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-20",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-21",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-22",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-23",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-24",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-25",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Ananta Padmanabha Vrata",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-26",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-27",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-09-28",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-29",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-09-30",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-01",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-02",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Mahatma Gandhi's Birthday / Gandhi Jayanti",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-03",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-04",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-05",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-06",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-07",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-08",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-09",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-10",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-11",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-12",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-13",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-14",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-15",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-16",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-17",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-18",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Dusshera (Saptami)",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-19",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Dussehra (Mahashtami)",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-20",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Dussehra / Dussehra (Mahanavmi) / Mahanavami, Ayudhapooja",
+    "holiday_type": "gazetted_holiday / restricted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-21",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Vijayadasami",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-22",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-23",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-24",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-25",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-26",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Maharishi Valmiki's Birthday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-27",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-28",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-29",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Karaka Chaturthi (Karwa Chouth)",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-10-30",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-10-31",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-01",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-02",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-03",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-04",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-05",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-06",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-07",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-08",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Diwali (Deepavali) / Naraka Chaturdasi",
+    "holiday_type": "gazetted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-09",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Govardhan Puja",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-10",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Balipadyami, Deepavali",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-11",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Bhai Duj",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-12",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-13",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-14",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-15",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": true,
+    "holiday_name": "Pratihar Shashthi or Surya Shashthi (Chhat Puja)",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-16",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-17",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-18",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-19",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-20",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-21",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-22",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-23",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-24",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Guru Nanak's Birthday / Guru Teg Bahadur's Martyrdom Day / Guru Nanak Jayanti",
+    "holiday_type": "gazetted_holiday / restricted_holiday / restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-25",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-11-26",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Huttari Festival",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-27",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Kannadasa Jayanti",
+    "holiday_type": "gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-28",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-29",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-11-30",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-01",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-02",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-03",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-04",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-05",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-06",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-07",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-08",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-09",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-10",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-11",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-12",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-13",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-14",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-15",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-16",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-17",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-18",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-19",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-20",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-21",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-22",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-23",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Hazarat Ali's Birthday",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-24",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Christmas Eve",
+    "holiday_type": "restricted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-25",
+    "day": "Friday",
+    "is_weekend": false,
+    "is_holiday": true,
+    "holiday_name": "Christmas Day / Christmas",
+    "holiday_type": "gazetted_holiday / gazetted_holiday",
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-26",
+    "day": "Saturday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-27",
+    "day": "Sunday",
+    "is_weekend": true,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": false
+   },
+   {
+    "date": "2026-12-28",
+    "day": "Monday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-29",
+    "day": "Tuesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-30",
+    "day": "Wednesday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   },
+   {
+    "date": "2026-12-31",
+    "day": "Thursday",
+    "is_weekend": false,
+    "is_holiday": false,
+    "holiday_name": null,
+    "holiday_type": null,
+    "is_working_day": true
+   }
+  ],
+  "totalResults": 365
+ }
+}

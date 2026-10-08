@@ -5,7 +5,8 @@
   "description": "Free, open-source Indian Holiday Calendar REST API for Central & 36 State/UT gazetted holidays.",
   "scripts": {
     "build": "npm --prefix frontend install && npm --prefix frontend run build",
-    "start": "node backend/src/index.js"
+    "start": "node backend/src/index.js",
+    "test": "npm --prefix backend test"
   },
   "dependencies": {
     "cors": "^2.8.5",

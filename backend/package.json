@@ -7,7 +7,8 @@
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
     "verify": "node scripts/verify-data.js",
-    "parse-ics": "node scripts/parse-ics.js"
+    "parse-ics": "node scripts/parse-ics.js",
+    "test": "node --test"
   },
   "keywords": [
     "calendar",
