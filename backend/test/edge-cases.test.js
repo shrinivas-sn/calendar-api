@@ -55,3 +55,22 @@ test('S8: a range touching a year without data keeps its data and names that yea
   assert.deepEqual(partial.body.meta.yearsWithoutData, [earliest - 1]);
   assert.equal('yearsWithoutData' in full.body.meta, false);
 });
+
+test('S9: lowercase region returns the same data as uppercase and echoes uppercase', async () => {
+  const lower = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}&region=ka`);
+  const upper = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}&region=KA`);
+  assert.equal(lower.status, 200);
+  assert.equal(lower.body.region, 'KA');
+  assert.deepEqual(lower.body.data, upper.body.data);
+});
+
+test('S9: region=Central is accepted as central', async () => {
+  const { status, body } = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}&region=Central`);
+  assert.equal(status, 200);
+  assert.equal(body.region, 'central');
+});
+
+test('S9: a malformed region is still 400', async () => {
+  const { status } = await getJson(server.baseUrl, `/v1/holidays?country=IN&year=${latest}&region=k1`);
+  assert.equal(status, 400);
+});

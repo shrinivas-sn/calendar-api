@@ -154,10 +154,19 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
     return { valid: true };
   }
 
+  // Accepts region codes in any case: "ka" -> "KA", "Central" -> "central".
+  // Anything else is returned untouched for validateRegion to reject.
+  function normalizeRegion(region) {
+    if (typeof region !== 'string') return region;
+    if (/^central$/i.test(region)) return 'central';
+    if (/^[a-z]{2}$/i.test(region)) return region.toUpperCase();
+    return region;
+  }
+
   function validateRegion(year, region) {
     if (!region) return { valid: true };
     if (region !== 'central' && !/^[A-Z]{2}$/.test(region)) {
-      return { valid: false, message: "Region parameter must be uppercase 2-letter code or 'central'", status: 400 };
+      return { valid: false, message: "Region parameter must be a 2-letter state/UT code or 'central'", status: 400 };
     }
     const regionDir = path.join(dataDir, String(year), 'IN', region);
     if (!fs.existsSync(regionDir)) {
@@ -189,7 +198,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // 1 & 2: GET /v1/holidays
   v1Router.get('/holidays', (req, res, next) => {
     try {
-      const { country, year, region } = req.query;
+      const { country, year } = req.query;
+      const region = normalizeRegion(req.query.region);
       
       // Country check
       const countryVal = validateCountry(country);
@@ -219,7 +229,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // 3: GET /v1/date/is-holiday
   v1Router.get('/date/is-holiday', (req, res, next) => {
     try {
-      const { country, date, region } = req.query;
+      const { country, date } = req.query;
+      const region = normalizeRegion(req.query.region);
       
       // Country check
       const countryVal = validateCountry(country);
@@ -270,7 +281,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // 4: GET /v1/date/next-holiday
   v1Router.get('/date/next-holiday', (req, res, next) => {
     try {
-      const { country, date, region } = req.query;
+      const { country, date } = req.query;
+      const region = normalizeRegion(req.query.region);
       
       // Country check
       const countryVal = validateCountry(country);
@@ -335,7 +347,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // 5: GET /v1/holidays/range
   v1Router.get('/holidays/range', (req, res, next) => {
     try {
-      const { country, start, end, region } = req.query;
+      const { country, start, end } = req.query;
+      const region = normalizeRegion(req.query.region);
       
       // Country check
       const countryVal = validateCountry(country);
@@ -405,7 +418,8 @@ function createApp({ dataDir = process.env.CALENDAR_DATA_DIR || DEFAULT_DATA_DIR
   // 6: GET /v1/calendar
   v1Router.get('/calendar', (req, res, next) => {
     try {
-      const { country, year, region } = req.query;
+      const { country, year } = req.query;
+      const region = normalizeRegion(req.query.region);
       
       // Country check
       const countryVal = validateCountry(country);
