@@ -12,7 +12,7 @@ Executes `PLAN.md` (root). Review findings, decisions and verification for the h
 | R-range | `GET /v1/holidays/range` `country, start, end, region` | envelope, holidays in range | none | none | data for every year in range | same | `v1Router.get('/holidays/range'` |
 | R-calendar | `GET /v1/calendar` `country, year, region` | 365/366 day rows | none | none | data for year | same | `v1Router.get('/calendar'` |
 | R-mw | all routes: rate limiter, CORS, error handler | 429 / error envelope | in-memory rate-limit counters | none | express-rate-limit 8.5.2 | per process | `const limiter = rateLimit(` |
-| P-parse | `node scripts/parse-ics.js`; owner, yearly | files under `backend/data/<year>`, `backend/ics` | none | network POST to india.gov.in; writes files | gov CMS endpoint | manual run | `backend/scripts/parse-ics.js` |
+| P-parse | `node scripts/fetch-holidays.js --year YYYY`; owner or monthly CI | files under `backend/data/<year>` | none | network POST to india.gov.in; writes files | gov CMS endpoint | manual run / `.github/workflows/data-update.yml` | `backend/scripts/fetch-holidays.js` (replaced `parse-ics.js`) |
 | P-verify | `npm --prefix backend run verify` | exit code + log | none | none | data files | manual / CI | `backend/scripts/verify-data.js` |
 
 ## Failure questions (summary)
@@ -42,10 +42,17 @@ Executes `PLAN.md` (root). Review findings, decisions and verification for the h
 | S10 | R-holidays | With a state region, items marked `level: "state"` match the state file's item count exactly. | Asserting only that the key exists. | integration | ../../../backend/test/level.test.js | unproven | — |
 | S11 | R-mw | 200 responses carry `Cache-Control: public, max-age=3600`; error responses do not. | Checking only a 200. | integration | ../../../backend/test/edge-cases.test.js | unproven | — |
 | S12 | P-parse / P-verify | One region list: 37 unique codes, one central, equal to the newest year's region folders. | Counting entries only. | unit | ../../../backend/test/regions.test.js | unproven | — |
-| S13 | P-parse | No `--year` exits 1; `parseIcsFile` turns folded/escaped ICS into the expected JSON; failure paths write nothing. | Calling the real network in tests. | unit + process | ../../../backend/test/parse-ics.test.js | unproven | — |
+| S13 | P-parse | No `--year` exits 1; raw CMS items map to the stored record shape; malformed records and wrong-year dates are errors; a failed region writes nothing. | Calling the real network in tests. | unit + process | ../../../backend/test/fetch-holidays.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
 | S14 | P-verify | An empty region file is an error; the real data passes. | Running only against valid data. | unit | ../../../backend/test/verify-data.test.js | unproven | — |
 | S15 | R-mw | Request 101 within the window gets 429 with the error envelope (registry api-endpoint/rate-limit-enforced). | The library being present in the middleware chain. | integration | ../../../backend/test/params.test.js | unproven | — |
 | S16 | R-mw | CORS wildcard and method restriction (registry api-endpoint/method-and-cors-restricted). | A wildcard accepted with no stated contract. | — | — | n/a | Reason: public, keyless, read-only data documented as CORS "Yes"; wildcard is the intended contract; undeclared methods fall to the JSON 404 handler. |
+| S17 | R-holidays / all routes | `scope=state` returns exactly the region's own list on every route; `scope=all` equals the default; unknown value is 400. | Only checking one route. | integration | ../../../backend/test/options.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
+| S18 | R-calendar | `restricted=working` changes only `is_working_day`, only on restricted-only weekdays; `holiday` equals the default; unknown value is 400. | Checking a single day. | integration | ../../../backend/test/options.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
+| S19 | P-parse | 5xx / non-JSON retried with waits (4 attempts) plus one final pass per failed region; 4xx not retried. | A real flaky network as the test. | unit | ../../../backend/test/fetch-holidays.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
+| S20 | P-parse | Every page is read; a reported total that does not match what was returned is an error. | Single-page fixtures only. | unit | ../../../backend/test/fetch-holidays.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
+| S21 | P-parse | Regions with no holidays → not-ready, nothing written; an unchanged (reordered) rerun writes no file; one changed region rewrites only that region. | Comparing counts only. | unit | ../../../backend/test/fetch-holidays.test.js | proven | `npm test` → # pass 56, # fail 0 (local, 08/10/2026) |
+
+**Live check (manual, 08/10/2026):** `runYear` against the real source on a copy of `backend/data`: "RESULT 2026: unchanged — all 37 regions match the saved data"; "RESULT 2027: not-ready — not published yet for 36 region(s)".
 
 **Boundary of proof:** all rows are local HTTP tests against `app.listen(0)`; they do not prove Render/Vercel routing, cold starts, or that the gov source works. CI proof needs a hosted run on GitHub.
 

@@ -416,6 +416,10 @@ status file and in the session's final message.)*
 | 7 | 08/10/2026 | 2.3 | S14 test red before the fix | Old `verify-data.js` calls `process.exit(0)` at load, so the new test file "passed" with no tests run (false green) | local | Rewrite exports `verifyYear` and only runs CLI under `require.main`; S14 now runs 4 real tests. | — |
 | 8 | 08/10/2026 | 3.1 | Verify with a green GitHub run | Branch not pushed (owner-only) | local | Workflow committed; hosted run pending owner push. | pending |
 | 9 | 08/10/2026 | 4.1/4.2 | Source returns JSON, then fetch 2027 | Node probe: central 2027 → 200, 49 items (total 49, 1 page); a second call → 504. Full run: central 504, all 36 states "0 holidays" → nothing written | data — 2027 blocked | States have not published 2027 yet; central is flaky. Re-run `node backend/scripts/parse-ics.js --year 2027` weekly from November; deadline 15/12/2026. curl is blocked by the edge but Node https gets through. | Owner: rerun weekly vs add a retry for 5xx vs publish central-only early (would need an all-or-nothing exception) |
+| 10 | 08/10/2026 | owner request | Out of scope: data cleanup, scheduled automation | Owner asked for both ("make the data cleanup properly", monthly job) | scope | Added Phase 5 below: opt-in `scope=state` / `restricted=working` (defaults unchanged), `fetch-holidays.js` replacing `parse-ics.js`, monthly `data-update.yml`. `"region": ["IN"]` left as is (changing it changes every response). | owner approved 08/10/2026 |
+| 11 | 08/10/2026 | 5.x | Direct JSON mapping matches saved data | First live run flagged AS and JH as changed: my `.trim()` removed trailing spaces from 5 names ("Magh Bihu ") | data — would have changed published names | Removed the trim; names kept exactly as published; rerun → 2026 unchanged for all 37. | — |
+| 12 | 08/10/2026 | 5.x | 3 quick attempts per request | Live: UP and UK still 504 after 3 attempts | local | Waits 3s/10s/30s (4 attempts) plus a final pass after 60s for failed regions; rerun clean. | — |
+| 13 | 08/10/2026 | 5.x | CI opens a pull request | Repo setting `can_approve_pull_request_reviews: false` (`gh api repos/shrinivas-sn/calendar-api/actions/permissions/workflow`) blocks Actions from creating PRs | owner setting | Workflow written to need it; owner must tick "Allow GitHub Actions to create and approve pull requests". Without it the branch is still pushed and the run fails, so GitHub emails. | pending |
 
 ---
 
@@ -474,3 +478,10 @@ Verified:   script output "37 of 37 regions failed. Nothing was written."; `git 
 Surprises:  The old script, run today, would have written 37 empty 2027 files and the API would have answered "not a holiday" for every 2027 date.
 Next:       From 01/11/2026, weekly: `node backend/scripts/parse-ics.js --year 2027`; when it succeeds, `npm --prefix backend run verify -- --year 2027`, `npm test`, commit `data: add 2027 holidays for central and 36 states/UTs`. Deadline 15/12/2026.
 Commit:     not committed (nothing to commit)
+
+### Phase 5 (owner-requested) — 08/10/2026
+Done:       Opt-in `scope=state` and `restricted=working`; `backend/scripts/fetch-holidays.js` (direct CMS JSON, retries + final pass, all pages, not-ready exit 2, rewrites only changed regions) replaces `parse-ics.js`; `.github/workflows/data-update.yml` monthly (1st, 03:30 UTC) for this year + next year, opens one PR on `data-update`; docs page, README, BACKEND.md, APP-OVERVIEW.md updated.
+Verified:   `npm test` → # pass 56, # fail 0 (characterization snapshots unchanged). Live run on a data copy: 2026 unchanged (37/37), 2027 not-ready (36 states). Frontend build → 7 pages; docs page has 5 `scope` rows, 1 `restricted` row.
+Surprises:  Issue 11 (trim would have changed 5 published names), issue 12 (source 504s outlast 3 quick retries).
+Next:       Push; CI green; owner enables the Actions PR setting; merge `harden/api` → `main`; then trigger `gh workflow run data-update.yml` once to prove it on GitHub's servers.
+Commit:     ba14fb2, 06245f3, b08cf11, 41d1ace (+ this record)
