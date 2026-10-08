@@ -1,10 +1,28 @@
+// Fetches one year of holidays for every region from india.gov.in and writes
+// data/<year>/IN/<region>/holidays.json plus INDEX.json.
+//
+// Usage: node scripts/parse-ics.js --year 2027
+//
+// All or nothing: every region is fetched and parsed in memory first. If any region
+// fails, returns no holidays, or returns dates outside the year, nothing is written
+// and the script exits 1. Existing data is never replaced by an empty or partial run.
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
 
 const regions = require('../config/regions');
 
-const TARGET_YEAR = 2026;
+const DATA_DIR = path.join(__dirname, '..', 'data');
+const ICS_DIR = path.join(__dirname, '..', 'ics');
+const SOURCE_URL = 'https://www.india.gov.in/calendar';
+const SOURCE_NAME = 'Ministry of Personnel, Public Grievances and Pensions via india.gov.in';
+
+// Returns the --year value as a number, or null when missing or not 4 digits.
+function parseYearArg(argv) {
+  const i = argv.indexOf('--year');
+  const value = i >= 0 ? argv[i + 1] : undefined;
+  return /^\d{4}$/.test(value || '') ? Number(value) : null;
+}
 
 // Helper to make POST requests
 function postJson(url, payload) {
@@ -46,13 +64,13 @@ function postJson(url, payload) {
   });
 }
 
-// Fetch raw holidays data from the CMS
-async function fetchHolidaysData(region) {
+// Fetch raw holidays data from the CMS. Throws on anything but a complete JSON list.
+async function fetchHolidaysData(region, year) {
   let route;
   if (region.isCentral) {
-    route = `/api/calendar-holidays?filters[date][$gte]=${TARGET_YEAR}-01-01&filters[date][$lte]=${TARGET_YEAR}-12-31&pagination[pageSize]=100`;
+    route = `/api/calendar-holidays?filters[date][$gte]=${year}-01-01&filters[date][$lte]=${year}-12-31&pagination[pageSize]=100`;
   } else {
-    route = `/api/state-holidays?populate=*&filters[state_dept_org][alias]=${region.alias}&filters[date][$gte]=${TARGET_YEAR}-01-01&filters[date][$lte]=${TARGET_YEAR}-12-31&pagination[pageSize]=100&sort=id`;
+    route = `/api/state-holidays?populate=*&filters[state_dept_org][alias]=${region.alias}&filters[date][$gte]=${year}-01-01&filters[date][$lte]=${year}-12-31&pagination[pageSize]=100&sort=id`;
   }
 
   console.log(`[Fetch] Querying CMS route for ${region.name}...`);
@@ -61,8 +79,22 @@ async function fetchHolidaysData(region) {
     throw new Error(`CMS API returned status ${response.statusCode}`);
   }
 
-  const result = JSON.parse(response.body);
-  return result?.data?.data || [];
+  let result;
+  try {
+    result = JSON.parse(response.body);
+  } catch {
+    throw new Error(`CMS API returned non-JSON: ${response.body.slice(0, 80).replace(/\s+/g, ' ')}`);
+  }
+  const items = result?.data?.data;
+  if (!Array.isArray(items)) {
+    throw new Error('CMS API response has no data.data list');
+  }
+  // One page of 100 is requested. If the source holds more, refuse rather than drop some.
+  const total = result?.data?.meta?.pagination?.total;
+  if (typeof total === 'number' && total > items.length) {
+    throw new Error(`CMS API has ${total} holidays but returned ${items.length}; pagination needed`);
+  }
+  return items;
 }
 
 // Generate ICS string from raw holidays array
@@ -86,19 +118,24 @@ async function generateIcs(holidays) {
   return response.body;
 }
 
-// Parse single ICS file and return structured JSON object
-function parseIcsFile(icsPath, regionCode, filename) {
-  const fileContent = fs.readFileSync(icsPath, 'utf8');
+// Default fetcher: raw holidays -> ICS text. Pauses briefly to be polite to the source.
+async function fetchIcsFromSource(region, year) {
+  const holidays = await fetchHolidaysData(region, year);
+  const icsText = await generateIcs(holidays);
+  await new Promise(resolve => setTimeout(resolve, 300));
+  return icsText;
+}
 
+// Parse ICS text and return the structured JSON object written to holidays.json
+function parseIcs(icsText, regionCode, year) {
   // Unfold folded lines
-  const unfolded = fileContent.replace(/\r?\n[ \t]/g, '');
+  const unfolded = icsText.replace(/\r?\n[ \t]/g, '');
 
   const events = unfolded.split('BEGIN:VEVENT');
   // First element is calendar header, ignore it
   events.shift();
 
   const holidaysList = [];
-  let detectedYear = TARGET_YEAR;
 
   for (const event of events) {
     let summary = '';
@@ -117,13 +154,7 @@ function parseIcsFile(icsPath, regionCode, filename) {
     }
 
     if (summary && dateStr) {
-      // Convert dateStr (YYYYMMDD) to YYYY-MM-DD
-      const year = parseInt(dateStr.slice(0, 4), 10);
-      const month = dateStr.slice(4, 6);
-      const day = dateStr.slice(6, 8);
-      const formattedDate = `${year}-${month}-${day}`;
-
-      detectedYear = year; // Save detected year
+      const formattedDate = `${dateStr.slice(0, 4)}-${dateStr.slice(4, 6)}-${dateStr.slice(6, 8)}`;
 
       // Map type
       let mappedType = "observance";
@@ -134,8 +165,8 @@ function parseIcsFile(icsPath, regionCode, filename) {
       }
 
       // Check for duplicates
-      const isDuplicate = holidaysList.some(h => 
-        h.date === formattedDate && 
+      const isDuplicate = holidaysList.some(h =>
+        h.date === formattedDate &&
         h.name.toLowerCase() === summary.toLowerCase()
       );
 
@@ -146,7 +177,7 @@ function parseIcsFile(icsPath, regionCode, filename) {
           type: mappedType,
           region: ["IN"],
           description: description,
-          source: "https://www.india.gov.in/calendar"
+          source: SOURCE_URL
         });
       }
     }
@@ -155,135 +186,103 @@ function parseIcsFile(icsPath, regionCode, filename) {
   // Sort holidays by date ascending
   holidaysList.sort((a, b) => a.date.localeCompare(b.date));
 
-  // Count stats
-  const totalHolidays = holidaysList.length;
-  const gazettedCount = holidaysList.filter(h => h.type === "gazetted_holiday").length;
-  const restrictedCount = holidaysList.filter(h => h.type === "restricted_holiday").length;
-
-  const today = new Date().toISOString().split('T')[0];
-
   return {
     country: "IN",
-    year: detectedYear,
+    year,
     region: regionCode,
     data: holidaysList,
     meta: {
       apiVersion: "v1",
-      totalHolidays,
-      gazettedCount,
-      restrictedCount,
-      source: "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-      lastVerified: today
+      totalHolidays: holidaysList.length,
+      gazettedCount: holidaysList.filter(h => h.type === "gazetted_holiday").length,
+      restrictedCount: holidaysList.filter(h => h.type === "restricted_holiday").length,
+      source: SOURCE_NAME,
+      lastVerified: new Date().toISOString().split('T')[0]
     }
   };
 }
 
-async function startPipeline() {
-  const icsDir = path.join(__dirname, '..', 'ics');
-  if (!fs.existsSync(icsDir)) {
-    fs.mkdirSync(icsDir, { recursive: true });
+function countExisting(dataDir, year, code) {
+  try {
+    const file = path.join(dataDir, String(year), 'IN', code, 'holidays.json');
+    return JSON.parse(fs.readFileSync(file, 'utf8')).data.length;
+  } catch {
+    return 0;
   }
+}
 
-  console.log("=== STARTING HOLIDAY ICS SCRAPING PIPELINE ===");
+// Returns { ok, failures }. Writes files only when ok is true.
+async function runPipeline({ year, dataDir = DATA_DIR, icsDir = ICS_DIR, fetchIcs = fetchIcsFromSource }) {
+  console.log(`=== FETCHING ${year} HOLIDAYS FOR ${regions.length} REGIONS ===`);
 
-  const processedRegionsInfo = [];
-
+  // 1. Fetch and parse everything in memory.
+  const results = [];
+  const failures = [];
   for (const region of regions) {
-    const filename = `IN_${region.code}_${TARGET_YEAR}.ics`;
-    const icsPath = path.join(icsDir, filename);
-
     try {
-      // 1. Fetch from CMS
-      const holidaysData = await fetchHolidaysData(region);
-      console.log(`[Success] Fetched ${holidaysData.length} raw events for ${region.name}`);
-
-      // 2. Generate ICS
-      const icsContent = await generateIcs(holidaysData);
-      fs.writeFileSync(icsPath, icsContent, 'utf8');
-      console.log(`[Success] Saved ICS file: ${filename}`);
-
-      // 3. Parse ICS to JSON
-      console.log(`[Parse] Converting ICS to structured JSON for ${region.code}...`);
-      const structuredJson = parseIcsFile(icsPath, region.code, filename);
-
-      // 4. Save JSON to output directory
-      const outputDir = path.join(__dirname, '..', 'data', String(structuredJson.year), 'IN', region.code);
-      if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
+      const icsText = await fetchIcs(region, year);
+      const parsed = parseIcs(icsText, region.code, year);
+      if (parsed.data.length === 0) {
+        throw new Error('source returned 0 holidays');
       }
-      const jsonPath = path.join(outputDir, 'holidays.json');
-      fs.writeFileSync(jsonPath, JSON.stringify(structuredJson, null, 2), 'utf8');
-      console.log(`[Success] Saved clean JSON: data/${structuredJson.year}/IN/${region.code}/holidays.json`);
-
-      // Store info for INDEX.json
-      processedRegionsInfo.push({
-        region: region.code,
-        path: `data/${structuredJson.year}/IN/${region.code}/holidays.json`,
-        year: structuredJson.year,
-        totalHolidays: structuredJson.meta.totalHolidays,
-        gazettedCount: structuredJson.meta.gazettedCount,
-        restrictedCount: structuredJson.meta.restrictedCount
-      });
-
+      const wrongYear = parsed.data.find(h => !h.date.startsWith(`${year}-`));
+      if (wrongYear) {
+        throw new Error(`holiday dated ${wrongYear.date} is outside ${year}`);
+      }
+      results.push({ region, icsText, parsed });
+      console.log(`[OK] ${region.code}: ${parsed.data.length} holidays`);
     } catch (err) {
-      console.error(`[Error] Failed to process region ${region.name}:`, err.message);
-      // Create empty holidays.json in case of failure/empty data to fulfill the rules
-      const outputDir = path.join(__dirname, '..', 'data', String(TARGET_YEAR), 'IN', region.code);
-      if (!fs.existsSync(outputDir)) {
-        fs.mkdirSync(outputDir, { recursive: true });
-      }
-      const jsonPath = path.join(outputDir, 'holidays.json');
-      const today = new Date().toISOString().split('T')[0];
-      const emptyJson = {
-        country: "IN",
-        year: TARGET_YEAR,
-        region: region.code,
-        data: [],
-        meta: {
-          apiVersion: "v1",
-          totalHolidays: 0,
-          gazettedCount: 0,
-          restrictedCount: 0,
-          source: "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-          lastVerified: today
-        }
-      };
-      fs.writeFileSync(jsonPath, JSON.stringify(emptyJson, null, 2), 'utf8');
-      console.log(`[Fallback] Generated empty holidays.json for ${region.code}`);
-
-      processedRegionsInfo.push({
-        region: region.code,
-        path: `data/${TARGET_YEAR}/IN/${region.code}/holidays.json`,
-        year: TARGET_YEAR,
-        totalHolidays: 0,
-        gazettedCount: 0,
-        restrictedCount: 0
-      });
+      failures.push(`${region.code}: ${err.message}`);
+      console.error(`[FAIL] ${region.code}: ${err.message}`);
     }
-
-    // Brief polite pause between requests to prevent rate limiting
-    await new Promise(resolve => setTimeout(resolve, 300));
   }
 
-  // 5. Generate INDEX.json
-  console.log("\n=== GENERATING MASTER INDEX.json ===");
-  const todayDate = new Date().toISOString().split('T')[0];
+  if (failures.length > 0) {
+    console.error(`\n${failures.length} of ${regions.length} regions failed. Nothing was written.`);
+    return { ok: false, failures };
+  }
+
+  // 2. Every region succeeded: write ICS, JSON and the index.
+  fs.mkdirSync(icsDir, { recursive: true });
+  const indexRegions = [];
+  for (const { region, icsText, parsed } of results) {
+    const before = countExisting(dataDir, year, region.code);
+    fs.writeFileSync(path.join(icsDir, `IN_${region.code}_${year}.ics`), icsText, 'utf8');
+    const outputDir = path.join(dataDir, String(year), 'IN', region.code);
+    fs.mkdirSync(outputDir, { recursive: true });
+    fs.writeFileSync(path.join(outputDir, 'holidays.json'), JSON.stringify(parsed, null, 2), 'utf8');
+    console.log(`[Write] ${region.code}: ${before} -> ${parsed.data.length} holidays`);
+    indexRegions.push({
+      region: region.code,
+      path: `data/${year}/IN/${region.code}/holidays.json`,
+      year,
+      totalHolidays: parsed.meta.totalHolidays,
+      gazettedCount: parsed.meta.gazettedCount,
+      restrictedCount: parsed.meta.restrictedCount
+    });
+  }
+
   const indexData = {
     country: "IN",
-    year: TARGET_YEAR,
-    lastUpdated: todayDate,
-    totalRegions: processedRegionsInfo.length,
-    regions: processedRegionsInfo
+    year,
+    lastUpdated: new Date().toISOString().split('T')[0],
+    totalRegions: indexRegions.length,
+    regions: indexRegions
   };
-
-  const indexDir = path.join(__dirname, '..', 'data', String(TARGET_YEAR), 'IN');
-  if (!fs.existsSync(indexDir)) {
-    fs.mkdirSync(indexDir, { recursive: true });
-  }
-  const indexPath = path.join(indexDir, 'INDEX.json');
-  fs.writeFileSync(indexPath, JSON.stringify(indexData, null, 2), 'utf8');
-  console.log(`[Success] Saved master index file: data/${TARGET_YEAR}/IN/INDEX.json`);
-  console.log("=== PIPELINE RUN COMPLETE ===");
+  fs.writeFileSync(path.join(dataDir, String(year), 'IN', 'INDEX.json'), JSON.stringify(indexData, null, 2), 'utf8');
+  console.log(`=== DONE: data/${year}/IN written. Next: npm run verify -- --year ${year} ===`);
+  return { ok: true, failures: [] };
 }
 
-startPipeline().catch(console.error);
+module.exports = { parseIcs, runPipeline, parseYearArg };
+
+if (require.main === module) {
+  const year = parseYearArg(process.argv);
+  if (!year) {
+    console.error('Usage: node scripts/parse-ics.js --year <YYYY>');
+    process.exit(1);
+  }
+  runPipeline({ year })
+    .then(({ ok }) => { process.exitCode = ok ? 0 : 1; })
+    .catch((err) => { console.error(err); process.exitCode = 1; });
+}
