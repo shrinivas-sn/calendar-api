@@ -223,5 +223,200 @@ func main() {
 }`
       }
     ]
+  },
+  {
+    id: "rbi-bank-holidays-and-saturday-rules",
+    title: "RBI Bank Holidays & 2nd/4th Saturday Rules: Automated Settlement Calculation",
+    summary: "How banking closures, Section 25 Negotiable Instruments Act declarations, and mandatory 2nd/4th Saturday rules work in India, with automated settlement date calculation code.",
+    category: "Fintech & Banking",
+    readTime: "7 min read",
+    date: "Oct 2026",
+    keywords: [
+      "rbi bank holidays api",
+      "bank holidays in india api",
+      "2nd 4th saturday holiday calculation",
+      "nach settlement holiday calendar",
+      "section 25 negotiable instruments act"
+    ],
+    sections: [
+      {
+        heading: "1. The Statutory Framework for Indian Banking Holidays",
+        content: `In the Indian financial system, bank holidays are not uniform across commercial institutions. They are determined by three binding mechanisms:
+
+1. **Section 25 of the Negotiable Instruments Act, 1881**: Empowers the Central Government and respective State Governments to declare public holidays for banking operations, cheque clearing, and bill presentations.
+2. **RBI 2nd and 4th Saturday Rule (2015 Notification)**: All scheduled and non-scheduled banks in India observe full public holidays on the 2nd and 4th Saturdays of every month. The 1st, 3rd, and occasional 5th Saturdays are normal working days.
+3. **RTGS & NEFT Settlement Hours vs Branch Closures**: While electronic payments like UPI and NEFT operate 24x7x365, bulk clearing systems (NACH debits, cheque clearing under CTS, government bond settlements) remain strictly contingent on working banking days.`
+      },
+      {
+        heading: "2. State-Wise Banking Divergence",
+        content: `A critical pitfall in fintech engineering is assuming national uniformity. For example:
+- **Ganesh Chaturthi**: State bank holiday in Maharashtra (MH) and Goa (GA), but normal banking in Delhi (DL) and Tamil Nadu (TN).
+- **Kanwal / Rath Yatra**: State holiday in Odisha (OR), normal banking across North and South India.
+- **Bihu**: Bank closures in Assam (AS), normal working everywhere else.
+
+When scheduling automated loan repayments, salary disbursements, or vendor settlements, systems must resolve holidays against the regional bank account location rather than a single central holiday calendar.`
+      },
+      {
+        heading: "3. Mathematical 2nd & 4th Saturday Rule",
+        content: `Instead of hardcoding Saturday lists, 2nd and 4th Saturdays can be calculated with zero external dependencies:
+- The **2nd Saturday** of any month always falls between calendar dates **8 and 14** inclusive.
+- The **4th Saturday** of any month always falls between calendar dates **22 and 28** inclusive.
+- Any other Saturday (dates 1–7, 15–21, or 29–31) is a working day unless a gazetted NI Act holiday coincides with it.`
+      },
+      {
+        heading: "4. Settlement Day Resolver (Node.js / TypeScript)",
+        content: "Production-ready helper that takes a target date and state code, checks both the Calendar API and the Saturday rules, and computes the exact next working banking day:",
+        code: `import fetch from 'node-fetch';
+
+interface BankingDayResult {
+  date: string;
+  isWorkingBankingDay: boolean;
+  reason?: string;
+}
+
+function isSecondOrFourthSaturday(d: Date): boolean {
+  if (d.getDay() !== 6) return false;
+  const dateNum = d.getDate();
+  return (dateNum >= 8 && dateNum <= 14) || (dateNum >= 22 && dateNum <= 28);
+}
+
+export async function checkBankingDay(dateStr: string, region: string): Promise<BankingDayResult> {
+  const d = new Date(dateStr);
+  const dayOfWeek = d.getDay();
+
+  // Rule 1: Sundays are universal bank closures
+  if (dayOfWeek === 0) {
+    return { date: dateStr, isWorkingBankingDay: false, reason: 'Sunday' };
+  }
+
+  // Rule 2: 2nd and 4th Saturdays are mandatory bank holidays
+  if (isSecondOrFourthSaturday(d)) {
+    return { date: dateStr, isWorkingBankingDay: false, reason: '2nd or 4th Saturday' };
+  }
+
+  // Rule 3: Check Central + State NI Act Gazetted Holidays
+  const url = \`https://calendar-api-d7a8.onrender.com/v1/date/is-holiday?country=IN&date=\${dateStr}&region=\${region}\`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if (data.is_holiday && data.holiday.type === 'gazetted_holiday') {
+    return { date: dateStr, isWorkingBankingDay: false, reason: data.holiday.name };
+  }
+
+  return { date: dateStr, isWorkingBankingDay: true };
+}
+
+export async function getNextBankingDay(startDateStr: string, region: string): Promise<string> {
+  let curr = new Date(startDateStr);
+  while (true) {
+    const iso = curr.toISOString().split('T')[0];
+    const check = await checkBankingDay(iso, region);
+    if (check.isWorkingBankingDay) return iso;
+    curr.setDate(curr.getDate() + 1);
+  }
+}`
+      }
+    ]
+  },
+  {
+    id: "google-calendar-ical-sync-state-holidays",
+    title: "Syncing Indian State Holidays to Google Calendar & Outlook: Dynamic iCal Feeds",
+    summary: "Why default Google Calendar holiday feeds miss regional Indian state holidays, and how to dynamically generate RFC 5545 iCalendar feeds using the Calendar API.",
+    category: "Integration & Productivity",
+    readTime: "6 min read",
+    date: "Oct 2026",
+    keywords: [
+      "google calendar indian holidays alternative",
+      "indian holidays ics feed",
+      "add indian state holidays to calendar",
+      "ical holiday calendar india",
+      "rfc 5545 holiday feed"
+    ],
+    sections: [
+      {
+        heading: "1. The Missing Link in Google Calendar",
+        content: `Google Calendar provides a pre-packaged public holiday calendar for India (\`en.indian#holiday@group.v.calendar.google.com\`). While convenient, it exhibits severe operational limitations for distributed engineering teams:
+
+- It bundles central holidays and broad religious festivals, but completely omits state-specific gazetted holidays.
+- An employee in Bengaluru does not see **Kannada Rajyotsava** (Nov 1) or **Ugadi**.
+- An employee in Mumbai does not see **Maharashtra Day** (May 1) or **Ganesh Chaturthi**.
+- Teams relying on Google Calendar for project sprint planning, release freezes, or on-call rotations suffer scheduling conflicts due to untracked regional days off.`
+      },
+      {
+        heading: "2. The iCalendar (RFC 5545) Standard",
+        content: `Modern calendar clients (Google Calendar, Apple Calendar, Microsoft Outlook, Thunderbird) support subscribing to web-hosted \`.ics\` calendar feeds via WebCal / HTTP. 
+
+An RFC 5545 compliant feed requires:
+- \`BEGIN:VCALENDAR\` and \`VERSION:2.0\` headers.
+- Distinct \`VEVENT\` blocks for every holiday event.
+- Deterministic \`UID\` generation (e.g. \`uid-\${year}-\${region}-\${holiday_id}@calendar-api.org\`) so calendar clients update existing events rather than duplicating them.
+- All-day event timestamps using \`VALUE=DATE:YYYYMMDD\`.`
+      },
+      {
+        heading: "3. Generating Dynamic iCal Feeds from the Calendar API",
+        content: `By querying the Calendar API's \`/v1/holidays\` endpoint, you can serialize regional payloads into an on-demand \`.ics\` stream:
+
+\`\`\`bash
+# Fetch state holidays for Karnataka (KA) for year 2026
+curl -s "https://calendar-api-d7a8.onrender.com/v1/holidays?country=IN&region=KA&year=2026"
+\`\`\`
+
+Each returned record contains the exact date, holiday name, and administrative classification (\`gazetted_holiday\` vs \`restricted_holiday\`).`
+      },
+      {
+        heading: "4. Live iCal Feed Server (Node.js Edge Endpoint)",
+        content: "Here is an Express/Node.js endpoint that pipes state-filtered Indian holidays directly into Google Calendar or Apple Calendar:",
+        code: `import express from 'express';
+import fetch from 'node-fetch';
+
+const app = express();
+
+app.get('/feeds/:region.ics', async (req, res) => {
+  const { region } = req.params;
+  const year = new Date().getFullYear();
+
+  const apiUrl = \`https://calendar-api-d7a8.onrender.com/v1/holidays?country=IN&region=\${region.toUpperCase()}&year=\${year}\`;
+  const response = await fetch(apiUrl);
+  const payload = await response.json();
+
+  if (!payload.success) {
+    return res.status(404).send('Region or year holiday data not found');
+  }
+
+  let ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'PRODID:-//India Calendar API//NONSGML Regional Holidays//EN',
+    \`X-WR-CALNAME:India Holidays (\${region.toUpperCase()})\`,
+    'X-WR-TIMEZONE:Asia/Kolkata',
+    'CALSCALE:GREGORIAN'
+  ];
+
+  for (const h of payload.data) {
+    const compactDate = h.date.replace(/-/g, '');
+    const uid = \`\${compactDate}-\${region}-\${h.name.replace(/\\s+/g, '-').toLowerCase()}@calendar-api\`;
+    ics.push(
+      'BEGIN:VEVENT',
+      \`UID:\${uid}\`,
+      \`DTSTAMP:\${compactDate}T000000Z\`,
+      \`DTSTART;VALUE=DATE:\${compactDate}\`,
+      \`SUMMARY:\${h.name} (\${h.type === 'gazetted_holiday' ? 'Gazetted' : 'Restricted'})\`,
+      \`DESCRIPTION:\${h.description || 'Public holiday in ' + region}\`,
+      'STATUS:CONFIRMED',
+      'TRANSP:TRANSPARENT',
+      'END:VEVENT'
+    );
+  }
+
+  ics.push('END:VCALENDAR');
+
+  res.setHeader('Content-Type', 'text/calendar; charset=utf-8');
+  res.setHeader('Content-Disposition', \`attachment; filename="holidays-\${region}.ics"\`);
+  res.send(ics.join('\\r\\n'));
+});
+
+app.listen(3000, () => console.log('iCal feed generator active on port 3000'));`
+      }
+    ]
   }
 ];
