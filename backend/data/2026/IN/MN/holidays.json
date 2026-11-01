@@ -354,16 +354,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Independence Day",
-      "date": "2026-08-15",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Jhulon Houba",
       "date": "2026-08-23",
       "type": "restricted_holiday",
@@ -636,10 +626,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 63,
-    "gazettedCount": 28,
+    "totalHolidays": 62,
+    "gazettedCount": 27,
     "restrictedCount": 35,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

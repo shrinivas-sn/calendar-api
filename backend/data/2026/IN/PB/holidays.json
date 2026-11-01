@@ -74,16 +74,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Holi",
-      "date": "2026-03-04",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Hola Mohalla",
       "date": "2026-03-04",
       "type": "restricted_holiday",
@@ -576,10 +566,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 57,
-    "gazettedCount": 30,
+    "totalHolidays": 56,
+    "gazettedCount": 29,
     "restrictedCount": 27,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

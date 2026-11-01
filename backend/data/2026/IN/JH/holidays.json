@@ -304,16 +304,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Govardhan Puja",
-      "date": "2026-11-09",
-      "type": "restricted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Restricted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Bhai Dooj / Chitragupt ",
       "date": "2026-11-11",
       "type": "restricted_holiday",
@@ -356,10 +346,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 35,
+    "totalHolidays": 34,
     "gazettedCount": 21,
-    "restrictedCount": 14,
+    "restrictedCount": 13,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

@@ -1,7 +1,7 @@
 {
   "country": "IN",
   "year": 2026,
-  "lastUpdated": "2026-05-28",
+  "lastUpdated": "2026-11-01",
   "totalRegions": 37,
   "regions": [
     {
@@ -24,9 +24,9 @@
       "region": "AR",
       "path": "data/2026/IN/AR/holidays.json",
       "year": 2026,
-      "totalHolidays": 52,
-      "gazettedCount": 17,
-      "restrictedCount": 35
+      "totalHolidays": 49,
+      "gazettedCount": 15,
+      "restrictedCount": 34
     },
     {
       "region": "AS",
@@ -64,40 +64,40 @@
       "region": "GJ",
       "path": "data/2026/IN/GJ/holidays.json",
       "year": 2026,
-      "totalHolidays": 24,
-      "gazettedCount": 24,
+      "totalHolidays": 23,
+      "gazettedCount": 23,
       "restrictedCount": 0
     },
     {
       "region": "HR",
       "path": "data/2026/IN/HR/holidays.json",
       "year": 2026,
-      "totalHolidays": 33,
-      "gazettedCount": 20,
+      "totalHolidays": 32,
+      "gazettedCount": 19,
       "restrictedCount": 13
     },
     {
       "region": "HP",
       "path": "data/2026/IN/HP/holidays.json",
       "year": 2026,
-      "totalHolidays": 39,
-      "gazettedCount": 24,
+      "totalHolidays": 38,
+      "gazettedCount": 23,
       "restrictedCount": 15
     },
     {
       "region": "JH",
       "path": "data/2026/IN/JH/holidays.json",
       "year": 2026,
-      "totalHolidays": 35,
+      "totalHolidays": 34,
       "gazettedCount": 21,
-      "restrictedCount": 14
+      "restrictedCount": 13
     },
     {
       "region": "KA",
       "path": "data/2026/IN/KA/holidays.json",
       "year": 2026,
-      "totalHolidays": 41,
-      "gazettedCount": 20,
+      "totalHolidays": 40,
+      "gazettedCount": 19,
       "restrictedCount": 21
     },
     {
@@ -112,8 +112,8 @@
       "region": "MP",
       "path": "data/2026/IN/MP/holidays.json",
       "year": 2026,
-      "totalHolidays": 88,
-      "gazettedCount": 25,
+      "totalHolidays": 86,
+      "gazettedCount": 23,
       "restrictedCount": 63
     },
     {
@@ -128,16 +128,16 @@
       "region": "MN",
       "path": "data/2026/IN/MN/holidays.json",
       "year": 2026,
-      "totalHolidays": 63,
-      "gazettedCount": 28,
+      "totalHolidays": 62,
+      "gazettedCount": 27,
       "restrictedCount": 35
     },
     {
       "region": "ML",
       "path": "data/2026/IN/ML/holidays.json",
       "year": 2026,
-      "totalHolidays": 32,
-      "gazettedCount": 23,
+      "totalHolidays": 31,
+      "gazettedCount": 22,
       "restrictedCount": 9
     },
     {
@@ -160,16 +160,16 @@
       "region": "OD",
       "path": "data/2026/IN/OD/holidays.json",
       "year": 2026,
-      "totalHolidays": 38,
-      "gazettedCount": 29,
+      "totalHolidays": 36,
+      "gazettedCount": 27,
       "restrictedCount": 9
     },
     {
       "region": "PB",
       "path": "data/2026/IN/PB/holidays.json",
       "year": 2026,
-      "totalHolidays": 57,
-      "gazettedCount": 30,
+      "totalHolidays": 56,
+      "gazettedCount": 29,
       "restrictedCount": 27
     },
     {
@@ -224,8 +224,8 @@
       "region": "UK",
       "path": "data/2026/IN/UK/holidays.json",
       "year": 2026,
-      "totalHolidays": 17,
-      "gazettedCount": 17,
+      "totalHolidays": 14,
+      "gazettedCount": 14,
       "restrictedCount": 0
     },
     {
@@ -240,8 +240,8 @@
       "region": "AN",
       "path": "data/2026/IN/AN/holidays.json",
       "year": 2026,
-      "totalHolidays": 16,
-      "gazettedCount": 16,
+      "totalHolidays": 15,
+      "gazettedCount": 15,
       "restrictedCount": 0
     },
     {
@@ -256,24 +256,24 @@
       "region": "DN",
       "path": "data/2026/IN/DN/holidays.json",
       "year": 2026,
-      "totalHolidays": 42,
-      "gazettedCount": 17,
+      "totalHolidays": 41,
+      "gazettedCount": 16,
       "restrictedCount": 25
     },
     {
       "region": "DL",
       "path": "data/2026/IN/DL/holidays.json",
       "year": 2026,
-      "totalHolidays": 49,
-      "gazettedCount": 18,
-      "restrictedCount": 31
+      "totalHolidays": 47,
+      "gazettedCount": 17,
+      "restrictedCount": 30
     },
     {
       "region": "JK",
       "path": "data/2026/IN/JK/holidays.json",
       "year": 2026,
-      "totalHolidays": 30,
-      "gazettedCount": 26,
+      "totalHolidays": 29,
+      "gazettedCount": 25,
       "restrictedCount": 4
     },
     {
@@ -296,9 +296,9 @@
       "region": "LA",
       "path": "data/2026/IN/LA/holidays.json",
       "year": 2026,
-      "totalHolidays": 35,
+      "totalHolidays": 34,
       "gazettedCount": 16,
-      "restrictedCount": 19
+      "restrictedCount": 18
     }
   ]
 }

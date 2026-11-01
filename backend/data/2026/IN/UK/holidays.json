@@ -14,16 +14,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Holi",
-      "date": "2026-03-04",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Id-ul-Fitr",
       "date": "2026-03-21",
       "type": "gazetted_holiday",
@@ -94,16 +84,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Independence Day",
-      "date": "2026-08-15",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Milad-un-Nabi / Id-e-Milad (Birthday of Prophet Mohammad)",
       "date": "2026-08-26",
       "type": "gazetted_holiday",
@@ -162,24 +142,14 @@
       ],
       "description": "Gazetted Holiday",
       "source": "https://www.india.gov.in/calendar"
-    },
-    {
-      "name": "Christmas Day",
-      "date": "2026-12-25",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
     }
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 17,
-    "gazettedCount": 17,
+    "totalHolidays": 14,
+    "gazettedCount": 14,
     "restrictedCount": 0,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

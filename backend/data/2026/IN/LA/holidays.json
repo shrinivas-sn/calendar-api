@@ -254,16 +254,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Raksha Bandhan",
-      "date": "2026-08-28",
-      "type": "restricted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Restricted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Friday following Eid-i-Milad-ul-Nabi",
       "date": "2026-08-28",
       "type": "restricted_holiday",
@@ -356,10 +346,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 35,
+    "totalHolidays": 34,
     "gazettedCount": 16,
-    "restrictedCount": 19,
+    "restrictedCount": 18,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

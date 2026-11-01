@@ -382,24 +382,14 @@
       ],
       "description": "Restricted Holiday",
       "source": "https://www.india.gov.in/calendar"
-    },
-    {
-      "name": "Christmas Day",
-      "date": "2026-12-25",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
     }
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 39,
-    "gazettedCount": 24,
+    "totalHolidays": 38,
+    "gazettedCount": 23,
     "restrictedCount": 15,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }
