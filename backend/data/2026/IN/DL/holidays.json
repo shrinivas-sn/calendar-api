@@ -294,16 +294,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Raksha Bandhan",
-      "date": "2026-08-28",
-      "type": "restricted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Restricted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Janmashtami (Vaishnava)",
       "date": "2026-09-04",
       "type": "gazetted_holiday",
@@ -482,24 +472,14 @@
       ],
       "description": "Restricted Holiday",
       "source": "https://www.india.gov.in/calendar"
-    },
-    {
-      "name": "Christmas Day",
-      "date": "2026-12-25",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
     }
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 49,
-    "gazettedCount": 18,
-    "restrictedCount": 31,
+    "totalHolidays": 47,
+    "gazettedCount": 17,
+    "restrictedCount": 30,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

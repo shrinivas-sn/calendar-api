@@ -494,16 +494,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Independence Day",
-      "date": "2026-08-15",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Parsi New Year Day",
       "date": "2026-08-15",
       "type": "restricted_holiday",
@@ -744,16 +734,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Govardhan Puja",
-      "date": "2026-11-09",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Second Day of Diwali",
       "date": "2026-11-09",
       "type": "restricted_holiday",
@@ -886,10 +866,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 88,
-    "gazettedCount": 25,
+    "totalHolidays": 86,
+    "gazettedCount": 23,
     "restrictedCount": 63,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

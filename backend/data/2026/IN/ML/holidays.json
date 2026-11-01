@@ -24,16 +24,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Holi",
-      "date": "2026-03-04",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Id-ul-Fitr",
       "date": "2026-03-21",
       "type": "gazetted_holiday",
@@ -326,10 +316,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 32,
-    "gazettedCount": 23,
+    "totalHolidays": 31,
+    "gazettedCount": 22,
     "restrictedCount": 9,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }

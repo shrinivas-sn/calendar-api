@@ -124,16 +124,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Holi",
-      "date": "2026-03-04",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Chaitra Sukladi / Gudi Padava / Ugadi / Cheti Chand",
       "date": "2026-03-19",
       "type": "restricted_holiday",
@@ -434,16 +424,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Govardhan Puja",
-      "date": "2026-11-09",
-      "type": "restricted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Restricted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Bhai Duj",
       "date": "2026-11-11",
       "type": "restricted_holiday",
@@ -504,16 +484,6 @@
       "source": "https://www.india.gov.in/calendar"
     },
     {
-      "name": "Christmas Day",
-      "date": "2026-12-25",
-      "type": "gazetted_holiday",
-      "region": [
-        "IN"
-      ],
-      "description": "Gazetted Holiday",
-      "source": "https://www.india.gov.in/calendar"
-    },
-    {
       "name": "Lengri Niki Sii Donyi Polo Yullo",
       "date": "2026-12-26",
       "type": "restricted_holiday",
@@ -526,10 +496,10 @@
   ],
   "meta": {
     "apiVersion": "v1",
-    "totalHolidays": 52,
-    "gazettedCount": 17,
-    "restrictedCount": 35,
+    "totalHolidays": 49,
+    "gazettedCount": 15,
+    "restrictedCount": 34,
     "source": "Ministry of Personnel, Public Grievances and Pensions via india.gov.in",
-    "lastVerified": "2026-05-28"
+    "lastVerified": "2026-11-01"
   }
 }
